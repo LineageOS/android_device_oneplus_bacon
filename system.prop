@@ -9,27 +9,6 @@ telephony.lteOnCdmaDevice=0
 persist.radio.add_power_save=1
 
 debug.composition.type=c2d
-mm.enable.smoothstreaming=true
-mm.enable.qcom_parser=37491
-ro.qc.sdk.audio.fluencetype=none
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
-
-#use VERY_HIGH_QUALITY for audio resampler
-af.resampler.quality=4
-
-#Buffer size in kbytes for compress offload playback
-audio.offload.buffer.size.kb=32
-
-#Enable offload audio video playback by default
-av.offload.enable=true
-
-#enable voice path for PCM VoIP by default
-use.voice.path.for.pcm.voip=true
-
-#disable dsp gapless mode by default
-audio.offload.gapless.enabled=false
 
 # sensors
 ro.qc.sdk.camera.facialproc=true
