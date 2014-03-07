@@ -6,6 +6,8 @@ vendor/lib/libchromatix_imx214_hfr_60.so
 vendor/lib/libchromatix_imx214_liveshot.so
 vendor/lib/libchromatix_imx214_preview.so
 vendor/lib/libchromatix_imx214_snapshot.so
+vendor/lib/libchromatix_imx214_snapshot_hdr.so
+vendor/lib/libchromatix_imx214_video_hdr.so
 vendor/lib/libchromatix_ov5648_common.so
 vendor/lib/libchromatix_ov5648_default_video.so
 vendor/lib/libchromatix_ov5648_preview.so
