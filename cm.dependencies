@@ -8,6 +8,10 @@
     "target_path": "kernel/oppo/msm8974"
   },
   {
+    "repository": "android_device_qcom_common",
+    "target_path": "device/qcom/common"
+  },
+  {
     "repository": "android_hardware_qcom_display-caf-new",
     "target_path": "hardware/qcom/display-caf-new"
   },
