@@ -8,8 +8,6 @@ telephony.lteOnGsmDevice=1
 telephony.lteOnCdmaDevice=0
 persist.radio.add_power_save=1
 
-debug.composition.type=c2d
-
 # sensors
 ro.qc.sdk.camera.facialproc=true
 ro.qc.sdk.gestures.camera=false
