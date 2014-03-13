@@ -20,8 +20,6 @@
 #define BLUETOOTH_QCOM_SW TRUE
 
 #define BTM_DEF_LOCAL_NAME   "One+ One"
-// Enables Interleave scan
-#define BTA_HOST_INTERLEAVE_SEARCH  TRUE
 // Disables read remote device feature
 #define BTA_SKIP_BLE_READ_REMOTE_FEAT TRUE
 #define MAX_L2CAP_CHANNELS    14
