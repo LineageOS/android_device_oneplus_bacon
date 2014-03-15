@@ -1,22 +1,6 @@
 [
   {
-    "repository": "android_device_oppo_common",
-    "target_path": "device/oppo/common"
-  },
-  {
-    "repository": "android_kernel_oppo_msm8974",
-    "target_path": "kernel/oppo/msm8974"
-  },
-  {
-    "repository": "android_device_qcom_common",
-    "target_path": "device/qcom/common"
-  },
-  {
-    "repository": "android_hardware_qcom_display-caf-new",
-    "target_path": "hardware/qcom/display-caf-new"
-  },
-  {
-    "repository": "android_hardware_qcom_media-caf-new",
-    "target_path": "hardware/qcom/media-caf-new"
+    "repository": "android_device_oppo_msm8974-common",
+    "target_path": "device/oppo/msm8974-common"
   }
 ]
