@@ -19,4 +19,4 @@ ro.qc.sdk.izat.service_mask=0x5
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
 
-ro.qualcomm.cabl=1
+ro.qualcomm.cabl=0
