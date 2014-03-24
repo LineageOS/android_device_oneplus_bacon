@@ -37,5 +37,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1073741824
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13747929088 # 13747945472 - 16384 for crypto footer
 #BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472
 
+TARGET_OTA_ASSERT_DEVICE := bacon,A0001
+
 # inherit from the proprietary version
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
