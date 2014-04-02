@@ -38,3 +38,7 @@ PRODUCT_BRAND := oneplus
 TARGET_VENDOR_PRODUCT_NAME := one
 TARGET_VENDOR_DEVICE_NAME := bacon
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=A0001 PRODUCT_NAME=bacon
+
+# Bacon gets a special boot animation because it's special.
+PRODUCT_BOOTANIMATION := device/oneplus/bacon/bootanimation.zip
+TARGET_CONTINUOUS_SPLASH_ENABLED := true
