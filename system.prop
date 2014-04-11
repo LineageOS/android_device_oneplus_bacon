@@ -4,8 +4,6 @@
 
 ro.sf.lcd_density=480
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
-telephony.lteOnGsmDevice=1
-telephony.lteOnCdmaDevice=0
 persist.radio.add_power_save=1
 rol.ril.ext.ecclist=112,911,999,110,122,119,120,000,08,118
 
