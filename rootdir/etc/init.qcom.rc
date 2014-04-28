@@ -35,6 +35,11 @@ on init
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
 
+on post-fs-data
+    # Torch
+    chown system camera /sys/class/leds/torch-light/brightness
+    chmod 0660 /sys/class/leds/torch-light/brightness
+
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
