@@ -17,6 +17,9 @@
 # overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay vendor/extra/overlays/phone-1080p
 
+# Haters gonna hate..
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # Keylayouts
 PRODUCT_PACKAGES += \
     $(LOCAL_PATH)/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
