@@ -40,6 +40,9 @@ on init
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
 
+on post-fs
+    export_rc /system/etc/init.cne.rc
+
 on post-fs-data
     # Torch
     chown system camera /sys/class/leds/torch-light/brightness
