@@ -20,4 +20,4 @@ vendor/lib/libchromatix_ov5648_zsl.so
 
 # NFC
 etc/firmware/libpn547_fw.so:vendor/firmware/libpn547_fw.so
-lib/hw/nfc_nci.qcom.so
+lib/hw/nfc_nci.bacon.so

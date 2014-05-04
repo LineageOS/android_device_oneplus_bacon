@@ -22,8 +22,9 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.qcom.rc
+    fstab.bacon \
+    init.bacon.rc \
+    ueventd.bacon.rc
 
 # Keylayouts
 PRODUCT_PACKAGES += \

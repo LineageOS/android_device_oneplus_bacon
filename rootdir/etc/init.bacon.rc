@@ -16,6 +16,11 @@
 
 import /init.qcom-common.rc
 
+on fs
+    mount_all ./fstab.bacon
+    restorecon_recursive /persist
+    setprop ro.crypto.fuse_sdcard true
+
 on init
     # See storage config details at http://source.android.com/tech/storage/
     chmod 0701 /mnt/media_rw
