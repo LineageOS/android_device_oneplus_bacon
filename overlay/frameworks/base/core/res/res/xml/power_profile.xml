@@ -20,11 +20,11 @@
 <device name="Android">
   <!-- All values are in mAh except as noted -->
   <item name="none">0</item>
-    <item name="screen.on">42.4</item>
+    <item name="screen.on">71.55</item>
     <item name="screen.full">211.6</item>
     <item name="bluetooth.active">59.22</item>
     <item name="bluetooth.on">0.7</item>
-    <item name="wifi.on">1.38</item>
+    <item name="wifi.on">3.30</item>
     <item name="wifi.active">62.09</item>
     <item name="wifi.scan">52.1</item>
     <item name="dsp.audio">0.1</item>
@@ -73,5 +73,5 @@
         <value>239.7</value>
   </array>
   <!-- This is the battery capacity in mAh -->
-    <item name="battery.capacity">2500</item>
+    <item name="battery.capacity">3100</item>
 </device>
