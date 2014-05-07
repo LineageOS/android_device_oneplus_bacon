@@ -14,9 +14,10 @@ ro.qc.sdk.gestures.camera=false
 ro.qc.sdk.sensors.gestures=true
 
 # gps
-ro.qc.sdk.izat.premium_enabled=1
-ro.qc.sdk.izat.service_mask=0x5
+ro.qc.sdk.izat.premium_enabled=0
+ro.qc.sdk.izat.service_mask=0x0
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
 
+# cabl is handled by the panel
 ro.qualcomm.cabl=0
