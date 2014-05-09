@@ -21,3 +21,6 @@ ro.gps.agps_provider=1
 
 # cabl is handled by the panel
 ro.qualcomm.cabl=0
+
+# panel supports partial updates
+persist.hwc.partialupdate=1
