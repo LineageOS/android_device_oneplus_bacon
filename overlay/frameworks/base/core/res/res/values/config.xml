@@ -118,4 +118,8 @@
         <item>1036</item>  <!-- Right (1080-44) -->
     </integer-array>
 
+    <!-- Base "touch slop" value used by ViewConfiguration as a
+         movement threshold where scrolling should begin. -->
+    <dimen name="config_viewConfigurationTouchSlop">4dp</dimen>
+
 </resources>
