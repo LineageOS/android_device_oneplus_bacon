@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="self_expand_velocity">6000dp</dimen>
-    <dimen name="self_collapse_velocity">6000dp</dimen>
-    <dimen name="fling_gesture_max_x_velocity">2000dp</dimen>
-    <dimen name="fling_gesture_max_output_velocity">9000dp</dimen>
-</resources>
