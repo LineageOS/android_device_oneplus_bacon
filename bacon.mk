@@ -24,6 +24,7 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_PACKAGES += \
     fstab.bacon \
     init.bacon.rc \
+    init.qcom.usb.rc \
     ueventd.bacon.rc
 
 # Keylayouts
