@@ -105,18 +105,20 @@
 
     <!-- Indicate the device's Smart Cover coordinates.
          If none are provided, then the feature will be disabled.
-	     The array should contain 4 values, in pixels, (sample values provided):
-		    Top      0
-		    Left     100
-	        Bottom   Top + 400
-	        Right    Display Width - 100
-	-->
+         The array should contain 4 values, in pixels, (sample values provided):
+         Top      0
+         Left     100
+         Bottom   Top + 400
+         Right    Display Width - 100
+    -->
+    <!-- disabled until smart cover can be tested
     <integer-array name="config_smartCoverWindowCoords">
-        <item>0</item>     <!-- Top -->
-        <item>44</item>    <!-- Left -->
-        <item>774</item>   <!-- Bottom -->
-        <item>1036</item>  <!-- Right (1080-44) -->
+        <item>0</item>
+        <item>44</item>
+        <item>774</item>
+        <item>1036</item>
     </integer-array>
+    -->
 
     <!-- Base "touch slop" value used by ViewConfiguration as a
          movement threshold where scrolling should begin. -->
