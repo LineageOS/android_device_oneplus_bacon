@@ -30,17 +30,18 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>10</item>
+        <item>5</item>
+        <item>15</item>
         <item>50</item>
         <item>100</item>
         <item>200</item>
         <item>400</item>
-        <item>500</item>
-        <item>800</item>
         <item>1000</item>
-        <item>1600</item>
+        <item>2000</item>
         <item>3000</item>
+        <item>5000</item>
         <item>10000</item>
+        <item>30000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -48,18 +49,19 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>16</item>   <!-- 0-10 -->
-        <item>32</item>   <!-- 10-50 -->
-        <item>42</item>   <!-- 50-100 -->
-        <item>58</item>   <!-- 100-200 -->
-        <item>80</item>   <!-- 200-400 -->
-        <item>90</item>   <!-- 400-500 -->
-        <item>110</item>   <!-- 500-800 -->
-        <item>125</item>  <!-- 800-1000 -->
-        <item>160</item>  <!-- 1000-1600 -->
-        <item>210</item>  <!-- 1600-3000 -->
-        <item>254</item>  <!-- 3000-10000 -->
-        <item>255</item>  <!-- 10000+ -->
+        <item>25</item>   <!-- 0-5 -->
+        <item>32</item>   <!-- 5-15 -->
+        <item>41</item>   <!-- 15-50 -->
+        <item>52</item>   <!-- 50-100 -->
+        <item>62</item>   <!-- 100-200 -->
+        <item>69</item>   <!-- 200-400 -->
+        <item>78</item>   <!-- 400-1000 -->
+        <item>88</item>   <!-- 1000-2000 -->
+        <item>134</item>  <!-- 2000-3000 -->
+        <item>178</item>  <!-- 3000-5000 -->
+        <item>225</item>  <!-- 5000-10000 -->
+        <item>255</item>  <!-- 10000-30000 -->
+        <item>255</item>  <!-- 30000+ -->
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -67,18 +69,19 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>255</item>   <!-- 0-10 -->
-        <item>255</item>   <!-- 10-50 -->
+        <item>255</item>   <!-- 0-5 -->
+        <item>255</item>   <!-- 5-15 -->
+        <item>255</item>   <!-- 15-50 -->
         <item>255</item>   <!-- 50-100 -->
         <item>255</item>   <!-- 100-200 -->
         <item>255</item>   <!-- 200-400 -->
-        <item>255</item>   <!-- 400-500 -->
-        <item>255</item>   <!-- 500-800 -->
-        <item>255</item>  <!-- 800-1000 -->
-        <item>255</item>  <!-- 1000-1600 -->
-        <item>255</item>  <!-- 1600-3000 -->
-        <item>255</item>  <!-- 3000-10000 -->
-        <item>255</item>  <!-- 10000+ -->
+        <item>255</item>   <!-- 400-1000 -->
+        <item>255</item>   <!-- 1000-2000 -->
+        <item>255</item>  <!-- 2000-3000 -->
+        <item>255</item>  <!-- 3000-5000 -->
+        <item>255</item>  <!-- 5000-10000 -->
+        <item>255</item>  <!-- 10000-30000 -->
+        <item>255</item>  <!-- 30000+ -->
     </integer-array>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
