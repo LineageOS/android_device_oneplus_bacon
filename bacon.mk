@@ -50,10 +50,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=20
 
-# Include Color OS Public Key
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(LOCAL_PATH)/keys/color-releasekey
-
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/oneplus/bacon/bacon-vendor.mk)
 
