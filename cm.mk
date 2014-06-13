@@ -42,3 +42,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=A0001 PRODUCT_NAME=bacon
 # Bacon gets a special boot animation because it's special.
 PRODUCT_BOOTANIMATION := device/oneplus/bacon/bootanimation.zip
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
+
+## Use the latest approved GMS identifiers unless running a signed build
+ifeq ($(DEFAULT_SYSTEM_DEV_CERTIFICATE),build/target/product/security/testkey)
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=oneplus/bacon/A0001:4.4.2/KVT49L/XNPH22R:user/release-keys PRIVATE_BUILD_DESC="bacon-user 4.4.2 KVT49L XNPH22R release-keys"
+endif
