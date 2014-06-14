@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
@@ -39,11 +43,12 @@ TARGET_VENDOR_PRODUCT_NAME := bacon
 TARGET_VENDOR_DEVICE_NAME := A0001
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=A0001 PRODUCT_NAME=bacon
 
-# Bacon gets a special boot animation because it's special.
-PRODUCT_BOOTANIMATION := device/oneplus/bacon/bootanimation.zip
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 
 ## Use the latest approved GMS identifiers unless running a signed build
-ifeq ($(DEFAULT_SYSTEM_DEV_CERTIFICATE),build/target/product/security/testkey)
+ifneq ($(SIGNED_BUILD),true)
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=oneplus/bacon/A0001:4.4.2/KVT49L/XNPH22R:user/release-keys PRIVATE_BUILD_DESC="bacon-user 4.4.2 KVT49L XNPH22R release-keys"
+else
+# Signed bacon gets a special boot animation because it's special.
+PRODUCT_BOOTANIMATION := device/oneplus/bacon/bootanimation.zip
 endif
