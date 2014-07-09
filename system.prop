@@ -21,3 +21,7 @@ ro.gps.agps_provider=1
 
 # cabl is handled by the panel
 ro.qualcomm.cabl=0
+
+# !! FIXME !! FIXME !! FIXME !!
+# Workaround for dynamic buffer issue - remove when resolved
+vidc.dec.debug.dyn.disabled=1
