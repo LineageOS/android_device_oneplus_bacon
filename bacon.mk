@@ -28,6 +28,10 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     ueventd.bacon.rc
 
+# Audio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+
 # Keylayouts
 PRODUCT_PACKAGES += \
     $(LOCAL_PATH)/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
