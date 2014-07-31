@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a061dce_a6dbe1ec",
+        "filename": "cm.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 7220
+      },
+      "writtenOn": "2014-07-31T08:40:50Z",
+      "side": 0,
+      "message": "just \"A0001\", instead of \"One A0001\"",
+      "revId": "c634c4b97af5b26361609ca0138f93f9bd664738",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
