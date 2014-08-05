@@ -139,8 +139,6 @@
     <ctl name="AIF1_CAP Mixer SLIM TX8" value="0"/>
     <ctl name="CLASS_H_DSM MUX" value="ZERO" />
     <ctl name="RDAC5 MUX" value="ZERO" />
-    <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia4" value="0" />
-    <ctl name="INTERNAL_BT_SCO_RX Audio Mixer MultiMedia4" value="0" />
 
     <!-- usb headset -->
     <ctl name="AFE_PCM_RX Audio Mixer MultiMedia1" value="0" />
