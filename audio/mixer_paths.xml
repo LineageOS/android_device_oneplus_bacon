@@ -85,7 +85,7 @@
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia4" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia5" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia6" value="0" />
-    <ctl name="SLIMBUX_0_RX Audio Mixer MultiMedia7" value="0" />
+    <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia7" value="0" />
     <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia8" value="0" />
     <ctl name="IIR1 INP1 MUX" value="ZERO" />
     <ctl name="SLIM0_RX_VI_FB_LCH_MUX" value="ZERO" />
