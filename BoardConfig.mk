@@ -36,6 +36,7 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
+DONT_DEXPREOPT_PREBUILTS := true
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 16777216
