@@ -55,7 +55,8 @@ PRODUCT_COPY_FILES += \
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=9
+    ro.telephony.default_network=9 \
+    persist.audio.fluence.speaker=true
 
 # Fuuuuu
 PRODUCT_PACKAGES += camera.bacon
