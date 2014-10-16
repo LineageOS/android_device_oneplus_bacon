@@ -798,7 +798,12 @@
         <ctl name="DEC4 Volume" value="84" />
     </path>
 
-    <path name="anc-mic">
+    <path name="top-mic">
+        <ctl name="DEC3 MUX" value="ADC4" />
+        <ctl name="DEC3 Volume" value="84" />
+    </path>
+
+    <path name="back-mic">
         <ctl name="DEC2 MUX" value="ADC5" />
         <ctl name="DEC2 Volume" value="84" />
     </path>
@@ -816,7 +821,7 @@
         <ctl name="SLIM_0_TX Channels" value="One" />
         <ctl name="SLIM TX7 MUX" value="DEC2" />
         <ctl name="ADC5 Volume" value="19" />
-        <path name="anc-mic" />
+        <path name="back-mic" />
     </path>
 
     <path name="headset-mic">
@@ -879,15 +884,11 @@
 
     <!-- Dual-mic recording -->
     <path name="handset-dmic">
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+        <path name="main-mic" />
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
-        <ctl name="SLIM TX7 MUX" value="DEC4" />
-        <ctl name="DEC4 MUX" value="ADC3" />
-        <ctl name="DEC4 Volume" value="84" />
         <ctl name="SLIM TX8 MUX" value="DEC3" />
-        <ctl name="DEC3 MUX" value="ADC4" />
-        <ctl name="DEC3 Volume" value="84" />
+        <path name="top-mic" />
     </path>
 
     <path name="dmic-endfire">
@@ -903,15 +904,11 @@
 
     <!-- Stereo recording -->
     <path name="speaker-stereo-dmic-ef">
-        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+        <path name="main-mic" />
         <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
         <ctl name="SLIM_0_TX Channels" value="Two" />
-        <ctl name="SLIM TX7 MUX" value="DEC4" />
-        <ctl name="DEC4 MUX" value="ADC3" />
-        <ctl name="DEC4 Volume" value="84" />
         <ctl name="SLIM TX8 MUX" value="DEC2" />
-        <ctl name="DEC2 MUX" value="ADC5" />
-        <ctl name="DEC2 Volume" value="84" />
+        <path name="back-mic" />
         <ctl name="ADC3 Volume" value="19" />
         <ctl name="ADC5 Volume" value="19" />
     </path>
@@ -923,7 +920,20 @@
     </path>
 
     <path name="camcorder-mic">
-        <path name="speaker-stereo-dmic-ef" />
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+        <ctl name="AIF1_CAP Mixer SLIM TX9" value="1" />
+        <ctl name="SLIM_0_TX Channels" value="Two" />
+        <ctl name="SLIM TX7 MUX" value="DEC3" />
+        <path name="top-mic" />
+        <ctl name="SLIM TX8 MUX" value="DEC4" />
+        <ctl name="DEC4 MUX" value="ADC3" />
+        <ctl name="DEC4 Volume" value="84" />
+        <ctl name="SLIM TX9 MUX" value="DEC2" />
+        <path name="back-mic" />
+        <ctl name="ADC3 Volume" value="19" />
+        <ctl name="ADC4 Volume" value="19" />
+        <ctl name="ADC5 Volume" value="19" />
     </path>
 
 
