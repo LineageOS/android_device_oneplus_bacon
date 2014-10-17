@@ -22,4 +22,8 @@
     <string name="sar_head_level" translatable="false">0.270</string>
     <!-- Maximum Specific Absorption Rate for body -->
     <string name="sar_body_level" translatable="false">0.540</string>
+
+    <!-- Regulatory Info -->
+    <!-- Whether to show a preference item for regulatory information in About phone -->
+    <bool name="config_show_regulatory_info">true</bool>
 </resources>
