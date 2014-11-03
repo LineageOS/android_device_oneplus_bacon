@@ -150,4 +150,5 @@
         <item>25</item>
     </integer-array>
 
+    <bool name="config_radio_reset_on_regular_deactivation">false</bool>
 </resources>
