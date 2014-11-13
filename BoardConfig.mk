@@ -53,7 +53,7 @@ BOARD_VOLD_CRYPTFS_MIGRATE := true
 
 BOARD_NFC_CHIPSET := pn547
 
-#AUDIO_FEATURE_ENABLED_ULTRA_LOW_LATENCY := true
+AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 
 # inherit from the proprietary version
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
