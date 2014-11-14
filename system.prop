@@ -6,7 +6,7 @@ ro.sf.lcd_density=480
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
 persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
-rol.ril.ext.ecclist=112,911,999,110,122,119,120,000,08,118
+ril.ecclist=112,911,999,110,122,119,120,000,08,118
 
 # sensors
 ro.qc.sdk.camera.facialproc=true
