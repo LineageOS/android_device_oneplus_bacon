@@ -40,7 +40,6 @@ BOARD_USERDATAEXTRAIMAGE_PARTITION_NAME := 64G
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.bacon
-RECOVERY_VARIANT := cm
 
 TARGET_OTA_ASSERT_DEVICE := bacon,A0001
 
