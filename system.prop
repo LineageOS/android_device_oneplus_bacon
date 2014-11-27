@@ -12,10 +12,11 @@ rol.ril.ext.ecclist=112,911,999,110,122,119,120,000,08,118
 ro.qc.sdk.camera.facialproc=true
 ro.qc.sdk.gestures.camera=false
 ro.qti.sdk.sensors.gestures=true
+ro.qti.sensors.bte=true
+ro.qti.sensors.gtap=true
+ro.qti.sensors.vmd=true
 
 # gps
-ro.qc.sdk.izat.premium_enabled=0
-ro.qc.sdk.izat.service_mask=0x0
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
 
