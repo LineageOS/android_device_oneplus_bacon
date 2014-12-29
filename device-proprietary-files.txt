@@ -15,8 +15,10 @@ vendor/lib/libchromatix_imx214_video_hdr.so
 vendor/lib/libchromatix_ov5648_common.so
 vendor/lib/libchromatix_ov5648_default_video.so
 vendor/lib/libchromatix_ov5648_preview.so
+vendor/lib/libchromatix_ov5648_preview_fb.so
 vendor/lib/libchromatix_ov5648_video_cmcc.so
 vendor/lib/libchromatix_ov5648_zsl.so
+vendor/lib/libchromatix_ov5648_zsl_fb.so
 
 # NFC
 etc/firmware/libpn547_fw.so:vendor/firmware/libpn547_fw.so
