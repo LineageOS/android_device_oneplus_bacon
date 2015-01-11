@@ -39,4 +39,6 @@
         <item>indoor</item>
     </string-array>
 
+    <bool name="previewAlwaysUsesNV12">true</bool>
+
 </resources>
