@@ -2,7 +2,7 @@
 # system.prop for one+
 #
 
-ro.sf.lcd_density=480
+ro.sf.lcd_density=560
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
 persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
