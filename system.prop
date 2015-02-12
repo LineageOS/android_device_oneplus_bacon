@@ -22,6 +22,3 @@ ro.gps.agps_provider=1
 
 # cabl is handled by the panel
 ro.qualcomm.cabl=0
-
-# HACK for QC errata issue
-debug.hwui.render_dirty_regions=false
