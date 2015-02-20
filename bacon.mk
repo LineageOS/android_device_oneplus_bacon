@@ -55,7 +55,7 @@ PRODUCT_COPY_FILES += \
 
 # System properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=20
+    ro.telephony.default_network=9
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
