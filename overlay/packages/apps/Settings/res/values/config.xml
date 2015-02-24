@@ -23,6 +23,13 @@
     <!-- Maximum Specific Absorption Rate for body -->
     <string name="sar_body_level" translatable="false">0.540</string>
 
+    <!-- IC Code for a device -->
+    <!-- Must be overlaid by device -->
+    <bool name="config_show_ic_enable" translatable="false">true</bool>
+    <!-- IC Code -->
+    <string name="ic_model" translatable="false">ONE A0001</string>
+    <string name="ic_code" translatable="false">12739A-A0001</string>
+
     <!-- Regulatory Info -->
     <!-- Whether to show a preference item for regulatory information in About phone -->
     <bool name="config_show_regulatory_info">true</bool>
