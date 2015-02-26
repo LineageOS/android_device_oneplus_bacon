@@ -55,5 +55,9 @@ BOARD_NFC_CHIPSET := pn547
 AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
 
+RED_LED_PATH := "/sys/class/leds/red/brightness"
+GREEN_LED_PATH := "/sys/class/leds/green/brightness"
+BLUE_LED_PATH := "/sys/class/leds/blue/brightness"
+
 # inherit from the proprietary version
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
