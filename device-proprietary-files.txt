@@ -1,5 +1,5 @@
 # Camera
-lib/hw/camera.msm8974.so
+lib/hw/camera.vendor.bacon.so
 vendor/lib/libchromatix_imx214_common.so
 vendor/lib/libchromatix_imx214_default_video.so
 vendor/lib/libchromatix_imx214_hfr_120.so
