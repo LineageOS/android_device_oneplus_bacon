@@ -235,22 +235,26 @@ static int camera_start_recording(struct camera_device *device)
     if (!device)
         return EINVAL;
 
+    CameraParameters2 params;
 
-    CameraParameters2 parameters;
-    parameters.unflatten(String8(camera_get_parameters(device)));
+    char *parameters = VENDOR_CALL(device, get_parameters);
+
+    params.unflatten(String8(parameters));
     if (CAMERA_ID(device) == BACK_CAMERA_ID) {
-        if (is4k(parameters)) {
-            parameters.set("preview-format", "nv12-venus");
+        if (is4k(params)) {
+            params.set("preview-format", "nv12-venus");
         }
-        parameters.set("picture-size", "4160x3120");
+        params.set("picture-size", "4160x3120");
     }
-    camera_set_parameters(device,  strdup(parameters.flatten().string()));
+    char *parameters2 = strdup(params.flatten().string());
+    camera_set_parameters(device, parameters2);
 
-    CameraParameters2 parameters2;
-    parameters2.unflatten(String8(VENDOR_CALL(device, get_parameters)));
-    parameters2.dump();
+    VENDOR_CALL(device, put_parameters, parameters);
+    free(parameters2);
 
-
+    /* CameraParameters2 params2;
+    params2.unflatten(String8(VENDOR_CALL(device, get_parameters)));
+    params2.dump(); */
 
     return VENDOR_CALL(device, start_recording);
 }
@@ -362,7 +366,12 @@ static char *camera_get_parameters(struct camera_device *device)
         CameraParameters2 params;
         params.unflatten(String8(parameters));
         params.set("cyanogen-camera", "1");
-        VENDOR_CALL(device, set_parameters, strdup(params.flatten().string())); 
+
+        char *parameters2 = strdup(params.flatten().string());
+        VENDOR_CALL(device, set_parameters, parameters2);
+
+        VENDOR_CALL(device, put_parameters, parameters);
+        free(parameters2);
         parameters = VENDOR_CALL(device, get_parameters);
     }
 
@@ -385,7 +394,10 @@ static char *camera_get_parameters(struct camera_device *device)
             "1280x720,864x480,800x480,720x480,640x480,480x320,384x288,352x288,320x240,176x144");
     }
 
-    return strdup(params.flatten().string());
+    char *ret = strdup(params.flatten().string());
+    VENDOR_CALL(device, put_parameters, parameters);
+
+    return ret;
 }
 
 static void camera_put_parameters(struct camera_device *device, char *params)
@@ -393,8 +405,8 @@ static void camera_put_parameters(struct camera_device *device, char *params)
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
             (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
 
-    if (device) {
-        VENDOR_CALL(device, put_parameters, params);
+    if (params) {
+        free(params);
     }
 }
 
