@@ -18,7 +18,19 @@ import /init.qcom-common.rc
 
 on fs
     mount_all ./fstab.bacon
+
+    # Keeping following partitions outside fstab file. As user may not have
+    # these partition flashed on the device. Failure to mount any partition in fstab file
+    # results in failure to launch late-start class.
+
+    wait /dev/block/platform/msm_sdcc.1/by-name/cache
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/cache /cache nosuid nodev barrier=1
+
+    wait /dev/block/platform/msm_sdcc.1/by-name/persist
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev barrier=1
+
     restorecon_recursive /persist
+
     setprop ro.crypto.fuse_sdcard true
 
 on init
