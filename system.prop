@@ -11,6 +11,7 @@ rol.ril.ext.ecclist=112,911,999,110,122,119,120,000,08,118
 # sensors
 ro.qc.sdk.camera.facialproc=true
 ro.qc.sdk.gestures.camera=false
+ro.qti.ir_proximity=true
 ro.qti.sdk.sensors.gestures=true
 ro.qti.sensors.bte=true
 ro.qti.sensors.gtap=true
