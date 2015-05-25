@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a89bdaa_842b0330",
+        "filename": "system.prop",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 7761
+      },
+      "writtenOn": "2015-05-25T15:44:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be \"ro.qti.sensors.ir_proximity\u003dtrue\" instead? Right now my proximity sensor isn\u0027t working and if I change it to \"ro.qti.sensors.ir_proximity\u003dtrue\", my proximity sensor works again.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "0db9ec33939b22785cc481f739ba728d4ef15711",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
