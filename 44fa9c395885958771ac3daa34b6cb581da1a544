@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff0f0b1f_830424c8",
+        "filename": "cm.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 8964
+      },
+      "writtenOn": "2015-07-14T01:28:02Z",
+      "side": 1,
+      "message": "maybe changing the formatting here too?\n\nPRODUCT_BUILD_PROP_OVERRIDES +\u003d \\\n    TARGET_DEVICE\u003dA0001 \\\n    PRODUCT_NAME\u003dbacon",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 70
+      },
+      "revId": "44fa9c395885958771ac3daa34b6cb581da1a544",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
