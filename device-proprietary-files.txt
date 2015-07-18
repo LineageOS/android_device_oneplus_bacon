@@ -19,6 +19,9 @@ vendor/lib/libchromatix_ov5648_preview_fb.so
 vendor/lib/libchromatix_ov5648_video_cmcc.so
 vendor/lib/libchromatix_ov5648_zsl.so
 vendor/lib/libchromatix_ov5648_zsl_fb.so
+vendor/lib/libmmcamera_imx214.so
+vendor/lib/libmmcamera_ov5648.so
+vendor/lib/libmmcamera_sony_imx214_eeprom.so
 
 # NFC
 etc/firmware/libpn547_fw.so:vendor/firmware/libpn547_fw.so
