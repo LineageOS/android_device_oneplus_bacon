@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Whether to add SIM/AKA in EAP method for adding network -->
+    <bool name="config_eap_sim_function">true</bool>
+</resources>
