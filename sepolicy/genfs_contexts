@@ -1,0 +1,1 @@
+genfscon proc /touchpanel   u:object_r:proc_touchpanel:s0
