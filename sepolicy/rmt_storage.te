@@ -1,0 +1,2 @@
+# Our rmt storage bridges the ssd partition too
+allow rmt_storage ssd_device:blk_file rw_file_perms;
