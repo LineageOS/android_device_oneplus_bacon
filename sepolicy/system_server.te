@@ -1,0 +1,9 @@
+# for CMHardwareService access to TapToWake
+allow system_server proc_touchpanel:file rw_file_perms;
+allow system_server proc_touchpanel:dir { search };
+
+# for CMHardwareService access to VibratorHW
+allow system_server vibeamp_sysfs:file rw_file_perms;
+
+# timerfd
+allow system_server rtc_device:chr_file rw_file_perms;

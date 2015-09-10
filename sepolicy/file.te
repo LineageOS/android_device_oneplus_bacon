@@ -1,0 +1,2 @@
+type proc_touchpanel, fs_type;
+type vibeamp_sysfs, sysfs_type, file_type;
