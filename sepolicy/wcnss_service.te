@@ -1,0 +1,3 @@
+allow wcnss_service persist_file:dir { search write create add_name };
+
+type_transition wcnss_service persist_file:file wifi_data_file ".genmac";

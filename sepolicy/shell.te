@@ -1,0 +1,4 @@
+# address denials with some CTS cases
+allow shell persist_file:dir r_dir_perms;
+allow shell sysfs_battery_supply:dir r_dir_perms;
+allow shell sysfs_usb_supply:dir r_dir_perms;
