@@ -116,23 +116,6 @@ static loc_name_val_s_type loc_eng_aiding_data_bits[] =
     NAME_VAL( GPS_DELETE_SADATA ),
     NAME_VAL( GPS_DELETE_RTI ),
     NAME_VAL( GPS_DELETE_CELLDB_INFO ),
-#ifndef PDK_FEATURE_SET
-    NAME_VAL( GPS_DELETE_ALMANAC_CORR ),
-    NAME_VAL( GPS_DELETE_FREQ_BIAS_EST ),
-    NAME_VAL( GLO_DELETE_EPHEMERIS ),
-    NAME_VAL( GLO_DELETE_ALMANAC ),
-    NAME_VAL( GLO_DELETE_SVDIR ),
-    NAME_VAL( GLO_DELETE_SVSTEER ),
-    NAME_VAL( GLO_DELETE_ALMANAC_CORR ),
-    NAME_VAL( GPS_DELETE_TIME_GPS ),
-    NAME_VAL( GLO_DELETE_TIME ),
-    NAME_VAL( BDS_DELETE_SVDIR ),
-    NAME_VAL( BDS_DELETE_SVSTEER ),
-    NAME_VAL( BDS_DELETE_TIME ),
-    NAME_VAL( BDS_DELETE_ALMANAC_CORR ),
-    NAME_VAL( BDS_DELETE_EPHEMERIS ),
-    NAME_VAL( BDS_DELETE_ALMANAC ),
-#endif
     NAME_VAL( GPS_DELETE_ALL)
 };
 static int loc_eng_aiding_data_bit_num = sizeof(loc_eng_aiding_data_bits) / sizeof(loc_name_val_s_type);

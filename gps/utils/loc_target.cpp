@@ -33,6 +33,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <string.h>
 #include <hardware/gps.h>
 #include <cutils/properties.h>
 #include "loc_target.h"
