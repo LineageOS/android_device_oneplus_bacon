@@ -29,6 +29,8 @@ ifeq ($(TARGET_BUILD_VARIANT),user)
    LOCAL_CFLAGS += -DTARGET_BUILD_VARIANT_USER
 endif
 
+LOCAL_CLANG := false
+
 LOCAL_LDFLAGS += -Wl,--export-dynamic
 
 ## Includes

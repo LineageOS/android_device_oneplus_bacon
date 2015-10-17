@@ -1,5 +1,0 @@
-# 4k2k property
-allow mediaserver camera_prop:property_service set;
-
-# check sound card status
-allow mediaserver audiod:binder call;
