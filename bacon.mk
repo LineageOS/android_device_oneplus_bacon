@@ -175,9 +175,12 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc \
     libstagefrighthw \
-    qcmediaplayer
+    qcmediaplayer \
+    tcmiface
 
-PRODUCT_BOOT_JARS += qcmediaplayer
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer \
+    tcmiface
 
 # NFC
 ifeq ($(TARGET_BUILD_VARIANT),user)

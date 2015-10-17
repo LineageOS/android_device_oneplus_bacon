@@ -125,7 +125,6 @@ bin/mpdecision
 vendor/lib/libqti-perfd-client.so
 
 # Postprocessing
--app/PPPreference/PPPreference.apk
 bin/mm-pp-daemon
 vendor/lib/libdisp-aba.so
 -vendor/lib/libmm-abl.so
@@ -150,9 +149,6 @@ vendor/lib/libqmi_encdec.so
 -vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
 vendor/lib/libsystem_health_mon.so
-
-# QuickBoot
--app/QuickBoot/QuickBoot.apk
 
 # Radio
 -app/qcrilmsgtunnel/qcrilmsgtunnel.apk

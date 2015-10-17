@@ -47,8 +47,9 @@
             32 - Camera
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
+         config to 7.
     <integer name="config_deviceHardwareWakeKeys">64</integer>
+    -->
 
     <!-- Control the behavior when the user long presses the home button.
             0 - Nothing
@@ -58,8 +59,7 @@
             4 - Voice Search
             5 - In-app Search
          This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-    -->
+         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java -->
     <integer name="config_longPressOnHomeBehavior">3</integer>
 
     <integer name="config_longPressOnMenuBehavior">2</integer>
@@ -72,8 +72,7 @@
             4 - Voice Search
             5 - In-app Search
          This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-    -->
+         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java -->
     <integer name="config_doubleTapOnHomeBehavior">0</integer>
 
     <!-- If this is true, the screen will fade off. -->
@@ -193,8 +192,9 @@
     -->
     <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
 
-    <!-- bool value to for enabling motion accelerometer -->
+    <!-- bool value to for enabling motion accelerometer
     <bool name="use_motion_accel">false</bool>
+    -->
 
     <!-- Enable overlay for all location components. -->
     <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
@@ -220,9 +220,10 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- Performance profiles -->
+    <!-- Performance profiles
     <string name="config_perf_profile_prop">powerhal</string>
     <string name="config_perf_profile_default_entry">1</string>
+    -->
 
     <!-- Setting this true forces the headset jack switches to use the/dev/input/event subsystem
          rather than the uevent framework. -->
@@ -237,8 +238,9 @@
          due to the proximity sensor.  This resource should only be set to true
          if the sensor HAL correctly handles the proximity sensor as a wake-up source.
          Otherwise, the device may fail to wake out of suspend reliably.
-         The default is false. -->
+         The default is false.
     <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+    -->
 
     <!-- Is the device capable of hot swapping an ICC Card -->
     <bool name="config_hotswapCapable">true</bool>
@@ -248,18 +250,20 @@
 
     <!-- Enable the option to check proximity sensor when deciding whether to
          turn the screen on
-         NOTE ! - Enable for devices that have a fast response proximity sensor -->
+         NOTE ! - Enable for devices that have a fast response proximity sensor
     <bool name="config_proximityCheckOnWake">true</bool>
     <integer name="config_proximityCheckTimeout">100</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
+    -->
 
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
     <!--  Whether Multiuser UI should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
 
-    <!-- Ambient lux at which to enable outdoor mode when LiveDisplay is enabled -->
+    <!-- Ambient lux at which to enable outdoor mode when LiveDisplay is enabled
     <integer name="config_outdoorAmbientLux">12000</integer>
+    -->
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N  1 zones as follows:
@@ -329,12 +333,14 @@
     <color name="config_defaultNotificationColor">#ffffffff</color>
 
     <!-- Does the notification LED support multiple colors?
-         Used to decide if the user can change the colors -->
+         Used to decide if the user can change the colors
     <bool name="config_multiColorNotificationLed">true</bool>
+    -->
 
     <!-- Does the battery LED support multiple colors?
-         Used to decide if the user can change the colors -->
+         Used to decide if the user can change the colors
     <bool name="config_multiColorBatteryLed">true</bool>
+    -->
 
     <!-- Indicate the device's Smart Cover coordinates.
          If none are provided, then the feature will be disabled.
