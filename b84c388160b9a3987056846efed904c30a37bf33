@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f2577a7_100d0a37",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 8461
+      },
+      "writtenOn": "2015-10-19T19:52:58Z",
+      "side": 0,
+      "message": "add\n \u003cbool name\u003d\"config_enableAutoPowerModes\"\u003etrue\u003c/bool\u003e\nbacon does support SENSOR_TYPE_SIGNIFICANT_MOTION",
+      "revId": "b84c388160b9a3987056846efed904c30a37bf33",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
