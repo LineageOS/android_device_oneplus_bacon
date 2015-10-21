@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2014, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -54,7 +54,7 @@
  *============================================================================*/
 typedef struct
 {
-  char                           param_name[LOC_MAX_PARAM_NAME];
+  const char                    *param_name;
   void                          *param_ptr;
   uint8_t                       *param_set;   /* was this value set by config file? */
   char                           param_type;  /* 'n' for number,
@@ -78,12 +78,12 @@ extern "C" {
  *
  *============================================================================*/
 void loc_read_conf(const char* conf_file_name,
-                   loc_param_s_type* config_table,
+                   const loc_param_s_type* config_table,
                    uint32_t table_length);
-int loc_read_conf_r(FILE *conf_fp, loc_param_s_type* config_table,
+int loc_read_conf_r(FILE *conf_fp, const loc_param_s_type* config_table,
                     uint32_t table_length);
 int loc_update_conf(const char* conf_data, int32_t length,
-                    loc_param_s_type* config_table, uint32_t table_length);
+                    const loc_param_s_type* config_table, uint32_t table_length);
 #ifdef __cplusplus
 }
 #endif
