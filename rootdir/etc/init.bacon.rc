@@ -25,7 +25,7 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
-    symlink /sdcard /mnt/sdcard0
+    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
 on early-boot
