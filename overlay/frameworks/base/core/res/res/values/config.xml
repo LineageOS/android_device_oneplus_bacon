@@ -404,4 +404,7 @@
         <item>"evdo:4094,87380,1048576,4096,16384,262144"</item>
         <item>"ehrpd:4094,87380,1048576,4096,16384,262144"</item>
     </string-array>
+
+    <!-- Enable doze powersaving -->
+    <bool name="config_enableAutoPowerModes">true</bool>
 </resources>
