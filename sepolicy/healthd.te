@@ -1,2 +1,1 @@
 allow healthd device:dir r_dir_perms;
-allow healthd rtc_device:chr_file rw_file_perms;
