@@ -497,7 +497,7 @@ service mpdecision /system/bin/mpdecision --avg_comp
    user root
    group system
 
-service thermal-engine /system/bin/thermal-engine
+service thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
    group root
@@ -549,7 +549,7 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi qcom_diag radio
     oneshot
 
-service ppd /system/bin/mm-pp-daemon
+service ppd /system/vendor/bin/mm-pp-daemon
     class late_start
     disabled
     user system

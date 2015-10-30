@@ -1,12 +1,20 @@
-# We have a couple of non-standard NV partitions
-/dev/block/bootdevice/by-name/oppodycnvbk          u:object_r:modem_efs_partition_device:s0
-/dev/block/bootdevice/by-name/oppostanvbk          u:object_r:modem_efs_partition_device:s0
+# NV backup partitions
+/dev/block/platform/msm_sdcc\.1/by-name/oppodycnvbk     u:object_r:nvbackup_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/oppostanvbk     u:object_r:nvbackup_block_device:s0
 
-/data/cam_socket.*                                 u:object_r:camera_socket:s0
+# Persist filesystem
+/dev/block/platform/msm_sdcc\.1/by-name/persist         u:object_r:persist_block_device:s0
 
-/sys/devices/virtual/timed_output/vibrator/vtg_level   u:object_r:vibeamp_sysfs:s0
+# Old camera socket
+/data/cam_socket1                                       u:object_r:camera_socket:s0
+/data/cam_socket2                                       u:object_r:camera_socket:s0
 
-/persist/.genmac                                u:object_r:wifi_data_file:s0
-/persist/.bt_nv.bin                             u:object_r:bluetooth_data_file:s0
+# Old slim_ap executable
+/system/vendor/bin/slim_ap_daemon                       u:object_r:location_exec:s0
 
-/dev/block/platform/msm_sdcc\.1/by-name/persist   u:object_r:persist_block_device:s0
+# Vibrator config
+/sys/devices/virtual/timed_output/vibrator/vtg_level    u:object_r:vibeamp_sysfs:s0
+
+# BT/WiFi MAC
+/persist/.genmac                                        u:object_r:wifi_data_file:s0
+/persist/.bt_nv.bin                                     u:object_r:bluetooth_data_file:s0

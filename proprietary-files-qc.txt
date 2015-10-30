@@ -125,7 +125,7 @@ bin/mpdecision
 vendor/lib/libqti-perfd-client.so
 
 # Postprocessing
-bin/mm-pp-daemon
+vendor/bin/mm-pp-daemon
 vendor/lib/libdisp-aba.so
 -vendor/lib/libmm-abl.so
 vendor/lib/libmm-abl-oem.so
@@ -177,7 +177,7 @@ vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
 
 # Thermal
-bin/thermal-engine
+vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 

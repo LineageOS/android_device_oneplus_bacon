@@ -5,5 +5,5 @@ allow system_server proc_touchpanel:dir { search };
 # for CMHardwareService access to VibratorHW
 allow system_server vibeamp_sysfs:file rw_file_perms;
 
-# timerfd
-allow system_server rtc_device:chr_file rw_file_perms;
+# examine battery state
+r_dir_file(system_server, sysfs_usb_supply);
