@@ -109,7 +109,7 @@ linked_list_err_type linked_list_destroy(void** list_data)
   ===========================================================================*/
 linked_list_err_type linked_list_add(void* list_data, void *data_obj, void (*dealloc)(void*))
 {
-   LOC_LOGD("%s: Adding to list data_obj = 0x%08X\n", __FUNCTION__, data_obj);
+   LOC_LOGV("%s: Adding to list data_obj = 0x%08X\n", __FUNCTION__, data_obj);
    if( list_data == NULL )
    {
       LOC_LOGE("%s: Invalid list parameter!\n", __FUNCTION__);
@@ -161,7 +161,7 @@ linked_list_err_type linked_list_add(void* list_data, void *data_obj, void (*dea
   ===========================================================================*/
 linked_list_err_type linked_list_remove(void* list_data, void **data_obj)
 {
-   LOC_LOGD("%s: Removing from list\n", __FUNCTION__);
+   LOC_LOGV("%s: Removing from list\n", __FUNCTION__);
    if( list_data == NULL )
    {
       LOC_LOGE("%s: Invalid list parameter!\n", __FUNCTION__);
@@ -268,7 +268,7 @@ linked_list_err_type linked_list_search(void* list_data, void **data_p,
                                         bool (*equal)(void* data_0, void* data),
                                         void* data_0, bool rm_if_found)
 {
-   LOC_LOGD("%s: Search the list\n", __FUNCTION__);
+   LOC_LOGV("%s: Search the list\n", __FUNCTION__);
    if( list_data == NULL || NULL == equal )
    {
       LOC_LOGE("%s: Invalid list parameter! list_data %p equal %p\n",
