@@ -1,2 +1,0 @@
-# Older qcamera service sockets
-allow mm-qcamerad system_data_file:dir { write remove_name add_name };
