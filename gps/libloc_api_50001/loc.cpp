@@ -364,7 +364,6 @@ static int loc_init(GpsCallbacks* callbacks)
         for(mdm_index = 0;
             mdm_index < modem_info.num_modems;
             mdm_index++) {
-            if(modem_info.mdm_list[mdm_index].mdm_name) {
                 //Copy modem name to register with peripheral manager
                 strlcpy(loc_mdm_info.modem_name,
                         modem_info.mdm_list[mdm_index].mdm_name,
@@ -378,7 +377,6 @@ static int loc_init(GpsCallbacks* callbacks)
                          __func__, __LINE__, loc_mdm_info.modem_name, loc_mdm_info.powerup_node,
                          mdm_index);
                 break;
-            }
         }
     }
 
