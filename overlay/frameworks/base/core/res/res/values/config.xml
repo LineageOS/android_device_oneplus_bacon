@@ -219,10 +219,6 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- Performance profiles -->
-    <string name="config_perf_profile_prop">powerhal</string>
-    <string name="config_perf_profile_default_entry">1</string>
-
     <!-- Setting this true forces the headset jack switches to use the/dev/input/event subsystem
          rather than the uevent framework. -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
