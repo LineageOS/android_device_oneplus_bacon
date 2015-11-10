@@ -1,1 +1,2 @@
 allow qti_init_shell bluetooth_data_file:file create_file_perms;
+qmux_socket(qti_init_shell);
