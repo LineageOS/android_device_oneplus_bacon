@@ -8,7 +8,6 @@
 # Old camera socket
 /data/cam_socket1                                       u:object_r:camera_socket:s0
 /data/cam_socket2                                       u:object_r:camera_socket:s0
-/data/fdAlbum                                           u:object_r:camera_data_file:s0
 
 # Old slim_ap executable
 /system/vendor/bin/slim_ap_daemon                       u:object_r:location_exec:s0

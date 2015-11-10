@@ -2,5 +2,4 @@
 allow mm-qcamerad system_data_file:dir { write remove_name add_name };
 
 # Face detection cache in the old location
-type_transition mm-qcamerad system_data_file:file camera_data_file "fdAlbum";
 allow mm-qcamerad camera_data_file:file create_file_perms;
