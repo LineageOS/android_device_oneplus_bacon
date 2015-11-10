@@ -101,7 +101,6 @@ void LocEngAdapter::setXtraUserAgent() {
             char release[PROPERTY_VALUE_MAX];
             char manufacture[PROPERTY_VALUE_MAX];
             char model[PROPERTY_VALUE_MAX];
-            char carrier[PROPERTY_VALUE_MAX];
             char board[PROPERTY_VALUE_MAX];
             char brand[PROPERTY_VALUE_MAX];
             char chipsetsn[CHIPSET_SERIAL_NUMBER_MAX_LEN];
@@ -111,13 +110,12 @@ void LocEngAdapter::setXtraUserAgent() {
             property_get("ro.build.version.release", release,     defVal);
             property_get("ro.product.manufacturer",  manufacture, defVal);
             property_get("ro.product.model", model,   defVal);
-            property_get("ro.carrier",       carrier, defVal);
             property_get("ro.product.board", board,   defVal);
             property_get("ro.product.brand", brand,   defVal);
             getChipsetSerialNo(chipsetsn, sizeof(chipsetsn), defVal);
 
-            snprintf(userAgent, sizeof(userAgent), "A/%s/%s/%s/%s/%s/QCX3/s%u/-/%s/-/%s/-/-/-",
-                     release, manufacture, model, board, carrier,
+            snprintf(userAgent, sizeof(userAgent), "A/%s/%s/%s/%s/-/QCX3/s%u/-/%s/-/%s/-/-/-",
+                     release, manufacture, model, board,
                      mContext->getIzatDevId(), chipsetsn, brand);
 
             for (int i = 0; i < sizeof(userAgent) && userAgent[i]; i++) {
