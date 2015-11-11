@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2014, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -45,17 +45,6 @@
 #include <LocDualContext.h>
 #include <cutils/properties.h>
 
-#ifdef MODEM_POWER_VOTE
-#include <pm-service.h>
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-#include <mdm_detect.h>
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
-#endif /*MODEM_POWER_VOTE*/
-
 using namespace loc_core;
 
 #define LOC_PM_CLIENT_NAME "GPS"
@@ -81,7 +70,6 @@ static int  loc_set_position_mode(GpsPositionMode mode, GpsPositionRecurrence re
                                   uint32_t min_interval, uint32_t preferred_accuracy,
                                   uint32_t preferred_time);
 static const void* loc_get_extension(const char* name);
-static void loc_close_mdm_node();
 // Defines the GpsInterface in gps.h
 static const GpsInterface sLocEngInterface =
 {
@@ -103,6 +91,7 @@ static int  loc_agps_open(const char* apn);
 static int  loc_agps_closed();
 static int  loc_agps_open_failed();
 static int  loc_agps_set_server(AGpsType type, const char *hostname, int port);
+static int  loc_agps_open_with_apniptype( const char* apn, ApnIpType apnIpType);
 
 static const AGpsInterface sLocEngAGpsInterface =
 {
@@ -111,7 +100,8 @@ static const AGpsInterface sLocEngAGpsInterface =
    loc_agps_open,
    loc_agps_closed,
    loc_agps_open_failed,
-   loc_agps_set_server
+   loc_agps_set_server,
+   loc_agps_open_with_apniptype
 };
 
 static int loc_xtra_init(GpsXtraCallbacks* callbacks);
@@ -134,22 +124,15 @@ static const GpsNiInterface sLocEngNiInterface =
    loc_ni_respond,
 };
 
-#ifdef MODEM_POWER_VOTE
-typedef struct {
-    //MAX_NAME_LEN defined in mdm_detect.h
-    char modem_name[MAX_NAME_LEN];
-    //MAX_PATH_LEN defined in mdm_detect.h
-    char powerup_node[MAX_PATH_LEN];
-    //this handle is used by peripheral mgr
-    void *handle;
-    int mdm_fd;
-    MdmType mdm_type;
-    bool peripheral_mgr_supported;
-    bool peripheral_mgr_registered;
-}s_loc_mdm_info;
-static s_loc_mdm_info loc_mdm_info;
-static void loc_pm_event_notifier(void *client_data, enum pm_event event);
-#endif /*MODEM_POWER_VOTE*/
+static int loc_gps_measurement_init(GpsMeasurementCallbacks* callbacks);
+static void loc_gps_measurement_close();
+
+static const GpsMeasurementInterface sLocEngGpsMeasurementInterface =
+{
+    sizeof(GpsMeasurementInterface),
+    loc_gps_measurement_init,
+    loc_gps_measurement_close
+};
 
 static void loc_agps_ril_init( AGpsRilCallbacks* callbacks );
 static void loc_agps_ril_set_ref_location(const AGpsRefLocation *agps_reflocation, size_t sz_struct);
@@ -191,7 +174,7 @@ static const GnssConfigurationInterface sLocEngConfigInterface =
 
 static loc_eng_data_s_type loc_afw_data;
 static int gss_fd = -1;
-
+static int sGnssType = GNSS_UNKNOWN;
 /*===========================================================================
 FUNCTION    gps_get_hardware_interface
 
@@ -243,8 +226,8 @@ extern "C" const GpsInterface* get_gps_interface()
     target = loc_get_target();
     LOC_LOGD("Target name check returned %s", loc_get_target_name(target));
 
-    int gnssType = getTargetGnssType(target);
-    switch (gnssType)
+    sGnssType = getTargetGnssType(target);
+    switch (sGnssType)
     {
     case GNSS_GSS:
     case GNSS_AUTO:
@@ -292,11 +275,6 @@ SIDE EFFECTS
 static int loc_init(GpsCallbacks* callbacks)
 {
     int retVal = -1;
-#ifdef MODEM_POWER_VOTE
-    enum pm_event mdm_state;
-    static int mdm_index = -1;
-    int peripheral_mgr_ret = PM_RET_FAILED;
-#endif /*MODEM_POWER_VOTE*/
     ENTRY_LOG();
     LOC_API_ADAPTER_EVENT_MASK_T event;
 
@@ -326,7 +304,7 @@ static int loc_init(GpsCallbacks* callbacks)
                                     NULL, /* location_ext_parser */
                                     NULL, /* sv_ext_parser */
                                     callbacks->request_utc_time_cb, /* request_utc_time_cb */
-                                    loc_close_mdm_node  /*loc_shutdown_cb*/};
+                                    };
 
     gps_loc_cb = callbacks->location_cb;
     gps_sv_cb = callbacks->sv_status_cb;
@@ -337,6 +315,7 @@ static int loc_init(GpsCallbacks* callbacks)
     loc_afw_data.adapter->mSupportsTimeInjection = !loc_afw_data.adapter->hasCPIExtendedCapabilities();
     loc_afw_data.adapter->setGpsLockMsg(0);
     loc_afw_data.adapter->requestUlp(getCarrierCapabilities());
+    loc_afw_data.adapter->setXtraUserAgent();
 
     if(retVal) {
         LOC_LOGE("loc_eng_init() fail!");
@@ -348,128 +327,9 @@ static int loc_init(GpsCallbacks* callbacks)
 
     LOC_LOGD("loc_eng_init() success!");
 
-#ifdef MODEM_POWER_VOTE
-    //if index is 0 or more, then we've looked for mdm already
-    LOC_LOGD("%s:%d]: mdm_index: %d", __func__, __LINE__,
-             mdm_index);
-    if (mdm_index < 0) {
-        struct dev_info modem_info;
-        memset(&modem_info, 0, sizeof(struct dev_info));
-        if(get_system_info(&modem_info) != RET_SUCCESS) {
-            LOC_LOGE("%s:%d]: Error: get_system_info returned error\n",
-                     __func__, __LINE__);
-            goto err;
-        }
-
-        for(mdm_index = 0;
-            mdm_index < modem_info.num_modems;
-            mdm_index++) {
-                //Copy modem name to register with peripheral manager
-                strlcpy(loc_mdm_info.modem_name,
-                        modem_info.mdm_list[mdm_index].mdm_name,
-                        sizeof(loc_mdm_info.modem_name));
-                //copy powerup node name if we need to use mdmdetect method
-                strlcpy(loc_mdm_info.powerup_node,
-                        modem_info.mdm_list[mdm_index].powerup_node,
-                        sizeof(loc_mdm_info.powerup_node));
-                loc_mdm_info.mdm_type = modem_info.mdm_list[mdm_index].type;
-                LOC_LOGD("%s:%d]: Found modem: %s, powerup node:%s at index: %d",
-                         __func__, __LINE__, loc_mdm_info.modem_name, loc_mdm_info.powerup_node,
-                         mdm_index);
-                break;
-        }
-    }
-
-    if(loc_mdm_info.peripheral_mgr_registered != true) {
-        peripheral_mgr_ret = pm_client_register(loc_pm_event_notifier,
-                                                &loc_mdm_info,
-                                                loc_mdm_info.modem_name,
-                                                LOC_PM_CLIENT_NAME,
-                                                &mdm_state,
-                                                &loc_mdm_info.handle);
-        if(peripheral_mgr_ret == PM_RET_SUCCESS) {
-            loc_mdm_info.peripheral_mgr_supported = true;
-            loc_mdm_info.peripheral_mgr_registered = true;
-            LOC_LOGD("%s:%d]: registered with peripheral mgr for %s",
-                     __func__, __LINE__, loc_mdm_info.modem_name);
-        }
-        else if(peripheral_mgr_ret == PM_RET_UNSUPPORTED) {
-            loc_mdm_info.peripheral_mgr_registered = true;
-            loc_mdm_info.peripheral_mgr_supported = false;
-            LOC_LOGD("%s:%d]: peripheral mgr unsupported for: %s",
-                     __func__, __LINE__, loc_mdm_info.modem_name);
-        }
-        else {
-            //Not setting any flags here so that we can try again the next time around
-            LOC_LOGE("%s:%d]: Error: pm_client_register returned: %d",
-                     __func__, __LINE__, peripheral_mgr_ret);
-        }
-    }
-
-    if(loc_mdm_info.peripheral_mgr_supported == false &&
-       loc_mdm_info.peripheral_mgr_registered == true) {
-        //Peripheral mgr is not supported
-        //use legacy method to open the powerup node
-        LOC_LOGD("%s:%d]: powerup_node: %s", __func__, __LINE__,
-                 loc_mdm_info.powerup_node);
-        loc_mdm_info.mdm_fd = open(loc_mdm_info.powerup_node, O_RDONLY);
-
-        if (loc_mdm_info.mdm_fd < 0) {
-            LOC_LOGE("Error: %s open failed: %s\n",
-                     loc_mdm_info.powerup_node, strerror(errno));
-        } else {
-            LOC_LOGD("%s opens success!", loc_mdm_info.powerup_node);
-        }
-    }
-    else if(loc_mdm_info.peripheral_mgr_supported == true &&
-            loc_mdm_info.peripheral_mgr_registered == true) {
-        LOC_LOGD("%s:%d]: Voting for modem power up", __func__, __LINE__);
-        pm_client_connect(loc_mdm_info.handle);
-    }
-    else {
-        LOC_LOGD("%s:%d]: Not voted for modem power up due to errors", __func__, __LINE__);
-    }
-#endif /*MODEM_POWER_VOTE*/
 err:
     EXIT_LOG(%d, retVal);
     return retVal;
-}
-
-/*===========================================================================
-FUNCTION    loc_close_mdm_node
-
-DESCRIPTION
-   closes loc_mdm_info.mdm_fd which is the modem powerup node obtained in loc_init
-
-DEPENDENCIES
-   None
-
-RETURN VALUE
-   None
-
-SIDE EFFECTS
-   N/A
-
-===========================================================================*/
-static void loc_close_mdm_node()
-{
-    ENTRY_LOG();
-#ifdef MODEM_POWER_VOTE
-    if(loc_mdm_info.peripheral_mgr_supported == true) {
-        LOC_LOGD("%s:%d]: Voting for modem power down", __func__, __LINE__);
-        pm_client_disconnect(loc_mdm_info.handle);
-    }
-    else if (loc_mdm_info.mdm_fd >= 0) {
-        LOC_LOGD("closing the powerup node");
-        close(loc_mdm_info.mdm_fd);
-        loc_mdm_info.mdm_fd = -1;
-        LOC_LOGD("finished closing the powerup node");
-    }
-    else {
-        LOC_LOGD("powerup node has not been opened yet.");
-    }
-#endif /*MODEM_POWER_VOTE*/
-    EXIT_LOG(%s, VOID_RET);
 }
 
 /*===========================================================================
@@ -496,7 +356,6 @@ static void loc_cleanup()
     loc_afw_data.adapter->setGpsLockMsg(gps_conf.GPS_LOCK);
 
     loc_eng_cleanup(loc_afw_data);
-    loc_close_mdm_node();
     gps_loc_cb = NULL;
     gps_sv_cb = NULL;
 
@@ -706,7 +565,7 @@ const GpsGeofencingInterface* get_geofence_interface(void)
     }
     dlerror();    /* Clear any existing error */
     get_gps_geofence_interface = (get_gps_geofence_interface_function)dlsym(handle, "gps_geofence_get_interface");
-    if ((error = dlerror()) != NULL && NULL != get_gps_geofence_interface)  {
+    if ((error = dlerror()) != NULL || NULL == get_gps_geofence_interface)  {
         LOC_LOGE ("%s, dlsym for get_gps_geofence_interface failed, error = %s\n", __func__, error);
         goto exit;
      }
@@ -774,6 +633,10 @@ const void* loc_get_extension(const char* name)
    {
        ret_val = &sLocEngConfigInterface;
    }
+   else if (strcmp(name, GPS_MEASUREMENT_INTERFACE) == 0)
+   {
+       ret_val = &sLocEngGpsMeasurementInterface;
+   }
    else
    {
       LOC_LOGE ("get_extension: Invalid interface passed in\n");
@@ -827,6 +690,50 @@ static int loc_agps_open(const char* apn)
     ENTRY_LOG();
     AGpsType agpsType = AGPS_TYPE_SUPL;
     AGpsBearerType bearerType = AGPS_APN_BEARER_IPV4;
+    int ret_val = loc_eng_agps_open(loc_afw_data, agpsType, apn, bearerType);
+
+    EXIT_LOG(%d, ret_val);
+    return ret_val;
+}
+
+/*===========================================================================
+FUNCTION    loc_agps_open_with_apniptype
+
+DESCRIPTION
+   This function is called when on-demand data connection opening is successful.
+It should inform ARM 9 about the data open result.
+
+DEPENDENCIES
+   NONE
+
+RETURN VALUE
+   0
+
+SIDE EFFECTS
+   N/A
+
+===========================================================================*/
+static int  loc_agps_open_with_apniptype(const char* apn, ApnIpType apnIpType)
+{
+    ENTRY_LOG();
+    AGpsType agpsType = AGPS_TYPE_SUPL;
+    AGpsBearerType bearerType;
+
+    switch (apnIpType) {
+        case APN_IP_IPV4:
+            bearerType = AGPS_APN_BEARER_IPV4;
+            break;
+        case APN_IP_IPV6:
+            bearerType = AGPS_APN_BEARER_IPV6;
+            break;
+        case APN_IP_IPV4V6:
+            bearerType = AGPS_APN_BEARER_IPV4V6;
+            break;
+        default:
+            bearerType = AGPS_APN_BEARER_INVALID;
+            break;
+    }
+
     int ret_val = loc_eng_agps_open(loc_afw_data, agpsType, apn, bearerType);
 
     EXIT_LOG(%d, ret_val);
@@ -945,7 +852,10 @@ SIDE EFFECTS
 static int loc_xtra_init(GpsXtraCallbacks* callbacks)
 {
     ENTRY_LOG();
-    int ret_val = loc_eng_xtra_init(loc_afw_data, (GpsXtraExtCallbacks*)callbacks);
+    GpsXtraExtCallbacks extCallbacks;
+    memset(&extCallbacks, 0, sizeof(extCallbacks));
+    extCallbacks.download_request_cb = callbacks->download_request_cb;
+    int ret_val = loc_eng_xtra_init(loc_afw_data, &extCallbacks);
 
     EXIT_LOG(%d, ret_val);
     return ret_val;
@@ -979,6 +889,56 @@ static int loc_xtra_inject_data(char* data, int length)
                  __func__, data, length);
     EXIT_LOG(%d, ret_val);
     return ret_val;
+}
+
+/*===========================================================================
+FUNCTION    loc_gps_measurement_init
+
+DESCRIPTION
+   This function initializes the gps measurement interface
+
+DEPENDENCIES
+   NONE
+
+RETURN VALUE
+   None
+
+SIDE EFFECTS
+   N/A
+
+===========================================================================*/
+static int loc_gps_measurement_init(GpsMeasurementCallbacks* callbacks)
+{
+    ENTRY_LOG();
+    int ret_val = loc_eng_gps_measurement_init(loc_afw_data,
+                                               callbacks);
+
+    EXIT_LOG(%d, ret_val);
+    return ret_val;
+}
+
+/*===========================================================================
+FUNCTION    loc_gps_measurement_close
+
+DESCRIPTION
+   This function closes the gps measurement interface
+
+DEPENDENCIES
+   NONE
+
+RETURN VALUE
+   None
+
+SIDE EFFECTS
+   N/A
+
+===========================================================================*/
+static void loc_gps_measurement_close()
+{
+    ENTRY_LOG();
+    loc_eng_gps_measurement_close(loc_afw_data);
+
+    EXIT_LOG(%s, VOID_RET);
 }
 
 /*===========================================================================
@@ -1080,6 +1040,15 @@ static void loc_configuration_update(const char* config_data, int32_t length)
 {
     ENTRY_LOG();
     loc_eng_configuration_update(loc_afw_data, config_data, length);
+    switch (sGnssType)
+    {
+    case GNSS_GSS:
+    case GNSS_AUTO:
+    case GNSS_QCA1530:
+        //APQ
+        gps_conf.CAPABILITIES &= ~(GPS_CAPABILITY_MSA | GPS_CAPABILITY_MSB);
+        break;
+    }
     EXIT_LOG(%s, VOID_RET);
 }
 
@@ -1106,12 +1075,3 @@ static void local_sv_cb(GpsSvStatus* sv_status, void* svExt)
     EXIT_LOG(%s, VOID_RET);
 }
 
-#ifdef MODEM_POWER_VOTE
-static void loc_pm_event_notifier(void *client_data, enum pm_event event)
-{
-    ENTRY_LOG();
-    LOC_LOGD("%s:%d]: event: %d", __func__, __LINE__, (int)event);
-    pm_client_event_acknowledge(loc_mdm_info.handle, event);
-    EXIT_LOG(%s, VOID_RET);
-}
-#endif /*MODEM_POWER_VOTE*/

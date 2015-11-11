@@ -35,7 +35,6 @@
 #define TARGET_MPQ           TARGET_SET(GNSS_NONE,NO_SSC)
 #define TARGET_MSM_NO_SSC    TARGET_SET(GNSS_MSM, NO_SSC)
 #define TARGET_QCA1530       TARGET_SET(GNSS_QCA1530, NO_SSC)
-#define TARGET_PDS           TARGET_SET(GNSS_PDS, NO_SSC)
 #define TARGET_AUTO          TARGET_SET(GNSS_AUTO, NO_SSC)
 #define TARGET_UNKNOWN       TARGET_SET(GNSS_UNKNOWN, NO_SSC)
 #define getTargetGnssType(target)  (target>>1)
@@ -53,6 +52,11 @@ void loc_get_target_baseband(char *baseband, int array_length);
 /*The character array passed to this function should have length
   of atleast PROPERTY_VALUE_MAX*/
 void loc_get_platform_name(char *platform_name, int array_length);
+/*Reads the property ro.lean to identify if this is a lean target
+  Returns:
+  0 if not a lean and mean target
+  1 if this is a lean and mean target*/
+int loc_identify_lean_target();
 
 /* Please remember to update 'target_name' in loc_log.cpp,
    if do any changes to this enum. */
@@ -62,7 +66,6 @@ typedef enum {
     GNSS_GSS,
     GNSS_MDM,
     GNSS_QCA1530,
-    GNSS_PDS,
     GNSS_AUTO,
     GNSS_UNKNOWN
 }GNSS_TARGET;

@@ -41,10 +41,10 @@ class LocDualContext : public ContextBase {
     static ContextBase* mFgContext;
     static ContextBase* mBgContext;
     static ContextBase* mInjectContext;
-    static const MsgTask* getMsgTask(MsgTask::tCreate tCreator,
-                                     const char* name);
-    static const MsgTask* getMsgTask(MsgTask::tAssociate tAssociate,
-                                     const char* name);
+    static const MsgTask* getMsgTask(LocThread::tCreate tCreator,
+                                     const char* name, bool joinable = true);
+    static const MsgTask* getMsgTask(const char* name, bool joinable = true);
+    static pthread_mutex_t mGetLocContextMutex;
 
 protected:
     LocDualContext(const MsgTask* msgTask,
@@ -57,14 +57,17 @@ public:
     static const LOC_API_ADAPTER_EVENT_MASK_T mBgExclMask;
     static const char* mLocationHalName;
 
-    static ContextBase* getLocFgContext(MsgTask::tCreate tCreator,
-                                        const char* name);
-    static ContextBase* getLocFgContext(MsgTask::tAssociate tAssociate,
-                                        const char* name);
-    static ContextBase* getLocBgContext(MsgTask::tCreate tCreator,
-                                        const char* name);
-    static ContextBase* getLocBgContext(MsgTask::tAssociate tAssociate,
-                                        const char* name);
+    static ContextBase* getLocFgContext(LocThread::tCreate tCreator, LocMsg* firstMsg,
+                                        const char* name, bool joinable = true);
+    inline static ContextBase* getLocFgContext(const char* name, bool joinable = true) {
+        return getLocFgContext(NULL, NULL, name, joinable);
+    }
+    static ContextBase* getLocBgContext(LocThread::tCreate tCreator, LocMsg* firstMsg,
+                                        const char* name, bool joinable = true);
+    inline static ContextBase* getLocBgContext(const char* name, bool joinable = true) {
+        return getLocBgContext(NULL, NULL, name, joinable);
+    }
+
     static void injectFeatureConfig(ContextBase *context);
 };
 

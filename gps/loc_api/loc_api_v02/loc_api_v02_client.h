@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2014, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -301,6 +301,27 @@ typedef union
         To send this request, set the reqId field in locClientSendReq() to
         QMI_LOC_DELETE_ASSIST_DATA_REQ_V02. */
 
+   const qmiLocInjectApCacheDataReqMsgT_v02 *pInjectApCacheDataReq;
+   /**< Inject APcache data into the engine
+
+        If the request is accepted by the service, the client receives the
+        following indication containing a response:
+        QMI_LOC_INJECT_APCACHE_DATA_IND_V02.
+
+        To send this request, set the reqId field in locClientSendReq() to
+        QMI_LOC_INJECT_APCACHE_DATA_REQ_V02. */
+
+   const qmiLocInjectApDoNotCacheDataReqMsgT_v02 *pInjectApDoNotCacheDataReq;
+   /**< Inject blacklist-Apcache data into the engine
+
+        If the request is accepted by the service, the client receives the
+        following indication containing a response:
+        QMI_LOC_INJECT_DONOTAPCACHE_DATA_IND_V02.
+
+        To send this request, set the reqId field in locClientSendReq() to
+        QMI_LOC_INJECT_DONOTAPCACHE_DATA_REQ_V02. */
+
+
    const qmiLocSetXtraTSessionControlReqMsgT_v02* pSetXtraTSessionControlReq;
    /**< Sets XTRA-T session control in the engine.
 
@@ -560,6 +581,17 @@ typedef union
         To send this request, set the reqId field in locClientSendReq() to
         QMI_LOC_GET_BEST_AVAILABLE_POSITION_REQ_V02. @newpagetable */
 
+    const qmiLocSecureGetAvailablePositionReqMsgT_v02*
+         pSecureGetBestAvailablePositionReq;
+       /**< Get the best available position from location engine
+
+           If the request is accepted by the service, the client receives the
+           following indication containing a response:
+           QMI_LOC_GET_BEST_AVAILABLE_POSITION_IND_V02
+
+           To send this request, set the reqId field in locClientSendReq() to
+           QMI_LOC_GET_BEST_AVAILABLE_POSITION_REQ_V02. @newpagetable */
+
     const qmiLocInjectMotionDataReqMsgT_v02* pInjectMotionDataReq;
     /**< Inject motion data in the location engine
 
@@ -640,6 +672,30 @@ typedef union
     /*QMI_LOC_GET_AVAILABLE_WWAN_POSITION_REQ_V02*/
 
     const qmiLocSetXtraVersionCheckReqMsgT_v02 *pSetXtraVersionCheckReq;
+
+    const qmiLocGdtUploadBeginStatusReqMsgT_v02* pGdtUploadBeginStatusReq;
+    /* QMI_LOC_GDT_UPLOAD_BEGIN_STATUS_REQ_V02 */
+
+    const qmiLocGdtUploadEndReqMsgT_v02* pGdtUploadEndReq;
+    /* QMI_LOC_GDT_UPLOAD_END_REQ_V02*/
+
+    const qmiLocInjectGtpClientDownloadedDataReqMsgT_v02 *pInjectGtpClientDownloadedDataReq;
+    /* QMI_LOC_INJECT_GTP_CLIENT_DOWNLOADED_DATA_REQ_V02 */
+
+    const qmiLocSetGNSSConstRepConfigReqMsgT_v02 *pSetGNSSConstRepConfigReq;
+    /*QMI_LOC_SET_GNSS_CONSTELL_REPORT_CONFIG_V02*/
+
+    const qmiLocStartDbtReqMsgT_v02 *pStartDbtReq;
+    /*QMI_LOC_START_DBT_REQ_V02*/
+
+    const qmiLocStopDbtReqMsgT_v02 *pStopDbtReq;
+    /*QMI_LOC_STOP_DBT_REQ_V02*/
+
+    const qmiLocInjectTimeZoneInfoReqMsgT_v02 *pInjectTimeZoneInfoReq;
+    /*QMI_LOC_INJECT_TIME_ZONE_INFO*/
+
+    const qmiLocQueryAonConfigReqMsgT_v02 *pQueryAonConfigReq;
+    /*QMI_LOC_QUERY_AON_CONFIG_REQ_V02*/
 }locClientReqUnionType;
 
 
@@ -825,7 +881,6 @@ typedef union
         QMI_LOC_EVENT_BATCH_FULL_IND_V02. */
 
    const qmiLocEventVehicleDataReadyIndMsgT_v02* pVehicleDataReadyEvent;
-
    /**< Sent by the engine to recommend how vehicle sensor data is
         sent to the location engine.
         The eventIndId field in the event indication callback is set to
@@ -837,6 +892,49 @@ typedef union
 
         The eventIndId field in the event indication callback is set to
         QMI_LOC_EVENT_GEOFENCE_PROXIMITY_NOTIFICATION_IND_V02. @newpagetable */
+
+   const qmiLocEventGdtUploadBeginStatusReqIndMsgT_v02* pGdtUploadBeginEvent;
+   /**< Sent by the engine to notify the client about a GDT upload
+        begine event.
+
+       The eventIndId field in the event indication callback is set to
+       QMI_LOC_EVENT_GDT_UPLOAD_BEGIN_STATUS_REQ_IND_V02. @newpagetable */
+
+   const qmiLocEventGdtUploadEndReqIndMsgT_v02* pGdtUploadEndEvent;
+   /**< Sent by the engine to notify the client about a GDT upload
+        end event.
+
+       The eventIndId field in the event indication callback is set to
+       QMI_LOC_EVENT_GDT_UPLOAD_END_REQ_IND_V02. @newpagetable */
+
+   const qmiLocEventGnssSvMeasInfoIndMsgT_v02* pGnssSvRawInfoEvent;
+   /**< Sent by the engine to report GNSS measurement.
+        The eventIndId field in the event indication callback is set to
+        QMI_LOC_EVENT_GNSS_MEASUREMENT_REPORT_IND_V02. @newpagetable */
+
+   const qmiLocEventDbtPositionReportIndMsgT_v02 *pDbtPositionReportEvent;
+   /**< Sent by the engine to notify the client of a distance based
+        tracking position report.
+        QMI_LOC_EVENT_DBT_POSITION_REPORT_IND_V02*/
+
+   const qmiLocEventDbtSessionStatusIndMsgT_v02 *pDbtSessionStatusEvent;
+   /**< Sent by the engine to notify the client of the status of the
+      DBT session.
+      QMI_LOC_EVENT_DBT_SESSION_STATUS_IND_V02*/
+
+   const qmiLocEventGeofenceBatchedDwellIndMsgT_v02 *pGeofenceBatchedDwellEvent;
+   /**< Sent by the engine to notify the client of the dwell time inside
+      or outside of a Geofence for a specified time.
+      QMI_LOC_EVENT_GEOFENCE_BATCHED_DWELL_NOTIFICATION_IND_V02*/
+
+   const qmiLocEventGetTimeZoneReqIndMsgT_v02 *pGetTimeZoneReqEvent;
+   /**< Sent by the engine to request injection of time zone info
+      QMI_LOC_EVENT_GET_TIME_ZONE_INFO_IND_V02>*/
+
+   const qmiLocEventBatchingStatusIndMsgT_v02* pBatchingStatusEvent;
+   /**< Sent by the engine to notify the control point of the batching status.
+        The eventIndId field in the event indication callback is set to
+        QMI_LOC_EVENT_BATCHING_STATUS_IND_V02. */
 }locClientEventIndUnionType;
 
 
@@ -966,6 +1064,18 @@ typedef union
 
         The respIndId field in the response indication callback is set to
         QMI_LOC_DELETE_ASSIST_DATA_IND_V02. */
+
+   const qmiLocInjectApCacheDataIndMsgT_v02 *pInjectApCacheDataInd;
+   /**< Response to the QMI_LOC_INJECT_APCACHE_DATA_REQ_V02 request.
+
+        The respIndId field in the response indication callback is set to
+        QMI_LOC_INJECT_APCACHE_DATA_IND_V02. */
+
+   const qmiLocInjectApDoNotCacheDataIndMsgT_v02 *pInjectApDoNotCacheDataInd;
+   /**< Response to the QMI_LOC_INJECT_DONOTAPCACHE_DATA_REQ_V02 request.
+
+        The respIndId field in the response indication callback is set to
+        QMI_LOC_INJECT_DONOTAPCACHE_DATA_IND_V02. */
 
    const qmiLocSetXtraTSessionControlIndMsgT_v02* pSetXtraTSessionControlInd;
    /**< Response to the QMI_LOC_SET_XTRA_T_SESSION_CONTROL_REQ_V02 request.
@@ -1176,6 +1286,13 @@ typedef union
         The respIndId field in the response indication callback is set to
         QMI_LOC_GET_BEST_AVAILABLE_POSITION_IND_V02. */
 
+   const qmiLocSecureGetAvailablePositionIndMsgT_v02*
+      pSecureGetBestAvailablePositionInd;
+   /**< Response to the QMI_LOC_SECURE_GET_AVAILABLE_POSITION_REQ_V02 request.
+
+        The respIndId field in the response indication callback is set to
+        QMI_LOC_SECURE_GET_AVAILABLE_POSITION_IND_V02. */
+
    const qmiLocInjectMotionDataIndMsgT_v02* pInjectMotionDataInd;
    /**< Response to the QMI_LOC_INJECT_MOTION_DATA_REQ_V02 request.
 
@@ -1234,6 +1351,22 @@ typedef union
     /*QMI_LOC_GET_AVAILABLE_WWAN_POSITION_IND_V02*/
 
     const qmiLocSetXtraVersionCheckIndMsgT_v02 *pSetXtraVersionCheckInd;
+    /*QMI_LOC_SET_XTRA_VERSION_CHECK_IND_V02*/
+
+    const qmiLocSetGNSSConstRepConfigIndMsgT_v02 *pSetGNSSConstRepConfigInd;
+    /*QMI_LOC_SET_GNSS_CONSTELL_REPORT_CONFIG_IND_V02*/
+
+    const qmiLocStartDbtIndMsgT_v02 *pStartDbtInd;
+    /*QMI_LOC_START_DBT_IND_V02*/
+
+    const qmiLocStopDbtIndMsgT_v02 *pStopDbtInd;
+    /*QMI_LOC_STOP_DBT_IND_V02*/
+
+    const qmiLocInjectTimeZoneInfoIndMsgT_v02 *pInjectTimeZoneInfoInd;
+    /*QMI_LOC_INJECT_TIME_ZONE_INFO_IND_V02*/
+
+    const qmiLocQueryAonConfigIndMsgT_v02 *pQueryAonConfigInd;
+    /*QMI_LOC_QUERY_AON_CONFIG_IND_V02*/
 }locClientRespIndUnionType;
 
 /** @} */ /* end_addtogroup data_types */

@@ -92,7 +92,7 @@ public:
                                 void* locationExt,
                                 enum loc_sess_status status,
                                 LocPosTechMask loc_technology_mask);
-    virtual void reportSv(GpsSvStatus &svStatus,
+    virtual void reportSv(GnssSvStatus &svStatus,
                           GpsLocationExtended &locationExtended,
                           void* svExt);
     virtual void reportStatus(GpsStatusValue status);
@@ -110,8 +110,8 @@ public:
     virtual bool requestNiNotify(GpsNiNotification &notify,
                                  const void* data);
     inline virtual bool isInSession() { return false; }
-    virtual void shutdown();
     ContextBase* getContext() const { return mContext; }
+    virtual void reportGpsMeasurementData(GpsData &gpsMeasurementData);
 };
 
 } // namespace loc_core
