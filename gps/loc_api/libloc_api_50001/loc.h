@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2015, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011,2014 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -26,40 +26,41 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
-#ifndef IZAT_PROXY_BASE_H
-#define IZAT_PROXY_BASE_H
+
+#ifndef __LOC_H__
+#define __LOC_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+
+#include <ctype.h>
+#include <cutils/properties.h>
+#include <hardware/gps.h>
 #include <gps_extended.h>
-#include <MsgTask.h>
 
-namespace loc_core {
+#define XTRA_DATA_MAX_SIZE 100000 /*bytes*/
 
-class LocApiBase;
-class LocAdapterBase;
-class ContextBase;
+typedef void (*loc_location_cb_ext) (UlpLocation* location, void* locExt);
+typedef void (*loc_sv_status_cb_ext) (GpsSvStatus* sv_status, void* svExt);
+typedef void* (*loc_ext_parser)(void* data);
 
-class LBSProxyBase {
-    friend class ContextBase;
-    inline virtual LocApiBase*
-        getLocApi(const MsgTask* msgTask,
-                  LOC_API_ADAPTER_EVENT_MASK_T exMask,
-                  ContextBase* context) const {
-        return NULL;
-    }
-protected:
-    inline LBSProxyBase() {}
-public:
-    inline virtual ~LBSProxyBase() {}
-    inline virtual void requestUlp(LocAdapterBase* adapter,
-                                   unsigned long capabilities) const {}
-    inline virtual bool hasAgpsExtendedCapabilities() const { return false; }
-    inline virtual bool hasCPIExtendedCapabilities() const { return false; }
-    inline virtual void modemPowerVote(bool power) const {}
-    virtual void injectFeatureConfig(ContextBase* context) const {}
-    inline virtual IzatDevId_t getIzatDevId() const { return 0; }
-};
+typedef struct {
+    loc_location_cb_ext location_cb;
+    gps_status_callback status_cb;
+    loc_sv_status_cb_ext sv_status_cb;
+    gps_nmea_callback nmea_cb;
+    gps_set_capabilities set_capabilities_cb;
+    gps_acquire_wakelock acquire_wakelock_cb;
+    gps_release_wakelock release_wakelock_cb;
+    gps_create_thread create_thread_cb;
+    loc_ext_parser location_ext_parser;
+    loc_ext_parser sv_ext_parser;
+    gps_request_utc_time request_utc_time_cb;
+} LocCallbacks;
 
-typedef LBSProxyBase* (getLBSProxy_t)();
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 
-} // namespace loc_core
-
-#endif // IZAT_PROXY_BASE_H
+#endif //__LOC_H__

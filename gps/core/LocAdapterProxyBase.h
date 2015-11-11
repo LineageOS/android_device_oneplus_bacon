@@ -57,6 +57,12 @@ protected:
 public:
     inline virtual void handleEngineUpEvent() {};
     inline virtual void handleEngineDownEvent() {};
+    inline virtual bool reportPosition(UlpLocation &location,
+                                       GpsLocationExtended &locationExtended,
+                                       enum loc_sess_status status,
+                                       LocPosTechMask loc_technology_mask) {
+        return false;
+    }
 };
 
 } // namespace loc_core

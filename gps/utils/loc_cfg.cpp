@@ -52,8 +52,8 @@
  *============================================================================*/
 
 /* Parameter data */
-static uint8_t DEBUG_LEVEL = 0xff;
-static uint8_t TIMESTAMP = 0;
+static uint32_t DEBUG_LEVEL = 0xff;
+static uint32_t TIMESTAMP = 0;
 
 /* Parameter spec table */
 static loc_param_s_type loc_param_table[] =
@@ -329,20 +329,26 @@ int loc_update_conf(const char* conf_data, int32_t length,
     if (conf_data && length && config_table && table_length) {
         // make a copy, so we do not tokenize the original data
         char* conf_copy = (char*)malloc(length+1);
-        memcpy(conf_copy, conf_data, length);
-        // we hard NULL the end of string to be safe
-        conf_copy[length] = 0;
-        // start with one record off
-        uint32_t num_params = table_length - 1;
-        char* saveptr = NULL;
-        char* input_buf = strtok_r(conf_copy, "\n", &saveptr);
-        ret = 0;
 
-        LOC_LOGD("%s:%d]: num_params: %d\n", __func__, __LINE__, num_params);
-        while(num_params && input_buf) {
-            ret++;
-            num_params -= loc_fill_conf_item(input_buf, config_table, table_length);
-            input_buf = strtok_r(NULL, "\n", &saveptr);
+        if (conf_copy != NULL)
+        {
+            memcpy(conf_copy, conf_data, length);
+            // we hard NULL the end of string to be safe
+            conf_copy[length] = 0;
+
+            // start with one record off
+            uint32_t num_params = table_length - 1;
+            char* saveptr = NULL;
+            char* input_buf = strtok_r(conf_copy, "\n", &saveptr);
+            ret = 0;
+
+            LOC_LOGD("%s:%d]: num_params: %d\n", __func__, __LINE__, num_params);
+            while(num_params && input_buf) {
+                ret++;
+                num_params -= loc_fill_conf_item(input_buf, config_table, table_length);
+                input_buf = strtok_r(NULL, "\n", &saveptr);
+            }
+            free(conf_copy);
         }
     }
 
