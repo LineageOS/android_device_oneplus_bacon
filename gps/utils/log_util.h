@@ -81,6 +81,8 @@ extern const char FROM_MODEM[];
 extern const char TO_AFW[];
 extern const char EXIT_TAG[];
 extern const char ENTRY_TAG[];
+extern const char EXIT_ERROR_TAG[];
+
 /*=============================================================================
  *
  *                        MODULE EXPORTED FUNCTIONS
@@ -157,12 +159,18 @@ else if (loc_logger.DEBUG_LEVEL == 0xff) { ALOGV("V/" __VA_ARGS__); }
         }                                                                     \
     } while(0)
 
-
 #define LOG_I(ID, WHAT, SPEC, VAL) LOG_(LOC_LOGI, ID, WHAT, SPEC, VAL)
 #define LOG_V(ID, WHAT, SPEC, VAL) LOG_(LOC_LOGV, ID, WHAT, SPEC, VAL)
+#define LOG_E(ID, WHAT, SPEC, VAL) LOG_(LOC_LOGE, ID, WHAT, SPEC, VAL)
 
 #define ENTRY_LOG() LOG_V(ENTRY_TAG, __func__, %s, "")
 #define EXIT_LOG(SPEC, VAL) LOG_V(EXIT_TAG, __func__, SPEC, VAL)
+#define EXIT_LOG_WITH_ERROR(SPEC, VAL)                       \
+    if (VAL != 0) {                                          \
+        LOG_E(EXIT_ERROR_TAG, __func__, SPEC, VAL);          \
+    } else {                                                 \
+        LOG_V(EXIT_TAG, __func__, SPEC, VAL);                \
+    }
 
 
 // Used for logging callflow from Android Framework

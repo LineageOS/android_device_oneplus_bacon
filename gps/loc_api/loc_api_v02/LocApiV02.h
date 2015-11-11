@@ -43,6 +43,11 @@ using namespace loc_core;
    This class also implements some of the virtual functions that
    handle the requests from loc engine. */
 class LocApiV02 : public LocApiBase {
+  enum supported_status {
+      sup_unknown,
+      sup_yes,
+      sup_no
+  };
 protected:
   /* loc api v02 handle*/
   locClientHandleType clientHandle;
@@ -50,6 +55,10 @@ protected:
 private:
   /*ds client handle*/
   dsClientHandleType dsClientHandle;
+  enum supported_status mGnssMeasurementSupported;
+  locClientEventMaskType mQmiMask;
+  bool mInSession;
+  bool mEngineOn;
 
   /* Convert event mask from loc eng to loc_api_v02 format */
   static locClientEventMaskType convertMask(LOC_API_ADAPTER_EVENT_MASK_T mask);
@@ -67,6 +76,14 @@ private:
   /*convert NI notify verify type from QMI LOC to loc eng format*/
   static bool convertNiNotifyVerifyType (GpsNiNotification *notif,
       qmiLocNiNotifyVerifyEnumT_v02 notif_priv);
+
+  /*convert GpsMeasurement type from QMI LOC to loc eng format*/
+  static void convertGpsMeasurements (GpsMeasurement& gpsMeasurement,
+      const qmiLocSVMeasurementStructT_v02& gnss_measurement_info);
+
+  /*convert GpsClock type from QMI LOC to loc eng format*/
+  static void convertGpsClock (GpsClock& gpsClock,
+      const qmiLocEventGnssSvMeasInfoIndMsgT_v02& gnss_measurement_info);
 
   /* convert position report to loc eng format and send the converted
      position to loc eng */
@@ -103,6 +120,14 @@ private:
   /* report the xtra server info */
   void reportXtraServerUrl(
     const qmiLocEventInjectPredictedOrbitsReqIndMsgT_v02* server_request_ptr);
+
+  /* convert and report GNSS measurement data to loc eng */
+  void reportGnssMeasurementData(
+    const qmiLocEventGnssSvMeasInfoIndMsgT_v02& gnss_measurement_report_ptr);
+
+  bool registerEventMask(locClientEventMaskType qmiMask);
+  locClientEventMaskType adjustMaskForNoSession(locClientEventMaskType qmiMask);
+  void cacheGnssMeasurementSupport();
 
 protected:
   virtual enum loc_api_adapter_err
@@ -202,14 +227,15 @@ public:
   virtual void installAGpsCert(const DerEncodedCertificate* pData,
                                size_t length,
                                uint32_t slotBitMask);
-
-private:
-  locClientEventMaskType mQmiMask = 0;
-  bool mInSession = false;
-  bool mEngineOn = false;
-
-  bool registerEventMask(locClientEventMaskType qmiMask);
-  locClientEventMaskType adjustMaskForNoSession(locClientEventMaskType qmiMask);
+  /*
+    Update Registration Mask
+  */
+  virtual int updateRegistrationMask(LOC_API_ADAPTER_EVENT_MASK_T event,
+                                     loc_registration_mask_status isEnabled);
+  /*
+    Set Gnss Constellation Config
+  */
+  virtual bool gnssConstellationConfig();
 };
 
 extern "C" LocApiBase* getLocApi(const MsgTask* msgTask,

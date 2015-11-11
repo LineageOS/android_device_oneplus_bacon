@@ -1,4 +1,4 @@
-/* Copyright (c) 2011 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -9,7 +9,7 @@
  *       copyright notice, this list of conditions and the following
  *       disclaimer in the documentation and/or other materials provided
  *       with the distribution.
- *     * Neither the name of The Linux Foundation nor the names of its
+ *     * Neither the name of The Linux Foundation, nor the names of its
  *       contributors may be used to endorse or promote products derived
  *       from this software without specific prior written permission.
  *
@@ -26,47 +26,33 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
+#ifndef __LOC_SHARED_LOCK__
+#define __LOC_SHARED_LOCK__
 
-#include <hardware/gps.h>
+#include <stddef.h>
+#include <pthread.h>
 
-#include <stdlib.h>
-
-extern const GpsInterface* get_gps_interface();
-
-const GpsInterface* gps__get_gps_interface(struct gps_device_t* dev)
-{
-    return get_gps_interface();
-}
-
-static int open_gps(const struct hw_module_t* module, char const* name,
-        struct hw_device_t** device)
-{
-    struct gps_device_t *dev = (struct gps_device_t *) malloc(sizeof(struct gps_device_t));
-
-    if(dev == NULL)
-        return -1;
-
-    memset(dev, 0, sizeof(*dev));
-
-    dev->common.tag = HARDWARE_DEVICE_TAG;
-    dev->common.version = 0;
-    dev->common.module = (struct hw_module_t*)module;
-    dev->get_gps_interface = gps__get_gps_interface;
-
-    *device = (struct hw_device_t*)dev;
-    return 0;
-}
-
-static struct hw_module_methods_t gps_module_methods = {
-    .open = open_gps
+// This is a utility created for use cases such that there are more than
+// one client who need to share the same lock, but it is not predictable
+// which of these clients is to last to go away. This shared lock deletes
+// itself when the last client calls its drop() method. To add a cient,
+// this share lock's share() method has to be called, so that the obj
+// can maintain an accurate client count.
+class LocSharedLock {
+    uint32_t mRef;
+    pthread_mutex_t mMutex;
+    inline ~LocSharedLock() { pthread_mutex_destroy(&mMutex); }
+public:
+    // first client to create this LockSharedLock
+    inline LocSharedLock() : mRef(1) { pthread_mutex_init(&mMutex, NULL); }
+    // following client(s) are to *share()* this lock created by the first client
+    inline LocSharedLock* share() { mRef++; return this; }
+    // whe a client no longer needs this shared lock, drop() shall be called.
+    inline void drop() { if (0 == --mRef) delete this; }
+    // locking the lock to enter critical section
+    inline void lock() { pthread_mutex_lock(&mMutex); }
+    // unlocking the lock to leave the critical section
+    inline void unlock() { pthread_mutex_unlock(&mMutex); }
 };
 
-struct hw_module_t HAL_MODULE_INFO_SYM = {
-    .tag = HARDWARE_MODULE_TAG,
-    .module_api_version = 1,
-    .hal_api_version = 0,
-    .id = GPS_HARDWARE_MODULE_ID,
-    .name = "loc_api GPS Module",
-    .author = "Qualcomm USA, Inc.",
-    .methods = &gps_module_methods,
-};
+#endif //__LOC_SHARED_LOCK__
