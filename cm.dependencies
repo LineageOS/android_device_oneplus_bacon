@@ -6,5 +6,9 @@
   {
     "repository": "android_kernel_oneplus_msm8974",
     "target_path": "kernel/oneplus/msm8974"
+  },
+  {
+    "repository": "android_qcom_opensource_dataservices",
+    "target_path": "vendor/qcom/opensource/dataservices"
   }
 ]

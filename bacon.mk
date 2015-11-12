@@ -107,6 +107,11 @@ PRODUCT_PACKAGES += \
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
+# Data
+PRODUCT_PACKAGES += \
+    librmnetctl \
+    rmnetcli
+
 # Display
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi

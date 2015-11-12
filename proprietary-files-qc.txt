@@ -8,13 +8,6 @@ bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
-vendor/lib/libscve.so
-vendor/lib/libscve_stub.so
-vendor/lib/rfsa/adsp/libfastcvadsp.so
-vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
-vendor/lib/rfsa/adsp/libapps_mem_heap.so
-vendor/lib/rfsa/adsp/libdspCV_skel.so
-vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
 # Audio
 vendor/lib/libacdbloader.so
@@ -27,52 +20,54 @@ vendor/lib/soundfx/libqcvirt.so
 
 # DRM
 bin/qseecomd
-#etc/permissions/com.google.widevine.software.drm.xml
-#framework/com.google.widevine.software.drm.jar
+etc/permissions/com.google.widevine.software.drm.xml
+framework/com.google.widevine.software.drm.jar
 lib/libQSEEComAPI.so:vendor/lib/libQSEEComAPI.so
-#lib/libdrmdecrypt.so
+lib/libdrmdecrypt.so
 vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
-#vendor/lib/libwvdrm_L3.so
-#vendor/lib/libwvm.so
-#vendor/lib/libWVStreamControlAPI_L3.so
-#vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/libwvdrm_L3.so
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/drm/libdrmwvmplugin.so
 #vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
 bin/loc_launcher
-bin/location-mq
 bin/lowi-server
-bin/quipc_igsn
-bin/quipc_main
 bin/xtwifi-client
 bin/xtwifi-inet-agent
 etc/permissions/com.qualcomm.location.xml
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
-vendor/bin/slim_ap_daemon
 vendor/lib/hw/activity_recognition.msm8974.so
 vendor/lib/hw/flp.default.so
 vendor/lib/libalarmservice_jni.so
 vendor/lib/libasn1crt.so
 vendor/lib/libasn1crtx.so
 vendor/lib/libasn1cper.so
+vendor/lib/libdataitems.so
+vendor/lib/libflp.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
+vendor/lib/libloc_ext.so
+vendor/lib/libloc_xtra.so
 vendor/lib/liblocationservice.so
+vendor/lib/liblocationservice_glue.so
 vendor/lib/liblowi_client.so
+vendor/lib/liblowi_wifihal_nl.so
+vendor/lib/liblowi_wifihal.so
 vendor/lib/libquipc_os_api.so
 vendor/lib/libxtadapter.so
 vendor/lib/libquipc_os_api.so
-vendor/lib/libquipc_ulp_adapter.so
-vendor/lib/libwifiscanner.so
+vendor/lib/libslimclient.so
+vendor/lib/libxt_native.so
 vendor/lib/libxtwifi_ulp_adaptor.so
-vendor/lib/libxtwifi_zpp_adaptor.so
 vendor/lib/libulp2.so
 
 # Graphics
@@ -100,19 +95,19 @@ etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
 # Listen service
-#vendor/lib/liblistenhardware.so
-#vendor/lib/liblistenjni.so
-#-vendor/lib/liblisten.so
-#vendor/lib/liblistensoundmodel.so
+vendor/lib/liblistenhardware.so
+vendor/lib/liblistenjni.so
+-vendor/lib/liblisten.so
+vendor/lib/liblistensoundmodel.so
 
 # Media
 -vendor/lib/libHevcSwDecoder.so
 vendor/lib/libI420colorconvert.so
-#vendor/lib/libmmosal.so
-#vendor/lib/libmmparser.so
+vendor/lib/libmmosal.so
+vendor/lib/libmmparser.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libDivxDrm.so
-#vendor/lib/libExtendedExtractor.so
+vendor/lib/libExtendedExtractor.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAmrwbplusDec.so
 vendor/lib/libOmxEvrcDec.so
@@ -123,6 +118,7 @@ vendor/lib/libSHIMDivxDrm.so
 # Perf
 bin/mpdecision
 vendor/lib/libqti-perfd-client.so
+vendor/lib/libqc-opt.so
 
 # Postprocessing
 vendor/bin/mm-pp-daemon
@@ -141,29 +137,33 @@ vendor/lib/libqdi.so
 vendor/lib/libqdp.so
 -vendor/lib/libqmi.so
 vendor/lib/libqmi_cci.so
+vendor/lib/libqmi_client_helper.so
 -vendor/lib/libqmi_client_qmux.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
-vendor/lib/libqmi_csvt_srvc.so
 vendor/lib/libqmi_encdec.so
 -vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
 vendor/lib/libsystem_health_mon.so
 
 # Radio
--app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
 bin/qmuxd
 bin/radish
 bin/rfs_access
 bin/rmt_storage
+etc/data/dsi_config.xml
+etc/data/netmgr_config.xml
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 framework/qcnvitems.jar
 framework/qcrilhook.jar
+framework/qti-telephony-common.jar
 -lib/libmdmdetect.so
 vendor/lib/libconfigdb.so
+vendor/lib/liblqe.so
 vendor/lib/libnetmgr.so
 vendor/lib/libperipheral_client.so
 vendor/lib/libril-qc-qmi-1.so
