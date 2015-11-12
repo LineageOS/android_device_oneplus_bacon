@@ -83,6 +83,9 @@ on boot
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
 
+    #Create NETMGR daemon socket area
+    mkdir /dev/socket/netmgr 0750 radio radio
+
     #charger
     chown root system /sys/module/qpnp_charger/parameters/charger_monitor
     chown root system /sys/class/power_supply/battery/input_current_max
