@@ -93,7 +93,7 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 # CM Hardware
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += $(PLATFORM_PATH)/cmhw
-TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
+TARGET_POWER_SET_FEATURE_LIB := libpower_set_feature_bacon
 
 # Enable transparent compression in the build
 # TARGET_TRANSPARENT_COMPRESSION_METHOD := lz4
