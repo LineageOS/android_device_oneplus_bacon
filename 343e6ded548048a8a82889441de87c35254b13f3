@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f2f7f8d_f05b682b",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 7202
+      },
+      "writtenOn": "2015-11-14T01:55:00Z",
+      "side": 1,
+      "message": "featre or feature ?",
+      "range": {
+        "startLine": 96,
+        "startChar": 45,
+        "endLine": 96,
+        "endChar": 51
+      },
+      "revId": "343e6ded548048a8a82889441de87c35254b13f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
