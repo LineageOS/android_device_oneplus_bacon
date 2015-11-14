@@ -22,6 +22,23 @@
       "revId": "343e6ded548048a8a82889441de87c35254b13f3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f2f7f8d_3089f074",
+        "filename": "power/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2015-11-14T02:06:09Z",
+      "side": 1,
+      "message": "Apparently the module name has the same typo.",
+      "revId": "343e6ded548048a8a82889441de87c35254b13f3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
