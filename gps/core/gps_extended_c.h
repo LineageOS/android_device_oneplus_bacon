@@ -77,6 +77,30 @@ extern "C" {
 #define AGPS_CERTIFICATE_MAX_LENGTH 2000
 #define AGPS_CERTIFICATE_MAX_SLOTS 10
 
+/** Batching default ID for dummy batching session*/
+#define GPS_BATCHING_DEFAULT_ID                 1
+
+/** This cap is used to decide the FLP session cache
+size on AP. If the BATCH_SIZE in flp.conf is less than
+GPS_AP_BATCHING_SIZE_CAP, FLP session cache size will
+be twice the BATCH_SIZE defined in flp.conf. Otherwise,
+FLP session cache size will be equal to the BATCH_SIZE.*/
+#define GPS_AP_BATCHING_SIZE_CAP               40
+
+#define GPS_BATCHING_OPERATION_SUCCEESS         1
+#define GPS_BATCHING_OPERATION_FAILURE          0
+
+/** GPS extended batching flags*/
+#define GPS_EXT_BATCHING_ON_FULL        0x0000001
+#define GPS_EXT_BATCHING_ON_FIX         0x0000002
+
+/** Reasons of GPS reports batched locations*/
+typedef enum loc_batching_reported_type {
+    LOC_BATCHING_ON_FULL_IND_REPORT,
+    LOC_BATCHING_ON_FIX_IND_REPORT,
+    LOC_BATCHING_ON_QUERY_REPORT
+} LocBatchingReportedType;
+
 enum loc_registration_mask_status {
     LOC_REGISTRATION_MASK_ENABLED,
     LOC_REGISTRATION_MASK_DISABLED
@@ -126,6 +150,14 @@ typedef struct {
     gps_create_thread create_thread_cb;
     gps_request_utc_time request_utc_time_cb;
 } GpsExtCallbacks;
+
+/** GPS extended batch options */
+typedef struct {
+    double max_power_allocation_mW;
+    uint32_t sources_to_use;
+    uint32_t flags;
+    int64_t period_ns;
+} GpsExtBatchOptions;
 
 /** Callback to report the xtra server url to the client.
  *  The client should use this url when downloading xtra unless overwritten
@@ -197,6 +229,22 @@ typedef enum loc_position_mode_type {
 
 #define MIN_POSSIBLE_FIX_INTERVAL 1000 /* msec */
 
+/** GpsLocationExtended has valid latitude and longitude. */
+#define GPS_LOCATION_EXTENDED_HAS_LAT_LONG   (1U<<0)
+/** GpsLocationExtended has valid altitude. */
+#define GPS_LOCATION_EXTENDED_HAS_ALTITUDE   (1U<<1)
+/** GpsLocationExtended has valid speed. */
+#define GPS_LOCATION_EXTENDED_HAS_SPEED      (1U<<2)
+/** GpsLocationExtended has valid bearing. */
+#define GPS_LOCATION_EXTENDED_HAS_BEARING    (1U<<4)
+/** GpsLocationExtended has valid accuracy. */
+#define GPS_LOCATION_EXTENDED_HAS_ACCURACY   (1U<<8)
+
+/** GPS extended supports geofencing */
+#define GPS_EXTENDED_CAPABILITY_GEOFENCE     0x0000001
+/** GPS extended supports batching */
+#define GPS_EXTENDED_CAPABILITY_BATCHING     0x0000002
+
 /** Flags to indicate which values are valid in a GpsLocationExtended. */
 typedef uint16_t GpsLocationExtendedFlags;
 /** GpsLocationExtended has valid pdop, hdop, vdop. */
@@ -225,6 +273,19 @@ typedef enum {
     LOC_RELIABILITY_MEDIUM = 3,
     LOC_RELIABILITY_HIGH = 4
 }LocReliability;
+
+typedef struct GpsExtLocation_s {
+    size_t          size;
+    uint16_t        flags;
+    double          latitude;
+    double          longitude;
+    double          altitude;
+    float           speed;
+    float           bearing;
+    float           accuracy;
+    int64_t         timestamp;
+    uint32_t        sources_used;
+} GpsExtLocation;
 
 /** Represents gps location extended. */
 typedef struct {
