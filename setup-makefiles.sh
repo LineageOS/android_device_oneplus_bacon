@@ -103,6 +103,7 @@ PRODUCT_PACKAGES += \\
     shutdownlistener
 
 PRODUCT_PACKAGES += \\
+    liblisten \\
     libHevcSwDecoder \\
     libmm-abl \\
     libtime_genoff \\
