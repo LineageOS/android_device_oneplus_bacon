@@ -8,7 +8,7 @@
     "target_path": "kernel/oneplus/msm8974"
   },
   {
-    "repository": "android_qcom_opensource_dataservices",
+    "repository": "android_vendor_qcom_opensource_dataservices",
     "target_path": "vendor/qcom/opensource/dataservices"
   }
 ]
