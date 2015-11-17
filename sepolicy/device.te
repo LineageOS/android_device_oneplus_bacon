@@ -1,2 +1,1 @@
-type persist_block_device, dev_type;
 type nvbackup_block_device, dev_type;
