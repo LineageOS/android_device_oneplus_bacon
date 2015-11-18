@@ -1,0 +1,5 @@
+# perfprofd disables mpdecision temporarily via setprop ctl.stop,
+# then re-enables afterwards with setprop ctl.start
+userdebug_or_eng(`
+  set_prop(perfprofd, mpdecision_prop)
+')
