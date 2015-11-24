@@ -370,8 +370,9 @@ static char *camera_get_parameters(struct camera_device *device)
     params.unflatten(String8(parameters));
     if (CAMERA_ID(device) == BACK_CAMERA_ID) {
         /* Disable 352x288 preview sizes, the combination of this preview size and larger resolutions stalls the HAL */
+        /* Disable 768x432 preview sizes, causes corruption in preview when recording video at a larger resolution with different aspect ratio*/
         params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
-            "1920x1080,1440x1080,1280x960,1280x720,768x432,720x480,640x480,576x432,384x288,320x240");
+            "1920x1080,1440x1080,1280x960,1280x720,720x480,640x480,576x432,384x288,320x240");
         params.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
             "4096x2160,3840x2160,1920x1080,1440x1080,1280x720,864x480,800x480,720x480,640x480,480x320,384x288,352x288,320x240,176x144");
         params.set(CameraParameters::KEY_SUPPORTED_PICTURE_SIZES,
