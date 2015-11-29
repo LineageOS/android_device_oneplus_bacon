@@ -340,7 +340,7 @@ service rfs_access /system/bin/rfs_access
 service qmuxd /system/bin/qmuxd
     class main
     user radio
-    group radio audio bluetooth gps qcom_diag
+    group radio audio bluetooth gps diag
 
 service netmgrd /system/bin/netmgrd
     class main
@@ -456,7 +456,7 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
 service loc_launcher /system/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
-    group gps qcom_oncrpc inet net_raw qcom_diag net_admin wifi
+    group gps qcom_oncrpc inet net_raw diag net_admin wifi
 
 service qseecomd /system/bin/qseecomd
     class core
@@ -520,13 +520,13 @@ on property:vold.decrypt=trigger_restart_framework
 service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     class core
     user root
-    group bluetooth net_bt_admin qcom_diag radio
+    group bluetooth net_bt_admin diag radio
     oneshot
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
-    group bluetooth net_bt_admin qcom_diag radio
+    group bluetooth net_bt_admin diag radio
     disabled
     oneshot
 
@@ -549,15 +549,8 @@ service audiod /system/bin/audiod
 service wcnss-service /system/bin/wcnss_service
     class main
     user system
-    group system wifi qcom_diag radio
+    group system wifi diag radio
     oneshot
-
-service ppd /system/vendor/bin/mm-pp-daemon
-    class late_start
-    disabled
-    user system
-    socket pps stream 0660 system system
-    group system graphics
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
@@ -569,14 +562,14 @@ on property:init.svc.surfaceflinger=running
 service diag_mdlog_start /system/bin/diag_mdlog
     class late_start
     user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
+    group system diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 
 service diag_mdlog_stop /system/bin/diag_mdlog -k
     class late_start
     user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
+    group system diag sdcard_rw sdcard_r media_rw
     disabled
     oneshot
 

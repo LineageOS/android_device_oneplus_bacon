@@ -27,12 +27,12 @@
             <Limit name="measured-frame-rate-1920x1080" range="78-78" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.h263" type="video/3gpp" update="true">
-            <Limit name="measured-frame-rate-176x144" range="179-179" />
-            <Limit name="measured-frame-rate-352x288" range="173-173" />
+            <Limit name="measured-frame-rate-176x144" range="462-462" />
+            <Limit name="measured-frame-rate-352x288" range="291-291" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.mpeg4" type="video/mp4v-es" update="true">
-            <Limit name="measured-frame-rate-176x144" range="173-173" />
-            <Limit name="measured-frame-rate-352x288" range="192-192" />
+            <Limit name="measured-frame-rate-176x144" range="502-502" />
+            <Limit name="measured-frame-rate-352x288" range="312-312" />
             <Limit name="measured-frame-rate-640x480" range="174-174" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.vp8" type="video/x-vnd.on2.vp8" update="true">
@@ -68,11 +68,11 @@
             <Limit name="measured-frame-rate-1920x1088" range="46-46" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.h263" type="video/3gpp" update="true">
-            <Limit name="measured-frame-rate-176x144" range="513-513" />
-            <Limit name="measured-frame-rate-352x288" range="282-282" />
+            <Limit name="measured-frame-rate-176x144" range="1089-1089" />
+            <Limit name="measured-frame-rate-352x288" range="842-842" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.mpeg4" type="video/mp4v-es" update="true">
-            <Limit name="measured-frame-rate-480x360" range="263-263" />
+            <Limit name="measured-frame-rate-480x360" range="798-798" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.vp8" type="video/x-vnd.on2.vp8" update="true">
             <Limit name="measured-frame-rate-320x240" range="210-210" />

@@ -28,9 +28,13 @@
 -->
 
 <resources>
+    <!-- Buggy as hell, disabled -->
+
     <!--The .jar file name which has the extended implementation
-     of telephony base classes.-->
+     of telephony base classes.
     <string name="telephony_plugin_jar_name" translatable="false">qti-telephony-common.jar</string>
-    <!--Fully qualified class name of telephony extended plugin.-->
+    -->
+    <!--Fully qualified class name of telephony extended plugin.
     <string name="telephony_plugin_class_name" translatable="false">com.qti.internal.telephony.QtiTelephonyPlugin</string>
+    -->
 </resources>

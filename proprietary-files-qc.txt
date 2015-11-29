@@ -101,25 +101,13 @@ vendor/lib/liblistenjni.so
 vendor/lib/liblistensoundmodel.so
 
 # Media
--vendor/lib/libHevcSwDecoder.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAmrwbplusDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxWmaDec.so
 
 # Perf
 bin/mpdecision
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqc-opt.so
-
-# Postprocessing
-vendor/bin/mm-pp-daemon
-vendor/lib/libdisp-aba.so
--vendor/lib/libmm-abl.so
-vendor/lib/libmm-abl-oem.so
 
 # Qualcomm framework
 bin/irsc_util
@@ -192,5 +180,5 @@ etc/firmware/venus.mbn
 etc/firmware/venus.mdt
 
 # WiFi
-#-lib/libwpa_qmi_eap_proxy.so
+-lib/libwpa_qmi_eap_proxy.so
 lib/libwcnss_qmi.so

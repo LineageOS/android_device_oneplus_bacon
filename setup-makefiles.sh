@@ -103,14 +103,9 @@ PRODUCT_PACKAGES += \\
     shutdownlistener
 
 PRODUCT_PACKAGES += \\
-    libHevcSwDecoder \\
-    libmm-abl \\
     libtime_genoff \\
     libTimeService \\
     TimeService
-
-PRODUCT_PACKAGES += \\
-    libscale \\
 
 PRODUCT_PACKAGES += \\
     libwvdrmengine \\
@@ -127,7 +122,7 @@ PRODUCT_PACKAGES += \\
     libdiag \\
     libqmi_client_qmux \\
     libdsutils \\
-#    libwpa_qmi_eap_proxy
+    libwpa_qmi_eap_proxy
 
 \$(call inherit-product, vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk)
 EOF
@@ -219,16 +214,6 @@ include \$(CLEAR_VARS)
 LOCAL_MODULE := liblisten
 LOCAL_MODULE_OWNER := $VENDOR
 LOCAL_SRC_FILES := proprietary/vendor/lib/liblisten.so
-LOCAL_MODULE_PATH := \$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-include \$(BUILD_PREBUILT)
-
-include \$(CLEAR_VARS)
-LOCAL_MODULE := libmm-abl
-LOCAL_MODULE_OWNER := $VENDOR
-LOCAL_SRC_FILES := proprietary/vendor/lib/libmm-abl.so
 LOCAL_MODULE_PATH := \$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_SUFFIX := .so

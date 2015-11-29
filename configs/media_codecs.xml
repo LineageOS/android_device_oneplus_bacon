@@ -226,28 +226,6 @@
             <Feature name="adaptive-playback" />
             <Limit name="concurrent-instances" max="13" />
         </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.hevc" type="video/hevc" >
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Limit name="size" min="64x64" max="1280x720" />
-            <Limit name="alignment" value="2x2" />
-            <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="1" max="108000" />
-            <Limit name="bitrate" range="1-2000000" />
-            <Feature name="adaptive-playback" />
-            <Limit name="concurrent-instances" max="3" />
-        </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.decoder.hevchybrid" type="video/hevc" >
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Limit name="size" min="64x64" max="1920x1088" />
-            <Limit name="alignment" value="2x2" />
-            <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="1" max="244800" />
-            <Limit name="bitrate" range="1-6000000" />
-            <Feature name="adaptive-playback" />
-            <Limit name="concurrent-instances" max="2" />
-        </MediaCodec>
     </Decoders>
     <Include href="media_codecs_google_video.xml" />
     <Include href="media_codecs_ffmpeg.xml" />
