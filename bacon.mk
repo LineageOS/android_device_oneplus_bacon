@@ -39,6 +39,11 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     ueventd.bacon.rc
 
+ifeq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PACKAGES += \
+    init.qcom.ssr.rc
+endif
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \
