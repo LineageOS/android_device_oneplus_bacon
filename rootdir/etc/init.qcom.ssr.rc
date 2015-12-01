@@ -1,0 +1,30 @@
+# Copyright (C) 2015 The CyanogenMod Project <http://www.cyanogenmod.org>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#for f in *; do echo $f `cat $f/name`; done;
+#subsys0 adsp
+#subsys1 modem
+#subsys2 wcnss
+#subsys3 venus
+
+on boot
+    # Subsytem Restart
+    #adsp
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
+    #modem
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
+    #wcnss
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
+    #venus
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level "related"
