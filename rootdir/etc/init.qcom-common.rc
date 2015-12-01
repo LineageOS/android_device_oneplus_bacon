@@ -15,6 +15,7 @@
 #
 
 import /init.qcom.usb.rc
+inport /init.qcom.ssr.rc
 import /init.qcom.power.rc
 
 on early-init
