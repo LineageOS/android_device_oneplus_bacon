@@ -900,7 +900,6 @@
         <path name="dmic-endfire" />
     </path>
 
-
     <!-- Stereo recording -->
     <path name="speaker-stereo-dmic-ef">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
@@ -926,6 +925,9 @@
         <path name="speaker-stereo-dmic-ef" />
     </path>
 
+    <path name="voice-rec-dmic-ef">
+        <path name="speaker-stereo-dmic-ef" />
+    </path>
 
     <!-- TTY devices -->
     <path name="tty-headphones">
