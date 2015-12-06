@@ -278,23 +278,6 @@
         <path name="low-latency-playback" />
     </path>
 
-    <path name="ultra-low-latency-playback">
-        <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia3" value="1" />
-    </path>
-
-    <path name="ultra-low-latency-playback afe-proxy">
-        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia3" value="1" />
-    </path>
-
-    <path name="ultra-low-latency-playback usb-headphones">
-        <path name="ultra-low-latency-playback afe-proxy" />
-    </path>
-
-    <path name="ultra-low-latency-playback speaker-and-usb-headphones">
-        <path name="ultra-low-latency-playback usb-headphones" />
-        <path name="ultra-low-latency-playback" />
-    </path>
-
     <path name="multi-channel-playback afe-proxy">
         <ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="1" />
     </path>
@@ -900,7 +883,6 @@
         <path name="dmic-endfire" />
     </path>
 
-
     <!-- Stereo recording -->
     <path name="speaker-stereo-dmic-ef">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
@@ -926,6 +908,9 @@
         <path name="speaker-stereo-dmic-ef" />
     </path>
 
+    <path name="voice-rec-dmic-ef">
+        <path name="speaker-stereo-dmic-ef" />
+    </path>
 
     <!-- TTY devices -->
     <path name="tty-headphones">
