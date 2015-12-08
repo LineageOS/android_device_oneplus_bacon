@@ -51,12 +51,6 @@ failed ()
   exit $2
 }
 
-program_bdaddr ()
-{
-  /system/bin/btnvtool -O
-  logi "Bluetooth Address programmed successfully"
-}
-
 #
 # enable bluetooth profiles dynamically
 #
@@ -204,7 +198,6 @@ kill_hciattach ()
 logi "init.qcom.bt.sh config = $config"
 case "$config" in
     "onboot")
-        program_bdaddr
         config_bt
         exit 0
         ;;
