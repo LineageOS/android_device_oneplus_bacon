@@ -104,6 +104,9 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Dalvik/HWUI
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapminfree=2m
+
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
