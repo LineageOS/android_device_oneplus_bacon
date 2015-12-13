@@ -130,10 +130,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Workaround for factory issue
 BOARD_VOLD_CRYPTFS_MIGRATE := true
 
-# Flags for modem (we still have an old modem)
-COMMON_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
-COMMON_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
-
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
