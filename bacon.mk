@@ -83,7 +83,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.multiple.enabled=false \
     audio.offload.gapless.enabled=true \
     media.aac_51_output_enabled=true \
-    audio.offload.pcm.16bit.enable=false \
+    audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true \
     audio.deep_buffer.media=true
 
