@@ -75,8 +75,8 @@
             <Limit name="measured-frame-rate-480x360" range="798-798" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.vp8" type="video/x-vnd.on2.vp8" update="true">
-            <Limit name="measured-frame-rate-320x180" range="191-191" />
-            <Limit name="measured-frame-rate-640x360" range="180-180" />
+            <Limit name="measured-frame-rate-320x180" range="682-682" />
+            <Limit name="measured-frame-rate-640x360" range="610-610" />
             <Limit name="measured-frame-rate-1280x720" range="539-539" />
             <Limit name="measured-frame-rate-1920x1080" range="328-328" />
         </MediaCodec>
