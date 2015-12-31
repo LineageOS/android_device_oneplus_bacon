@@ -373,20 +373,21 @@ static char *camera_get_parameters(struct camera_device *device)
     if (CAMERA_ID(device) == BACK_CAMERA_ID) {
         /* Disable 352x288 preview sizes, the combination of this preview size and larger resolutions stalls the HAL */
         params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
-            "1920x1080,1440x1080,1280x720,768x432,720x480,640x480,576x432,384x288,320x240");
+            "1920x1080,1280x720,720x480,640x480,320x240");
         params.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
-            "4096x2160,3840x2160,1920x1080,1440x1080,1280x720,864x480,800x480,720x480,640x480,480x320,384x288,352x288,320x240,176x144");
+            "4096x2160,3840x2160,1920x1080,1280x720,864x480,800x480,720x480,640x480,320x240,176x144");
         params.set(CameraParameters::KEY_SUPPORTED_PICTURE_SIZES,
-            "4160x3120,4160x2340,4000x3000,4096x2160,3200x2400,3200x1800,2592x1944,2048x1536,1920x1080,1600x1200,1280x768,1280x720,1024x768,800x600,800x480,720x480,640x480,352x288,320x240");
-
+            "4160x3120,4160x2340,4000x3000,4096x2160,3200x2400,3200x1800,2592x1944,2048x1536,1920x1080,1600x1200,1280x768,1280x720,1024x768,800x600,800x480,720x480,640x480,320x240");
+        params.set("preview-fps-range-values", "(7500,30000),(8000,30000),(30000,30000)");
         params.set("supported-live-snapshot-sizes",
-            "3200x2400,2592x1944,2048x1536,1920x1080,1600x1200,1280x768,1280x720,1024x768,800x600,864x480,800x480,720x480,640x480,352x288,320x240");
+            "3200x2400,2592x1944,2048x1536,1920x1080,1600x1200,1280x768,1280x720,1024x768,800x600,864x480,800x480,720x480,640x480,320x240");
     } else if (CAMERA_ID(device) == FRONT_CAMERA_ID) { 
         /* Inject all supported resolutions */
         params.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
-            "1280x720,864x480,800x480,720x480,640x480,480x320,384x288,352x288,320x240,176x144");
+            "1280x720,864x480,800x480,720x480,640x480,320x240,176x144");
         params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
-            "1280x720,768x432,720x480,640x480,576x432,384x288,320x240");
+            "1280x720,720x480,640x480,576x432,320x240");
+        params.set("preview-fps-range-values", "(7500,30000),(8000,30000),(30000,30000)");
     }
 
     return strdup(params.flatten().string());
