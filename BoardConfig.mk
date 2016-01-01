@@ -127,6 +127,9 @@ BOARD_USERDATAEXTRAIMAGE_PARTITION_NAME := 64G
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+# Disable secure discard for fast formatting
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+
 # Workaround for factory issue
 BOARD_VOLD_CRYPTFS_MIGRATE := true
 
