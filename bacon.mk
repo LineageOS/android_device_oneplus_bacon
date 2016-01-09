@@ -36,6 +36,7 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
+    recovery.fstab \
     ueventd.bacon.rc
 
 # ANT+
