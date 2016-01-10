@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_2ae65618",
+        "filename": "cm.dependencies",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7202
+      },
+      "writtenOn": "2016-01-10T13:41:58Z",
+      "side": 1,
+      "message": "Should be removed.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 56
+      },
+      "revId": "e3a786c6a4e0af01a3c9bbf71a126a5e3b97d233",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
