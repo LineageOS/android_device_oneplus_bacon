@@ -96,7 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
 
 # Bluetooth
-PRODUCT_PROPERTY_OVERRIDES +=
+PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.hfp.client=1
 
 # Boot animation
