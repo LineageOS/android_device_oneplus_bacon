@@ -2,13 +2,70 @@
 # system.prop for one+
 #
 
+# Bluetooth
+bluetooth.hfp.client=1
+
+# CABL
+ro.qualcomm.cabl=0
+
+# Camera
+camera2.portability.force_api=1
+
+# Display
 ro.sf.lcd_density=480
+persist.hwc.mdpcomp.enable=true
+ro.opengles.version=196608
+
+# GPS
+persist.gps.qc_nlp_in_use=0
+ro.gps.agps_provider=1
+
+# IO Scheduler
+sys.io.scheduler=bfq
+
+# Media
+af.fast_track_multiplier=1
+
+audio.deep_buffer.media=true
+audio_hal.period_size=192
+persist.audio.fluence.voicecall=true
+ro.qc.sdk.audio.fluencetype=fluence
+use.voice.path.for.pcm.voip=true
+
+audio.offload.buffer.size.kb=32
+audio.offload.video=true
+audio.offload.multiple.enabled=false
+audio.offload.gapless.enabled=true
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+av.streaming.offload.enable=true
+
+mm.enable.smoothstreaming=true
+media.aac_51_output_enabled=true
+
+# Network
+persist.data.netmgrd.qos.enable=true
+persist.data.tcpackprio.enable=true
+ro.data.large_tcp_window_size=true
+
+# Perf
+ro.qualcomm.perf.cores_online=2
+ro.vendor.extension_library=libqti-perfd-client.so
+
+# Radio
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
 persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
-rol.ril.ext.ecclist=112,911,999,110,122,119,120,000,08,118
+ro.ril.ext.ecclist=112,911,999,110,122,119,120,000,08,118
 
-# sensors
+ro.telephony.call_ring.multiple=0
+ro.telephony.default_network=9
+
+ro.use_data_netmgrd=true
+
+telephony.lteOnGsmDevice=1
+
+# Sensors
 ro.qc.sdk.camera.facialproc=true
 ro.qc.sdk.gestures.camera=false
 ro.qti.sdk.sensors.gestures=true
@@ -17,9 +74,9 @@ ro.qti.sensors.gtap=true
 ro.qti.sensors.ir_proximity=true
 ro.qti.sensors.vmd=true
 
-# gps
-persist.gps.qc_nlp_in_use=0
-ro.gps.agps_provider=1
+# Time services
+persist.timed.enable=true
 
-# cabl is handled by the panel
-ro.qualcomm.cabl=0
+# Wifi
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=15
