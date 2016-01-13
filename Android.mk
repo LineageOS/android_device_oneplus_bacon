@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter bacon,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),bacon)
 
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
