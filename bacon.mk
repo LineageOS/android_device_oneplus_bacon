@@ -21,9 +21,6 @@ endif
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay vendor/extra/overlays/phone-1080p
 
-# Haters gonna hate..
-PRODUCT_CHARACTERISTICS := nosdcard
-
 # Config scripts
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh
@@ -112,9 +109,6 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Dalvik/HWUI
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapminfree=2m
-
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
@@ -128,7 +122,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    make_ext4fs \
     setup_fs
 
 # Graphics
@@ -248,10 +241,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine-8974.conf
 
-# USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-
 # WiFi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -282,11 +271,6 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libtinyxml \
     libxml2
-
-# USB
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true \
-    persist.sys.usb.config=mtp
 
 # System properties
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
