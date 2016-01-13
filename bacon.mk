@@ -75,10 +75,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    setup_fs
-
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8974 \
