@@ -2,13 +2,16 @@
 # system.prop for one+
 #
 
+# Display
 ro.sf.lcd_density=480
+
+# Radio
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
 persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
 rol.ril.ext.ecclist=112,911,999,110,122,119,120,000,08,118
 
-# sensors
+# Sensors
 ro.qc.sdk.camera.facialproc=true
 ro.qc.sdk.gestures.camera=false
 ro.qti.sdk.sensors.gestures=true
@@ -17,9 +20,54 @@ ro.qti.sensors.gtap=true
 ro.qti.sensors.ir_proximity=true
 ro.qti.sensors.vmd=true
 
-# gps
+# GPS
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
 
-# cabl is handled by the panel
+# CABL
 ro.qualcomm.cabl=0
+
+
+# Camera
+camera2.portability.force_api=1
+
+persist.hwc.mdpcomp.enable=true
+persist.timed.enable=true
+ro.opengles.version=196608
+ro.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
+persist.data.tcpackprio.enable=true
+ro.data.large_tcp_window_size=true
+telephony.lteOnGsmDevice=1
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=15
+ro.qualcomm.perf.cores_online=2
+ro.vendor.extension_library=libqti-perfd-client.so
+ro.telephony.call_ring.multiple=0
+ro.telephony.default_network=9
+
+mm.enable.smoothstreaming=true
+ro.qc.sdk.audio.fluencetype=fluence
+persist.audio.fluence.voicecall=true
+audio.offload.buffer.size.kb=32
+audio.offload.video=true
+av.streaming.offload.enable=true
+use.voice.path.for.pcm.voip=true
+audio.offload.multiple.enabled=false
+audio.offload.gapless.enabled=true
+media.aac_51_output_enabled=true
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+audio.deep_buffer.media=true
+
+af.fast_track_multiplier=1
+audio_hal.period_size=192
+
+bluetooth.hfp.client=1
+
+# IO Scheduler
+sys.io.scheduler=bfq
+
+
+
+
