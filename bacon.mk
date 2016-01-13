@@ -71,10 +71,6 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 PRODUCT_PACKAGES += \
     librmnetctl
 
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    setup_fs
-
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8974 \
