@@ -1,4 +1,4 @@
 Device tree for One+One
 
-Copyright 2015, The CyanogenMod Project
+Copyright 2016, The CyanogenMod Project
 
