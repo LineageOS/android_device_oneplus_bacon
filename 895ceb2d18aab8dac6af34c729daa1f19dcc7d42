@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_d7318fee",
+        "filename": "bacon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-01-14T02:58:55Z",
+      "side": 1,
+      "message": "This property isn\u0027t used anymore afaik",
+      "revId": "895ceb2d18aab8dac6af34c729daa1f19dcc7d42",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
