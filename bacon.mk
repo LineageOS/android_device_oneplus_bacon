@@ -138,6 +138,7 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libbson \
     libcnefeatureconfig \
+    libcurl \
     libnl_2 \
     libtinyxml \
     libxml2
