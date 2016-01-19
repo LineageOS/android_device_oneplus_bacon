@@ -696,6 +696,21 @@ typedef union
 
     const qmiLocQueryAonConfigReqMsgT_v02 *pQueryAonConfigReq;
     /*QMI_LOC_QUERY_AON_CONFIG_REQ_V02*/
+
+    const qmiLocGtpApStatusReqMsgT_v02* pGtpApStatusReq;
+    /* QMI_LOC_GTP_AP_STATUS_REQ_V02 */
+
+    const qmiLocGdtDownloadBeginStatusReqMsgT_v02* pGdtDownloadBeginStatusReq;
+    /* QMI_LOC_GDT_DOWNLOAD_BEGIN_STATUS_REQ_V02 */
+
+    const qmiLocGdtDownloadReadyStatusReqMsgT_v02* pGdtDownloadReadyStatusReq;
+    /* QMI_LOC_GDT_DOWNLOAD_READY_STATUS_REQ_V02 */
+
+    const qmiLocGdtReceiveDoneStatusReqMsgT_v02* pGdtReceiveDoneStatusReq;
+    /* QMI_LOC_GDT_RECEIVE_DONE_STATUS_REQ_V02 */
+
+    const qmiLocGdtDownloadEndStatusReqMsgT_v02* pGdtDownloadEndStatusReq;
+    /* QMI_LOC_GDT_DOWNLOAD_END_STATUS_REQ_V02*/
 }locClientReqUnionType;
 
 
@@ -935,6 +950,22 @@ typedef union
    /**< Sent by the engine to notify the control point of the batching status.
         The eventIndId field in the event indication callback is set to
         QMI_LOC_EVENT_BATCHING_STATUS_IND_V02. */
+
+   const qmiLocEventGdtDownloadBeginReqIndMsgT_v02 *pGdtDownloadBeginReqEvent;
+   /**< Sent by the engine to notify the client about a GDT download
+        begin event.
+        QMI_LOC_EVENT_GDT_DOWNLOAD_BEGIN_REQ_IND_V02. */
+
+   const qmiLocEventGdtReceiveDoneIndMsgT_v02 *pGdtReceiveDoneEvent;
+   /**< Sent by the engine to notify the client about a GDT download
+        receive done event.
+        QMI_LOC_EVENT_GDT_RECEIVE_DONE_IND_V02. */
+
+   const qmiLocEventGdtDownloadEndReqIndMsgT_v02 *pGdtDownloadEndReqEvent;
+   /**< Sent by the engine to notify the client about a GDT download
+        end event.
+        QMI_LOC_EVENT_GDT_DOWNLOAD_END_REQ_IND_V02. */
+
 }locClientEventIndUnionType;
 
 
@@ -1367,6 +1398,21 @@ typedef union
 
     const qmiLocQueryAonConfigIndMsgT_v02 *pQueryAonConfigInd;
     /*QMI_LOC_QUERY_AON_CONFIG_IND_V02*/
+
+    const qmiLocGtpApStatusIndMsgT_v02 *pGtpApStatusInd;
+    /*QMI_LOC_GTP_AP_STATUS_IND_V02*/
+
+    const qmiLocGdtDownloadBeginStatusIndMsgT_v02 *pGdtDownloadBeginStatusInd;
+    /*QMI_LOC_GDT_DOWNLOAD_BEGIN_STATUS_IND_V02*/
+
+    const qmiLocGdtDownloadReadyStatusIndMsgT_v02 *pGdtDownloadReadyStatusInd;
+    /*QMI_LOC_GDT_DOWNLOAD_READY_STATUS_IND_V02*/
+
+    const qmiLocGdtReceiveDoneStatusIndMsgT_v02 *pGdtReceiveDoneStatusInd;
+    /*QMI_LOC_GDT_RECEIVE_DONE_STATUS_IND_V02*/
+
+    const qmiLocGdtDownloadEndStatusIndMsgT_v02 *pGdtDownloadEndStatusInd;
+    /*QMI_LOC_GDT_DOWNLOAD_END_STATUS_IND_V02*/
 }locClientRespIndUnionType;
 
 /** @} */ /* end_addtogroup data_types */

@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2012, 2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -197,7 +197,7 @@ void loc_sync_process_ind(
          if(true == locClientGetSizeByRespIndId(ind_id, &payload_size) &&
             NULL != slot->recv_ind_payload_ptr && NULL != ind_payload_ptr)
          {
-            LOC_LOGV("%s:%d]: copying ind payload size = %u \n",
+            LOC_LOGV("%s:%d]: copying ind payload size = %zu \n",
                           __func__, __LINE__, payload_size);
 
             memcpy(slot->recv_ind_payload_ptr, ind_payload_ptr, payload_size);

@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2014, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -33,6 +33,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <dlfcn.h>
 
 #include <hardware/gps.h>
 
@@ -166,7 +167,9 @@ LocApiV02 :: LocApiV02(const MsgTask* msgTask,
                        ContextBase* context):
     LocApiBase(msgTask, exMask, context),
     clientHandle(LOC_CLIENT_INVALID_HANDLE_VALUE),
-    dsClientHandle(NULL), mGnssMeasurementSupported(sup_unknown),
+    dsClientIface(NULL),
+    dsClientHandle(NULL),
+    mGnssMeasurementSupported(sup_unknown),
     mQmiMask(0), mInSession(false), mEngineOn(false)
 {
   // initialize loc_sync_req interface
@@ -1675,17 +1678,20 @@ locClientEventMaskType LocApiV02 :: convertMask(
   if (mask & LOC_API_ADAPTER_REPORT_SPI)
       eventMask |= QMI_LOC_EVENT_MASK_SET_SPI_STREAMING_REPORT_V02;
 
-  if (mask & LOC_API_ADAPTER_REPORT_NI_GEOFENCE)
+  if (mask & LOC_API_ADAPTER_BIT_REPORT_NI_GEOFENCE)
       eventMask |= QMI_LOC_EVENT_MASK_NI_GEOFENCE_NOTIFICATION_V02;
 
-  if (mask & LOC_API_ADAPTER_GEOFENCE_GEN_ALERT)
+  if (mask & LOC_API_ADAPTER_BIT_GEOFENCE_GEN_ALERT)
       eventMask |= QMI_LOC_EVENT_MASK_GEOFENCE_GEN_ALERT_V02;
 
-  if (mask & LOC_API_ADAPTER_REPORT_GENFENCE_BREACH)
+  if (mask & LOC_API_ADAPTER_BIT_REPORT_GENFENCE_BREACH)
       eventMask |= QMI_LOC_EVENT_MASK_GEOFENCE_BREACH_NOTIFICATION_V02;
 
-  if (mask & LOC_API_ADAPTER_BATCHED_GENFENCE_BREACH_REPORT)
+  if (mask & LOC_API_ADAPTER_BIT_BATCHED_GENFENCE_BREACH_REPORT)
       eventMask |= QMI_LOC_EVENT_MASK_GEOFENCE_BATCH_BREACH_NOTIFICATION_V02;
+
+  if (mask & LOC_API_ADAPTER_BIT_REPORT_GENFENCE_DWELL)
+      eventMask |= QMI_LOC_EVENT_MASK_GEOFENCE_BATCH_DWELL_NOTIFICATION_V02;
 
   if (mask & LOC_API_ADAPTER_PEDOMETER_CTRL)
       eventMask |= QMI_LOC_EVENT_MASK_PEDOMETER_CONTROL_V02;
@@ -2804,8 +2810,8 @@ void LocApiV02 :: errorCb(locClientHandleType handle,
 static void ds_client_global_event_cb(ds_client_status_enum_type result,
                                        void *loc_adapter_cookie)
 {
-    LocApiV02 *locApiV02Instance =
-        (LocApiV02 *)loc_adapter_cookie;
+    LocApiV02 *locApiV02Instance = (LocApiV02 *)loc_adapter_cookie;
+
     locApiV02Instance->ds_client_event_cb(result);
     return;
 }
@@ -2823,30 +2829,95 @@ void LocApiV02::ds_client_event_cb(ds_client_status_enum_type result)
     return;
 }
 
-ds_client_cb_data ds_client_cb = {
+static const ds_client_cb_data ds_client_cb = {
     ds_client_global_event_cb
 };
 
 int LocApiV02 :: initDataServiceClient()
 {
     int ret=0;
-    ret = ds_client_init();
+    if (NULL == dsLibraryHandle)
+    {
+      dsLibraryHandle = dlopen(DS_CLIENT_LIB_NAME, RTLD_NOW);
+      if (NULL == dsLibraryHandle)
+      {
+        const char * err = dlerror();
+        if (NULL == err)
+        {
+          err = "Unknown";
+        }
+        LOC_LOGE("%s:%d]: failed to load library %s; error=%s",
+                 __func__, __LINE__,
+                 DS_CLIENT_LIB_NAME,
+                 err);
+        ret = 1;
+      }
+      if (NULL != dsLibraryHandle)
+      {
+        ds_client_get_iface_fn *getIface = NULL;
+
+        getIface = (ds_client_get_iface_fn*)dlsym(dsLibraryHandle,
+                                                  DS_CLIENT_GET_INTERFACE_FN);
+        if (NULL != getIface)
+        {
+          dsClientIface = getIface();
+        }
+        else
+        {
+          const char * err = dlerror();
+          if (NULL == err)
+          {
+            err = "Unknown";
+          }
+          LOC_LOGE("%s:%d]: failed to find symbol %s; error=%s",
+                   __func__, __LINE__,
+                   DS_CLIENT_GET_INTERFACE_FN,
+                   err);
+        }
+      }
+    }
+    if (NULL != dsClientIface && NULL != dsClientIface->pfn_init)
+    {
+      ds_client_status_enum_type dsret = dsClientIface->pfn_init();
+      if (dsret != E_DS_CLIENT_SUCCESS)
+      {
+        LOC_LOGE("%s:%d]: Error during client initialization %d",
+                 __func__, __LINE__,
+                 (int)dsret);
+
+        ret = 3;
+      }
+    }
+    else
+    {
+      ret = 2;
+    }
     LOC_LOGD("%s:%d]: ret = %d\n", __func__, __LINE__,ret);
     return ret;
 }
 
 int LocApiV02 :: openAndStartDataCall()
 {
-    enum loc_api_adapter_err ret;
-    int profile_index;
-    int pdp_type;
-    ds_client_status_enum_type result = ds_client_open_call(&dsClientHandle,
-                                                            &ds_client_cb,
-                                                            (void *)this,
-                                                            &profile_index,
-                                                            &pdp_type);
-    if(result == E_DS_CLIENT_SUCCESS) {
-        result = ds_client_start_call(dsClientHandle, profile_index, pdp_type);
+    loc_api_adapter_err ret = LOC_API_ADAPTER_ERR_GENERAL_FAILURE;
+    int profile_index = -1;
+    int pdp_type = -1;
+    ds_client_status_enum_type result = E_DS_CLIENT_FAILURE_NOT_INITIALIZED;
+
+    if (NULL != dsClientIface &&
+        NULL != dsClientIface->pfn_open_call &&
+        NULL != dsClientIface->pfn_start_call)
+    {
+      result = dsClientIface->pfn_open_call(&dsClientHandle,
+                                            &ds_client_cb,
+                                            (void *)this,
+                                            &profile_index,
+                                            &pdp_type);
+    }
+    if (E_DS_CLIENT_SUCCESS == result)
+    {
+        result = dsClientIface->pfn_start_call(dsClientHandle,
+                                               profile_index,
+                                               pdp_type);
 
         if(result == E_DS_CLIENT_SUCCESS) {
             LOC_LOGD("%s:%d]: Request to start Emergency call sent\n",
@@ -2875,27 +2946,42 @@ int LocApiV02 :: openAndStartDataCall()
 
 void LocApiV02 :: stopDataCall()
 {
-    ds_client_status_enum_type ret =
-        ds_client_stop_call(dsClientHandle);
+    ds_client_status_enum_type ret = E_DS_CLIENT_FAILURE_NOT_INITIALIZED;
+
+    if (NULL != dsClientIface &&
+        NULL != dsClientIface->pfn_stop_call)
+    {
+      ret = dsClientIface->pfn_stop_call(dsClientHandle);
+    }
+
     if (ret == E_DS_CLIENT_SUCCESS) {
-        LOC_LOGD("%s:%d]: Request to Close SUPL ES call sent\n", __func__, __LINE__);
+        LOC_LOGD("%s:%d]: Request to Close SUPL ES call sent",
+                 __func__, __LINE__);
     }
     else {
         if (ret == E_DS_CLIENT_FAILURE_INVALID_HANDLE) {
             LOC_LOGE("%s:%d]: Conn handle not found for SUPL ES",
                      __func__, __LINE__);
         }
-        LOC_LOGE("%s:%d]: Could not close SUPL ES call. Ret: %d\n"
-                 ,__func__, __LINE__, ret);
+        LOC_LOGE("%s:%d]: Could not close SUPL ES call. Ret: %d",
+                 __func__, __LINE__, ret);
     }
     return;
 }
 
 void LocApiV02 :: closeDataCall()
 {
-    ds_client_close_call(&dsClientHandle);
-    LOC_LOGD("%s:%d]: Release data client handle\n", __func__, __LINE__);
-    return;
+  int ret = 1;
+
+  if (NULL != dsClientIface &&
+      NULL != dsClientIface->pfn_close_call)
+  {
+    dsClientIface->pfn_close_call(&dsClientHandle);
+    ret = 0;
+  }
+
+  LOC_LOGD("%s:%d]: Release data client handle; ret=%d",
+           __func__, __LINE__, ret);
 }
 
 enum loc_api_adapter_err LocApiV02 ::

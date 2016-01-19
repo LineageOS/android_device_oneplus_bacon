@@ -1,4 +1,4 @@
-/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2013, 2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -48,6 +48,18 @@
 
 #include<sys/time.h>
 
+/**
+ * @file
+ * @brief DS client API declaration.
+ *
+ * @ingroup loc_ds_api
+ */
+
+/**
+ * @addtogroup loc_ds_api DS client support for location
+ * @{
+ */
+
 //Timeout to wait for wds service notification from qmi
 #define DS_CLIENT_SERVICE_TIMEOUT (4000)
 //Max timeout for the service to come up
@@ -70,13 +82,7 @@ typedef union
     wds_get_profile_settings_resp_msg_v01 *p_get_profile_setting_resp;
 }ds_client_resp_union_type;
 
-struct event_strings_s
-{
-  char * str;
-  dsi_net_evt_t evt;
-};
-
-struct event_strings_s event_string_tbl[DSI_EVT_MAX] =
+static const loc_name_val_s_type event_string_tbl[DSI_EVT_MAX] =
 {
     NAME_VAL(DSI_EVT_INVALID),
     NAME_VAL(DSI_EVT_NET_IS_CONN),
@@ -89,8 +95,8 @@ struct event_strings_s event_string_tbl[DSI_EVT_MAX] =
 
 typedef struct
 {
-    ds_client_event_ind_cb_type event_cb;
-    void *caller_cookie;
+  ds_client_event_ind_cb_type *event_cb;
+  void                        *caller_cookie;
 }ds_caller_data;
 
 typedef struct {
@@ -100,8 +106,13 @@ typedef struct {
     ds_caller_data caller_data;
 } ds_client_session_data;
 
-void net_ev_cb(dsi_hndl_t handle, void* user_data,
-               dsi_net_evt_t evt, dsi_evt_payload_t *payload_ptr)
+static void net_ev_cb
+(
+  dsi_hndl_t handle,
+  void* user_data,
+  dsi_net_evt_t evt,
+  dsi_evt_payload_t *payload_ptr
+)
 {
     int i;
     (void)handle;
@@ -112,12 +123,10 @@ void net_ev_cb(dsi_hndl_t handle, void* user_data,
     LOC_LOGD("%s:%d]: Enter. Callback data: %p\n", __func__, __LINE__, callback_data);
     if(evt > DSI_EVT_INVALID && evt < DSI_EVT_MAX)
     {
-        for(i=0;i<DSI_EVT_MAX;i++)
-        {
-            if(event_string_tbl[i].evt == evt)
-                LOC_LOGE("%s:%d]: Callback received: %s",
-                         __func__, __LINE__, event_string_tbl[i].str);
-        }
+        LOC_LOGE("%s:%d]: Callback received: %s",
+                 __func__, __LINE__,
+                 loc_get_name_from_val(event_string_tbl, DSI_EVT_MAX, evt));
+
         switch(evt) {
         case DSI_EVT_NET_IS_CONN:
         case DSI_EVT_WDS_CONNECTED:
@@ -440,11 +449,26 @@ err:
     return ret;
 }
 
-/*
-  Starts data call using the handle and the profile index
-*/
-ds_client_status_enum_type
-ds_client_start_call(dsClientHandleType client_handle, int profile_index, int pdp_type)
+/**
+ * @brief Starts a data call using the profile number provided
+ *
+ * The function uses parameters provided from @a ds_client_open_call_type
+ * call result.
+ *
+ * @param[in] client_handle Client handle
+ * @param[in] profile_index Profile index
+ * @param[in] pdp_type      PDP type
+ *
+ * @return Operation result
+ * @retval E_DS_CLIENT_SUCCESS    On success.
+ * @retval E_DS_CLIENT_FAILURE... On error.
+ */
+static ds_client_status_enum_type ds_client_start_call
+(
+  dsClientHandleType client_handle,
+  int profile_index,
+  int pdp_type
+)
 {
     ds_client_status_enum_type ret = E_DS_CLIENT_FAILURE_GENERAL;
     dsi_call_param_value_t param_info;
@@ -488,19 +512,39 @@ err:
 
 }
 
-/*Function to open an emergency call. Does the following things:
- - Obtains a handle to the WDS service
- - Obtains a list of profiles configured in the modem
- - Queries each profile and obtains settings to check if emergency calls
-   are supported
- - Returns the profile index that supports emergency calls
- - Returns handle to dsi_netctrl*/
-ds_client_status_enum_type
-ds_client_open_call(dsClientHandleType *client_handle,
-                    ds_client_cb_data *callback,
-                    void *caller_cookie,
-                    int *profile_index,
-                    int *pdp_type)
+/**
+ * @brief Prepares for call.
+ *
+ * Obtains a handle to the dsi_netctrl layer and looks up the profile
+ * to make the call. As of now. It only searches for profiles that
+ * support emergency calls.
+ *
+ * Function to open an emergency call. Does the following things:
+ * - Obtains a handle to the WDS service
+ * - Obtains a list of profiles configured in the modem
+ * - Queries each profile and obtains settings to check if emergency calls
+ *   are supported
+ * - Returns the profile index that supports emergency calls
+ * - Returns handle to dsi_netctrl
+ *
+ * @param[out] client_handle Client handle to initialize.
+ * @param[in]  callback      Pointer to callback function table.
+ * @param[in]  cookie        Client's cookie for using with callback calls.
+ * @param[out] profile_index Pointer to profile index number.
+ * @param[out] pdp_type      Pointer to PDP type.
+ *
+ * @return Operation result
+ * @retval E_DS_CLIENT_SUCCESS    On success. Output parameters are initialized.
+ * @retval E_DS_CLIENT_FAILURE... On error.
+ */
+static  ds_client_status_enum_type ds_client_open_call
+(
+  dsClientHandleType *client_handle,
+  const ds_client_cb_data *callback,
+  void *cookie,
+  int *profile_index,
+  int *pdp_type
+)
 {
     ds_client_status_enum_type ret = E_DS_CLIENT_FAILURE_GENERAL;
     ds_client_resp_union_type profile_list_resp_msg;
@@ -653,7 +697,7 @@ ds_client_open_call(dsClientHandleType *client_handle,
         }
 
         (*ds_global_data)->caller_data.event_cb = callback->event_cb;
-        (*ds_global_data)->caller_data.caller_cookie = caller_cookie;
+        (*ds_global_data)->caller_data.caller_cookie = cookie;
         dsi_handle = dsi_get_data_srvc_hndl(net_ev_cb, &(*ds_global_data)->caller_data);
         if(dsi_handle == NULL) {
             LOC_LOGE("%s:%d]: Could not get data handle. Retry Later\n",
@@ -678,7 +722,16 @@ err:
     return ret;
 }
 
-ds_client_status_enum_type ds_client_stop_call(dsClientHandleType client_handle)
+/**
+ * @brief Stops a data call associated with the handle
+ *
+ * @param[in] client_handle Client handle
+ *
+ * @return Operation result
+ * @retval E_DS_CLIENT_SUCCESS    On success.
+ * @retval E_DS_CLIENT_FAILURE... On error.
+ */
+static ds_client_status_enum_type ds_client_stop_call(dsClientHandleType client_handle)
 {
     ds_client_status_enum_type ret = E_DS_CLIENT_SUCCESS;
     ds_client_session_data *p_ds_global_data = (ds_client_session_data *)client_handle;
@@ -705,10 +758,14 @@ err:
     return ret;
 }
 
-/*
-  Stops data call associated with the data handle
-*/
-void ds_client_close_call(dsClientHandleType *client_handle)
+/**
+ * @brief Releases the handle used for making data calls
+ *
+ * @param[in,out] client_handle Client handle pointer
+ *
+ * @return None
+ */
+static void ds_client_close_call(dsClientHandleType *client_handle)
 {
     ds_client_session_data **ds_global_data = (ds_client_session_data **)client_handle;
     LOC_LOGD("%s:%d]:Enter\n", __func__, __LINE__);
@@ -726,15 +783,53 @@ err:
     return;
 }
 
-int ds_client_init()
+/**
+ * @brief Initialize the DS client service
+ *
+ * This function is to be called as a first step by each process that
+ * needs to use data services. This call internally calls dsi_init()
+ * and prepares the module for making data calls.
+ * Needs to be called once for every process
+ *
+ * @return Operation result
+ * @retval E_DS_CLIENT_SUCCESS    On success.
+ * @retval E_DS_CLIENT_FAILURE... On error.
+ */
+static ds_client_status_enum_type ds_client_init()
 {
-    int ret = 0;
-    LOC_LOGD("%s:%d]:Enter\n", __func__, __LINE__);
-    if(DSI_SUCCESS != dsi_init(DSI_MODE_GENERAL))
-    {
-        LOC_LOGE("%s:%d]:dsi_init failed\n", __func__, __LINE__);
-        ret = -1;
-    }
-    LOC_LOGD("%s:%d]:Exit\n", __func__, __LINE__);
-    return ret;
+  ds_client_status_enum_type ret = E_DS_CLIENT_SUCCESS;
+  LOC_LOGD("%s:%d]:Enter", __func__, __LINE__);
+  if(DSI_SUCCESS != dsi_init(DSI_MODE_GENERAL))
+  {
+    LOC_LOGE("%s:%d]:dsi_init failed", __func__, __LINE__);
+    ret = E_DS_CLIENT_FAILURE_GENERAL;
+  }
+  LOC_LOGD("%s:%d]:Exit", __func__, __LINE__);
+  return ret;
 }
+
+/**
+ * @brief DS client function interface table definition.
+ */
+static const ds_client_iface_type iface =
+{
+  .pfn_init       = ds_client_init,
+  .pfn_open_call  = ds_client_open_call,
+  .pfn_start_call = ds_client_start_call,
+  .pfn_stop_call  = ds_client_stop_call,
+  .pfn_close_call = ds_client_close_call
+};
+
+/**
+ * @brief Function for accessing DS client functional interface
+ *
+ * @return Pointer to interface structure.
+ */
+const ds_client_iface_type *ds_client_get_interface()
+{
+  return &iface;
+}
+
+/**
+ * @}
+ */
