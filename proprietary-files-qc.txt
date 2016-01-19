@@ -22,8 +22,8 @@ vendor/lib/soundfx/libqcvirt.so
 bin/qseecomd
 etc/permissions/com.google.widevine.software.drm.xml
 framework/com.google.widevine.software.drm.jar
-lib/libQSEEComAPI.so:vendor/lib/libQSEEComAPI.so
 lib/libdrmdecrypt.so
+vendor/lib/libQSEEComAPI.so
 vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
