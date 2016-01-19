@@ -52,6 +52,7 @@ vendor/lib/libasn1crtx.so
 vendor/lib/libasn1cper.so
 vendor/lib/libdataitems.so
 vendor/lib/libflp.so
+vendor/lib/libgdtap.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
