@@ -63,7 +63,7 @@ etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 
 # NFC
-etc/firmware/libpn547_fw.so:vendor/firmware/libpn547_fw.so
+vendor/firmware/libpn547_fw.so
 
 # Sensors
 etc/sensor_def_qcomdev.conf
