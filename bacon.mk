@@ -87,6 +87,8 @@ PRODUCT_PACKAGES += \
     memtrack.msm8974 \
     liboverlay
 
+TARGET_USE_COMPAT_GRALLOC_ALIGN := true
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8974
