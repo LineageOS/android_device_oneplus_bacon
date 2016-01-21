@@ -192,11 +192,38 @@
     <bool name="use_motion_accel">false</bool>
     -->
 
-    <!-- Enable overlay for all location components. -->
+    <!-- Whether to enable network location overlay which allows network
+         location provider to be replaced by an app at run-time. When disabled,
+         only the config_networkLocationProviderPackageName package will be
+         searched for network location provider, otherwise packages whose
+         signature matches the signatures of config_locationProviderPackageNames
+         will be searched, and the service with the highest version number will
+         be picked. Anyone who wants to disable the overlay mechanism can set it
+         to false.
+         -->
     <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
+
+    <!-- Package name providing network location support. Used only when
+         config_enableNetworkLocationOverlay is false. -->
     <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+
+    <!-- Whether to enable fused location provider overlay which allows fused
+         location provider to be replaced by an app at run-time. When disabled,
+         only the config_fusedLocationProviderPackageName package will be
+         searched for fused location provider, otherwise packages whose
+         signature matches the signatures of config_locationProviderPackageNames
+         will be searched, and the service with the highest version number will
+         be picked. Anyone who wants to disable the overlay mechanism can set it
+         to false.
+         -->
     <bool name="config_enableFusedLocationOverlay" translatable="false">false</bool>
+
+    <!-- Package name providing fused location support. Used only when
+         config_enableFusedLocationOverlay is false. -->
     <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+
+    <!-- Component name of the combo network location provider. -->
+    <string name="config_comboNetworkLocationProvider" translatable="false">com.qualcomm.location</string>
 
     <!-- Device specific options -->
 
