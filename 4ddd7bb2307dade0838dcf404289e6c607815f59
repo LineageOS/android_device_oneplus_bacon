@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_6f246dc7",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-21T08:13:55Z",
+      "side": 1,
+      "message": "I should probably remove the comments, this was in my local tree and got picked up with the actual change.",
+      "revId": "4ddd7bb2307dade0838dcf404289e6c607815f59",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
