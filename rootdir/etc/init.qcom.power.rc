@@ -64,7 +64,8 @@ on enable-low-power
     write /sys/class/devfreq/qcom,cpubw.40/governor "cpubw_hwmon"
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
 
-    write /dev/cpuctl/cpu.notify_on_migrate 1
+    # disabled due to instability
+    write /dev/cpuctl/cpu.notify_on_migrate 0
 
 on charger
     write /sys/module/lpm_levels/enable_low_power/l2 2
