@@ -487,6 +487,7 @@ service mpdecision /system/bin/mpdecision --avg_comp
    class main
    user root
    group system
+   disabled
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
