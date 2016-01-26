@@ -41,8 +41,8 @@ on enable-low-power
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
     write /sys/devices/system/cpu/cpufreq/interactive/target_loads "85 1500000:90 1800000:70"
     write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpufreq/interactive/max_freq_hysteresis 80000
-    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor 100000
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 30000
 
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
@@ -65,8 +65,7 @@ on enable-low-power
     write /sys/class/devfreq/qcom,cpubw.40/governor "cpubw_hwmon"
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
 
-    # disabled due to instability
-    write /dev/cpuctl/cpu.notify_on_migrate 0
+    write /dev/cpuctl/cpu.notify_on_migrate 1
 
 on charger
     write /sys/module/lpm_levels/enable_low_power/l2 2
@@ -105,4 +104,6 @@ on property:recovery.perf.mode=0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
 
 on property:dev.bootcomplete=1
+    rm /data/system/perfd/default_values
     setprop sys.io.scheduler "bfq"
+    start mpdecision
