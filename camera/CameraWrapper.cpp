@@ -373,7 +373,7 @@ static char *camera_get_parameters(struct camera_device *device)
     if (CAMERA_ID(device) == BACK_CAMERA_ID) {
         /* Disable 352x288 preview sizes, the combination of this preview size and larger resolutions stalls the HAL */
         params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
-            "1920x1080,1280x720,720x480,640x480,320x240");
+            "1920x1080,1440x1080,1280x720,720x480,640x480,320x240");
         params.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
             "4096x2160,3840x2160,1920x1080,1280x720,864x480,800x480,720x480,640x480,320x240,176x144");
         params.set(CameraParameters::KEY_SUPPORTED_PICTURE_SIZES,
