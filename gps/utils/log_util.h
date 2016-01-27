@@ -113,19 +113,19 @@ IF_LOC_LOGE { ALOGE("E/" __VA_ARGS__); } \
 else if (loc_logger.DEBUG_LEVEL == 0xff) { ALOGE("E/" __VA_ARGS__); }
 
 #define LOC_LOGW(...) \
-IF_LOC_LOGW { ALOGE("W/" __VA_ARGS__); }  \
+IF_LOC_LOGW { ALOGW("W/" __VA_ARGS__); }  \
 else if (loc_logger.DEBUG_LEVEL == 0xff) { ALOGW("W/" __VA_ARGS__); }
 
 #define LOC_LOGI(...) \
-IF_LOC_LOGI { ALOGE("I/" __VA_ARGS__); }   \
+IF_LOC_LOGI { ALOGI("I/" __VA_ARGS__); }   \
 else if (loc_logger.DEBUG_LEVEL == 0xff) { ALOGI("I/" __VA_ARGS__); }
 
 #define LOC_LOGD(...) \
-IF_LOC_LOGD { ALOGE("D/" __VA_ARGS__); }   \
+IF_LOC_LOGD { ALOGD("D/" __VA_ARGS__); }   \
 else if (loc_logger.DEBUG_LEVEL == 0xff) { ALOGD("D/" __VA_ARGS__); }
 
 #define LOC_LOGV(...) \
-IF_LOC_LOGV { ALOGE("V/" __VA_ARGS__); }   \
+IF_LOC_LOGV { ALOGD("V/" __VA_ARGS__); }   \
 else if (loc_logger.DEBUG_LEVEL == 0xff) { ALOGV("V/" __VA_ARGS__); }
 
 #else /* DEBUG_DMN_LOC_API */
