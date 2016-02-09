@@ -92,6 +92,9 @@ vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
 vendor/lib/libSHIMDivxDrm.so
 
+# Network
+vendor/lib/libconnctrl.so
+
 # Perf
 bin/mpdecision
 vendor/lib/libqti-perfd-client.so
