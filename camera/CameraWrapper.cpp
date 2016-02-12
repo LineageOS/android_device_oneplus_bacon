@@ -382,6 +382,8 @@ static char *camera_get_parameters(struct camera_device *device)
         params.set("supported-live-snapshot-sizes",
             "3200x2400,2592x1944,2048x1536,1920x1080,1600x1200,1280x768,1280x720,1024x768,800x600,864x480,800x480,720x480,640x480,320x240");
         params.set(CameraParameters::KEY_HORIZONTAL_VIEW_ANGLE, "60.0");
+        params.set("min-focus-pos-index", "0");
+        params.set("max-focus-pos-index", "300");
     } else if (CAMERA_ID(device) == FRONT_CAMERA_ID) { 
         /* Inject all supported resolutions */
         params.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
