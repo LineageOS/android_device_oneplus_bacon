@@ -33,15 +33,6 @@ on boot
     write /sys/class/android_usb/android0/f_rndis/vendorID 22D9
     write /sys/class/android_usb/android0/f_rndis/wceis 1
 
-on property:sys.usb.config=charging
-    stop adbd
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 05C6
-    write /sys/class/android_usb/android0/idProduct 6768
-    write /sys/class/android_usb/android0/functions charging
-    write /sys/class/android_usb/android0/enable 1
-    setprop sys.usb.state ${sys.usb.config}
-
 on property:sys.usb.config=mtp
     stop adbd
     write /sys/class/android_usb/android0/enable 0
