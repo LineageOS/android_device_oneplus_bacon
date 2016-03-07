@@ -33,7 +33,7 @@ audio.offload.buffer.size.kb=32
 audio.offload.video=true
 audio.offload.multiple.enabled=false
 audio.offload.gapless.enabled=true
-audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.16bit.enable=false
 audio.offload.pcm.24bit.enable=true
 av.streaming.offload.enable=true
 
