@@ -25,7 +25,6 @@ af.fast_track_multiplier=1
 audio_hal.period_size=192
 persist.audio.fluence.voicecall=true
 ro.qc.sdk.audio.fluencetype=fluence
-use.voice.path.for.pcm.voip=true
 
 audio.offload.buffer.size.kb=32
 audio.offload.video=true
