@@ -43,6 +43,10 @@ class LBSProxyBase {
         getLocApi(const MsgTask* msgTask,
                   LOC_API_ADAPTER_EVENT_MASK_T exMask,
                   ContextBase* context) const {
+
+        (void)msgTask;
+        (void)exMask;
+        (void)context;
         return NULL;
     }
 protected:
@@ -50,11 +54,21 @@ protected:
 public:
     inline virtual ~LBSProxyBase() {}
     inline virtual void requestUlp(LocAdapterBase* adapter,
-                                   unsigned long capabilities) const {}
+                                   unsigned long capabilities) const {
+
+        (void)adapter;
+        (void)capabilities;
+    }
     inline virtual bool hasAgpsExtendedCapabilities() const { return false; }
     inline virtual bool hasCPIExtendedCapabilities() const { return false; }
-    inline virtual void modemPowerVote(bool power) const {}
-    virtual void injectFeatureConfig(ContextBase* context) const {}
+    inline virtual void modemPowerVote(bool power) const {
+
+        (void)power;
+    }
+    virtual void injectFeatureConfig(ContextBase* context) const {
+
+        (void)context;
+    }
     inline virtual IzatDevId_t getIzatDevId() const { return 0; }
 };
 
