@@ -18,7 +18,6 @@ import /init.qcom.usb.rc
 import /init.qcom.power.rc
 
 on early-init
-    mount debugfs debugfs /sys/kernel/debug
     chown system system /sys/kernel/debug/kgsl/proc
 
 on init
