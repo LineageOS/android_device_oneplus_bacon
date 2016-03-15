@@ -81,6 +81,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8974 \
