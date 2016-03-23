@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_bd3b859a",
+        "filename": "audio/audio_platform_info.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-03-23T02:06:49Z",
+      "side": 1,
+      "message": "IIRC this is what\u0027s used for voice calls, fluence didn\u0027t change for this, just for IDs 40 and 42, right?",
+      "range": {
+        "startLine": 47,
+        "startChar": 22,
+        "endLine": 47,
+        "endChar": 46
+      },
+      "revId": "fb3950a90d673faceb8fa67828a0e5d9c8d4e013",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
