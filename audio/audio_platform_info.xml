@@ -33,16 +33,10 @@
         <device name="SND_DEVICE_OUT_VOICE_HANDSET" acdb_id="7" />
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="15" />
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="10" />
-        <device name="SND_DEVICE_OUT_VOIP_HANDSET" acdb_id="7" />
-        <device name="SND_DEVICE_OUT_VOIP_SPEAKER" acdb_id="15" />
-        <device name="SND_DEVICE_OUT_VOIP_HEADPHONES" acdb_id="10" />
 
         <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="40" />
         <device name="SND_DEVICE_IN_SPEAKER_MIC" acdb_id="42" />
         <device name="SND_DEVICE_IN_HEADSET_MIC" acdb_id="8" />
-        <device name="SND_DEVICE_IN_VOIP_HANDSET_MIC" acdb_id="110" />
-        <device name="SND_DEVICE_IN_VOIP_SPEAKER_MIC" acdb_id="113" />
-        <device name="SND_DEVICE_IN_VOIP_HEADSET_MIC" acdb_id="8" />
 
         <device name="SND_DEVICE_IN_VOICE_DMIC" acdb_id="41" />
 
@@ -64,11 +58,6 @@
     </pcm_ids>
 
     <device_names>
-        <device name="SND_DEVICE_OUT_VOIP_HANDSET" alias="voice-handset" />
-        <device name="SND_DEVICE_OUT_VOIP_SPEAKER" alias="voice-speaker" />
-        <device name="SND_DEVICE_OUT_VOIP_HEADPHONES" alias="voice-headphones" />
-        <device name="SND_DEVICE_IN_VOIP_HANDSET_MIC" alias="handset-mic" />
-        <device name="SND_DEVICE_IN_VOIP_SPEAKER_MIC" alias="speaker-mic" />
-        <device name="SND_DEVICE_IN_VOIP_HEADSET_MIC" alias="headset-mic" />
+        <!-- empty -->
     </device_names>
 </audio_platform_info>
