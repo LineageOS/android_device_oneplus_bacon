@@ -22,6 +22,30 @@
       "revId": "fb3950a90d673faceb8fa67828a0e5d9c8d4e013",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_7d450d17",
+        "filename": "audio/audio_platform_info.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 10094
+      },
+      "writtenOn": "2016-03-23T02:14:26Z",
+      "side": 1,
+      "message": "Correct.  Fluence didn\u0027t change for voice calls or VOIP calls.\n\nIt is disabled for voice recognition \u0026 call recording.",
+      "parentUuid": "7faddb67_bd3b859a",
+      "range": {
+        "startLine": 47,
+        "startChar": 22,
+        "endLine": 47,
+        "endChar": 46
+      },
+      "revId": "fb3950a90d673faceb8fa67828a0e5d9c8d4e013",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
