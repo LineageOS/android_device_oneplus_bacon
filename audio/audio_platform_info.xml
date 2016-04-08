@@ -29,10 +29,12 @@
         <device name="SND_DEVICE_OUT_HANDSET" acdb_id="7" />
         <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15" />
         <device name="SND_DEVICE_OUT_HEADPHONES" acdb_id="10" />
+        <device name="SND_DEVICE_OUT_LINE" acdb_id="10"/>
 
         <device name="SND_DEVICE_OUT_VOICE_HANDSET" acdb_id="7" />
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="15" />
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="10" />
+        <device name="SND_DEVICE_OUT_VOICE_LINE" acdb_id="10"/>
 
         <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="40" />
         <device name="SND_DEVICE_IN_SPEAKER_MIC" acdb_id="42" />
@@ -47,6 +49,8 @@
 
         <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="35" />
         <device name="SND_DEVICE_IN_VOICE_REC_DMIC_STEREO" acdb_id="35" />
+
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" acdb_id="10"/>
     </acdb_ids>
 
     <backend_names>
