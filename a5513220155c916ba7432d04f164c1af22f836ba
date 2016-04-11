@@ -70,6 +70,30 @@
       "revId": "a5513220155c916ba7432d04f164c1af22f836ba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_51356e45",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-04-11T17:36:17Z",
+      "side": 0,
+      "message": "It  might possibly breaks application that use  Camera.PreviewCallback to get the preview frame when recording 4k video by hacking this way. http://developer.android.com/reference/android/hardware/Camera.PreviewCallback.html. Although I am not sure what type of application will use that or we really care about that .",
+      "parentUuid": "7faddb67_51000e68",
+      "range": {
+        "startLine": 246,
+        "startChar": 8,
+        "endLine": 248,
+        "endChar": 9
+      },
+      "revId": "a5513220155c916ba7432d04f164c1af22f836ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
