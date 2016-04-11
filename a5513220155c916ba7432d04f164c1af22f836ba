@@ -22,6 +22,30 @@
       "revId": "a5513220155c916ba7432d04f164c1af22f836ba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_51e7aee5",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-04-11T17:27:39Z",
+      "side": 0,
+      "message": "I don\u0027t seem any quality changes, possibly just affect power consumption.",
+      "parentUuid": "7faddb67_d1c5de3d",
+      "range": {
+        "startLine": 246,
+        "startChar": 8,
+        "endLine": 248,
+        "endChar": 9
+      },
+      "revId": "a5513220155c916ba7432d04f164c1af22f836ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }

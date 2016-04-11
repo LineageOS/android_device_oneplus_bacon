@@ -22,6 +22,30 @@
       "revId": "5854d084cfd5df5f1272856116e304cb19125750",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faddb67_71eaeaac",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 13956
+      },
+      "writtenOn": "2016-04-11T17:27:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7faddb67_51b24ee8",
+      "range": {
+        "startLine": 227,
+        "startChar": 12,
+        "endLine": 227,
+        "endChar": 16
+      },
+      "revId": "5854d084cfd5df5f1272856116e304cb19125750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
