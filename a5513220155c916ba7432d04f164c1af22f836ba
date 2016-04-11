@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7faddb67_d1c5de3d",
+        "filename": "camera/CameraWrapper.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-04-11T17:22:52Z",
+      "side": 0,
+      "message": "If we export 4K as a video resolution in video parameters, it\u0027s probably not a good idea to have a poor default when the app does select a 4K resolution.",
+      "range": {
+        "startLine": 246,
+        "startChar": 8,
+        "endLine": 248,
+        "endChar": 9
+      },
+      "revId": "a5513220155c916ba7432d04f164c1af22f836ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
