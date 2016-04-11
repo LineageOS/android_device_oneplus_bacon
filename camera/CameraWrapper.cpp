@@ -243,9 +243,6 @@ static int camera_start_recording(struct camera_device *device)
     CameraParameters2 parameters;
     parameters.unflatten(String8(camera_get_parameters(device)));
     if (CAMERA_ID(device) == BACK_CAMERA_ID) {
-        if (is4k(parameters)) {
-            parameters.set("preview-format", "nv12-venus");
-        }
         parameters.set("picture-size", "4160x3120");
     }
     camera_set_parameters(device,  strdup(parameters.flatten().string()));
