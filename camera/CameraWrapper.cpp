@@ -422,6 +422,8 @@ static char *camera_get_parameters(struct camera_device *device)
 
     params.remove("high-resolution");
     params.remove("superzoom");
+    // fix up for the nv12-venus hack after recorded a 4k video
+    params.set("preview-format", "yuv420sp");
 
     return strdup(params.flatten().string());
 }
