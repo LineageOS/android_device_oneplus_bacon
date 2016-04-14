@@ -27,6 +27,8 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
+    write /proc/sys/vm/page-cluster 0
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -34,6 +36,8 @@ on early-boot
 
 on fs
     mount_all ./fstab.bacon
+    swapon_all ./fstab.bacon
+
     restorecon_recursive /persist
 
     mkdir /dev/usb-ffs 0770 shell shell
