@@ -45,14 +45,12 @@ static void import_kernel_nv(char *name, int for_emulator)
 
     if (!strcmp(name,"oppo.rf_version")) {
         property_set("ro.oppo.rf_version", value);
-    }
-    else if (!strcmp(name,"oppo.pcb_version")) {
+    } else if (!strcmp(name,"oppo.pcb_version")) {
         property_set("ro.oppo.pcb_version", value);
     }
 }
 
-void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type)
+void vendor_load_properties()
 {
     import_kernel_cmdline(0, import_kernel_nv);
 }
-
