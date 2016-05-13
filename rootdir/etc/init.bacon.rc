@@ -191,9 +191,6 @@ on post-fs-data
     mkdir /data/nfc 0770 nfc nfc
     mkdir /data/nfc/param 0770 nfc nfc
 
-    #Create OPPO NV item directory
-    mkdir /data/opponvitems 0771 radio radio
-
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
