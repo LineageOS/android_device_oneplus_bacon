@@ -186,14 +186,16 @@ WPA_SUPPLICANT_VERSION           := VER_0_8_X
 # Inherit from QC proprietary
 ifneq ($(QCPATH),)
 -include $(QCPATH)/common/msm8974/BoardConfigVendor.mk
+endif
 
 # Bluetooth
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
 # QCNE
+BOARD_USES_QCNE := true
+
 ifeq ($(BOARD_USES_QCNE),true)
 TARGET_LDPRELOAD := libNimsWrap.so
-endif
 endif
 
 -include vendor/oneplus/bacon/BoardConfigVendor.mk
