@@ -18,6 +18,34 @@ vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 
+# CNE / DPM
+bin/cnd
+bin/dpmd
+etc/cne/andsfCne.xml
+etc/cne/SwimConfig.xml
+etc/dpm/dpm.conf
+etc/dpm/nsrm/NsrmConfiguration.xml
+etc/permissions/cneapiclient.xml
+etc/permissions/com.qti.dpmframework.xml
+etc/permissions/com.quicinc.cne.xml
+etc/permissions/ConnectivityExt.xml
+etc/permissions/dpmapi.xml
+framework/cneapiclient.jar
+framework/com.qti.dpmframework.jar
+framework/com.quicinc.cne.jar
+framework/ConnectivityExt.jar
+framework/dpmapi.jar
+-priv-app/CNEService/CNEService.apk
+-priv-app/dpmserviceapp/dpmserviceapp.apk
+vendor/lib/libcne.so
+vendor/lib/libcneapiclient.so
+vendor/lib/libcneconn.so
+vendor/lib/libcneqmiutils.so
+vendor/lib/libdpmframework.so
+vendor/lib/libdpmnsrm.so
+vendor/lib/libNimsWrap.so
+vendor/lib/libvendorconn.so
+
 # DRM
 bin/qseecomd
 etc/permissions/com.google.widevine.software.drm.xml
