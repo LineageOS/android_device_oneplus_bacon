@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_1038299e",
+        "filename": "gps/izat.conf",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-05-19T22:04:18Z",
+      "side": 0,
+      "message": "You probably don\u0027t need to turn up the debug level here.",
+      "revId": "9d872e700604542df9c6b81c0d53168e6d0cb705",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
