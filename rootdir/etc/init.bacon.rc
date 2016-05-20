@@ -266,21 +266,6 @@ on post-fs-data
     chown root system /proc/touchpanel/keypad_enable
     chmod 0660 /proc/touchpanel/keypad_enable
 
-    chown system system /sys/devices/virtual/graphics/fb0/cabc
-    chmod 0660 /sys/devices/virtual/graphics/fb0/cabc
-
-    chown system system /sys/devices/virtual/graphics/fb0/sre
-    chmod 0660 /sys/devices/virtual/graphics/fb0/sre
-
-    chown system system /sys/devices/virtual/graphics/fb0/color_enhance
-    chmod 0660 /sys/devices/virtual/graphics/fb0/color_enhance
-
-    chown system system /sys/devices/virtual/graphics/fb0/rgb
-    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
-
-    chown system system /sys/devices/virtual/graphics/fb0/aco
-    chmod 0660 /sys/devices/virtual/graphics/fb0/aco
-
     chown system system /sys/devices/virtual/graphics/fb0/dyn_pu
     chmod 0660 /sys/devices/virtual/graphics/fb0/dyn_pu
 
