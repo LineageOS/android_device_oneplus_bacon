@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_b3659fe3",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-05-20T13:41:59Z",
+      "side": 1,
+      "message": "Is this also needed on OSS? It\u0027s under QCPATH ifdefs",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 16
+      },
+      "revId": "9d872e700604542df9c6b81c0d53168e6d0cb705",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
