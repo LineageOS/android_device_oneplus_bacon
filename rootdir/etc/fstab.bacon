@@ -14,7 +14,7 @@
 /dev/block/platform/msm_sdcc.1/by-name/misc         /misc           emmc    defaults                                                        defaults
 /dev/block/platform/msm_sdcc.1/by-name/modem        /firmware       vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0        wait
 
-/dev/block/zram0                                    none            swap    defaults zramsize=533413200,zramstreams=4,notrim
+#/dev/block/zram0                                    none            swap    defaults zramsize=533413200,zramstreams=4,notrim
 
 /devices/platform/xhci-hcd*                         auto            auto    defaults voldmanaged=usbdisk:auto
 
