@@ -2,8 +2,5 @@
 allow system_server proc_touchpanel:file rw_file_perms;
 allow system_server proc_touchpanel:dir { search };
 
-# for CMHardwareService access to VibratorHW
-allow system_server vibeamp_sysfs:file rw_file_perms;
-
 # examine battery state
 r_dir_file(system_server, sysfs_usb_supply);
