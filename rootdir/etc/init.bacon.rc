@@ -158,12 +158,14 @@ on boot
     chmod 0664 /sys/class/graphics/fb0/modes
 
     # Subsytem Restart
-    #adsp
+    # adsp
     write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
-    #modem
+    # modem
     write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
-    #venus
+    # wcnss
     write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
+    # venus
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level "related"
 
     # Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
