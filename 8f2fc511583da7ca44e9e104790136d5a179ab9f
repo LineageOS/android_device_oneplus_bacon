@@ -34,6 +34,24 @@
       "revId": "8f2fc511583da7ca44e9e104790136d5a179ab9f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_fb1f2e05",
+        "filename": "cmhw/org/cyanogenmod/hardware/VibratorHW.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-16T16:00:53Z",
+      "side": 1,
+      "message": "Yeah, but we still need to sort that one out. Let\u0027s change this first.",
+      "parentUuid": "5faad753_bbfc56b5",
+      "revId": "8f2fc511583da7ca44e9e104790136d5a179ab9f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
