@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_fbc3ae87",
+        "filename": "cmhw/org/cyanogenmod/hardware/VibratorHW.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-16T15:49:57Z",
+      "side": 1,
+      "message": "Could be FileUtils.isWritable",
+      "revId": "8f2fc511583da7ca44e9e104790136d5a179ab9f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
