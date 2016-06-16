@@ -16,6 +16,24 @@
       "revId": "8f2fc511583da7ca44e9e104790136d5a179ab9f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_bbfc56b5",
+        "filename": "cmhw/org/cyanogenmod/hardware/VibratorHW.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-06-16T15:57:01Z",
+      "side": 1,
+      "message": "Yeah didn\u0027t touch this file because I removed in in next commit",
+      "parentUuid": "5faad753_fbc3ae87",
+      "revId": "8f2fc511583da7ca44e9e104790136d5a179ab9f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
