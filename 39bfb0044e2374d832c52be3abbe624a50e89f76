@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_9bd71aef",
+        "filename": "cmhw/org/cyanogenmod/hardware/KeyDisabler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 13409
+      },
+      "writtenOn": "2016-06-16T16:36:39Z",
+      "side": 1,
+      "message": "Unrelated dropping of parenthesis snuck in?",
+      "revId": "39bfb0044e2374d832c52be3abbe624a50e89f76",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
