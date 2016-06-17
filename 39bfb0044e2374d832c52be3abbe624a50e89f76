@@ -16,6 +16,24 @@
       "revId": "39bfb0044e2374d832c52be3abbe624a50e89f76",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_11e54b09",
+        "filename": "cmhw/org/cyanogenmod/hardware/KeyDisabler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-06-17T10:07:13Z",
+      "side": 1,
+      "message": "Removed it while cleaning up this file. A separate commit for this would be overkill imo.",
+      "parentUuid": "5faad753_9bd71aef",
+      "revId": "39bfb0044e2374d832c52be3abbe624a50e89f76",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
