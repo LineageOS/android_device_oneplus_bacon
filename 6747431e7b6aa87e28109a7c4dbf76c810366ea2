@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5faad753_6c7702a2",
+        "filename": "rootdir/etc/init.qcom.power.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2016-06-17T14:42:41Z",
+      "side": 0,
+      "message": "Yes because write /sys/module/msm_thermal/core_control/enabled 0 is wrong, it should be write /sys/module/msm_thermal/core_control/enabled 0 instead",
+      "parentUuid": "5faad753_0c3f6eb4",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "6747431e7b6aa87e28109a7c4dbf76c810366ea2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5faad753_11f78bd5",
         "filename": "rootdir/etc/init.qcom.power.rc",
         "patchSetId": 1
