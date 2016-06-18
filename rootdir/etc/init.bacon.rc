@@ -110,18 +110,6 @@ on boot
     # Allow QMUX daemon to assign port open wait time
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
-    # For setting tcp delayed ack
-    chown system system /sys/kernel/ipv4/tcp_delack_seg
-    chown system system /sys/kernel/ipv4/tcp_use_userconfig
-
-# Define TCP delayed ack settings for WiFi & LTE
-    setprop net.tcp.delack.default     1
-    setprop net.tcp.delack.wifi        20
-    setprop net.tcp.delack.lte         8
-    setprop net.tcp.usercfg.default    0
-    setprop net.tcp.usercfg.wifi       1
-    setprop net.tcp.usercfg.lte        1
-
 #   Assign TCP buffer thresholds to be ceiling value of technology maximums
 #   Increased technology maximums should be reflected here.
     write /proc/sys/net/core/rmem_max  8388608
