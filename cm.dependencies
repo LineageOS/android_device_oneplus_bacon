@@ -6,5 +6,17 @@
   {
     "repository": "android_kernel_oneplus_msm8974",
     "target_path": "kernel/oneplus/msm8974"
+  },
+  {
+    "repository": "android_vendor_nxp-nfc_opensource_frameworks",
+    "target_path": "vendor/nxp-nfc/opensource/frameworks"
+  },
+  {
+    "repository": "android_vendor_nxp-nfc_opensource_libnfc-nci",
+    "target_path": "vendor/nxp-nfc/opensource/libnfc-nci"
+  },
+  {
+    "repository": "android_vendor_nxp-nfc_opensource_Nfc",
+    "target_path": "vendor/nxp-nfc/opensource/Nfc"
   }
 ]
