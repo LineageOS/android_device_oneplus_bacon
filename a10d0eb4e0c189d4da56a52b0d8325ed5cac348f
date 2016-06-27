@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_c75ec044",
+        "filename": "bacon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2016-06-27T14:03:49Z",
+      "side": 1,
+      "message": "No need to declare. It gets built along with NQNfcNci.",
+      "range": {
+        "startLine": 163,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 20
+      },
+      "revId": "a10d0eb4e0c189d4da56a52b0d8325ed5cac348f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_e75bbc51",
+        "filename": "bacon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2016-06-27T14:03:49Z",
+      "side": 1,
+      "message": "Should you also move to nfc_nci.nqx.default?",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 25
+      },
+      "revId": "a10d0eb4e0c189d4da56a52b0d8325ed5cac348f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa7e38b_8758c856",
+        "filename": "bacon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2016-06-27T14:03:49Z",
+      "side": 1,
+      "message": "No need to declare. It gets installed when com.nxp.nfc.nq module is built.",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 167,
+        "endChar": 22
+      },
+      "revId": "a10d0eb4e0c189d4da56a52b0d8325ed5cac348f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
