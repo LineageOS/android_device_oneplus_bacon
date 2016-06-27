@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "3fa7e38b_2ad0bb50",
+        "filename": "bacon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 8429
+      },
+      "writtenOn": "2016-06-27T15:01:12Z",
+      "side": 1,
+      "message": "According to https://github.com/CyanogenMod/android_vendor_nxp-nfc_opensource_libnfc-nci/blob/cm-13.0/halimpl/pn54x/Android.mk#L66, I think the module name should still be nfc_nci.pn54x.default, since we have BOARD_NFC_CHIPSET :\u003d pn547",
+      "parentUuid": "3fa7e38b_e75bbc51",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 164,
+        "endChar": 25
+      },
+      "revId": "a10d0eb4e0c189d4da56a52b0d8325ed5cac348f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fa7e38b_8758c856",
         "filename": "bacon.mk",
         "patchSetId": 1
