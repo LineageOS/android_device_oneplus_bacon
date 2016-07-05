@@ -40,6 +40,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=A0001 PRODUCT_NAME=bacon
 ## Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=oneplus/bacon/A0001:6.0.1/MMB29X/ZNH0EAS2JK:user/release-keys \
-    PRIVATE_BUILD_DESC="bacon-user 6.0.1 MMB29X ZNH0EAS2JK release-keys"
+    BUILD_FINGERPRINT=oneplus/bacon/A0001:6.0.1/MHC19Q/ZNH2KAS1KN:user/release-keys \
+    PRIVATE_BUILD_DESC="bacon-user 6.0.1 MHC19Q ZNH2KAS1KN release-keys"
 endif
