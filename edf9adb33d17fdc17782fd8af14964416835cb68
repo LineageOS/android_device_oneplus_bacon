@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_cf3d43bc",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 13409
+      },
+      "writtenOn": "2016-07-20T20:46:44Z",
+      "side": 1,
+      "message": "This logic is inverted.",
+      "revId": "edf9adb33d17fdc17782fd8af14964416835cb68",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
