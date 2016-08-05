@@ -27,6 +27,10 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
+# API (for CTS backward compatibility)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.first_api_level=19
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdb/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
