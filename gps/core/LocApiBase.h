@@ -113,7 +113,7 @@ public:
                         enum loc_sess_status status,
                         LocPosTechMask loc_technology_mask =
                                   LOC_POS_TECH_MASK_DEFAULT);
-    void reportSv(GnssSvStatus &svStatus,
+    void reportSv(HaxxSvStatus &svStatus,
                   GpsLocationExtended &locationExtended,
                   void* svExt);
     void reportStatus(GpsStatusValue status);

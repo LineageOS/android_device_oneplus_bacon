@@ -37,7 +37,7 @@
 
 void loc_eng_nmea_send(char *pNmea, int length, loc_eng_data_s_type *loc_eng_data_p);
 int loc_eng_nmea_put_checksum(char *pNmea, int maxSize);
-void loc_eng_nmea_generate_sv(loc_eng_data_s_type *loc_eng_data_p, const GnssSvStatus &svStatus, const GpsLocationExtended &locationExtended);
+void loc_eng_nmea_generate_sv(loc_eng_data_s_type *loc_eng_data_p, const HaxxSvStatus &svStatus, const GpsLocationExtended &locationExtended);
 void loc_eng_nmea_generate_pos(loc_eng_data_s_type *loc_eng_data_p, const UlpLocation &location, const GpsLocationExtended &locationExtended, unsigned char generate_nmea);
 
 #endif // LOC_ENG_NMEA_H
