@@ -198,8 +198,8 @@
     <bool name="config_enableFusedLocationOverlay" translatable="false">false</bool>
     <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
 
-    <!-- Component name of the combo network location provider. -->
-    <string name="config_comboNetworkLocationProvider" translatable="false">com.qualcomm.location</string>
+    <!-- Component name of the combo network location provider.
+    <string name="config_comboNetworkLocationProvider" translatable="false">com.qualcomm.location</string>-->
 
     <!-- Device specific options -->
 
@@ -397,6 +397,6 @@
     <!-- Operating voltage for bluetooth controller. 0 by default-->
     <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3700</integer>
 
-    <!-- Enable blur support -->
-    <bool name="config_ui_blur_enabled">true</bool>
+    <!-- Enable blur support
+    <bool name="config_ui_blur_enabled">true</bool>-->
 </resources>
