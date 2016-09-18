@@ -90,19 +90,15 @@ static void init_alarm_boot_properties()
     }
 }
 
-static void import_kernel_nv(char *name, int for_emulator)
+static void import_kernel_nv(const std::string& key,
+        const std::string& value, bool for_emulator __attribute__((unused)))
 {
-    char *value = strchr(name, '=');
-    int name_len = strlen(name);
+    if (key.empty()) return;
 
-    if (value == 0) return;
-    *value++ = 0;
-    if (name_len == 0) return;
-
-    if (!strcmp(name,"oppo.rf_version")) {
-        property_set("ro.oppo.rf_version", value);
-    } else if (!strcmp(name,"oppo.pcb_version")) {
-        property_set("ro.oppo.pcb_version", value);
+    if (key == "oppo.rf_version") {
+        property_set("ro.oppo.rf_version", value.c_str());
+    } else if (key == "oppo.pcb_version") {
+        property_set("ro.oppo.pcb_version", value.c_str());
     }
 }
 
