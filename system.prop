@@ -4,6 +4,7 @@
 
 # Bluetooth
 bluetooth.hfp.client=1
+qcom.bluetooth.soc=smd
 
 # CABL
 ro.qualcomm.cabl=0
