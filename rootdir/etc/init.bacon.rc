@@ -406,20 +406,12 @@ service time_daemon /system/bin/time_daemon
 
 on property:vold.decrypt=trigger_restart_framework
     start config_bt_addr
-    start config_bluetooth
     start wcnss-service
 
 service config_bt_addr /system/bin/btnvtool -O
     class core
     user bluetooth
     group bluetooth radio
-    oneshot
-
-service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
-    class core
-    user root
-    group bluetooth net_bt_admin qcom_diag diag radio
-    oneshot
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
