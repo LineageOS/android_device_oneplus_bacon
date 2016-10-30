@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff2e2bb8_ee506f61",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2016-10-30T01:09:11Z",
+      "side": 1,
+      "message": "is OPPO_CAMERA_HARDWARE still a thing? should probably just remove it if it\u0027s not",
+      "range": {
+        "startLine": 82,
+        "startChar": 23,
+        "endLine": 82,
+        "endChar": 45
+      },
+      "revId": "9b02536a582da58bddb34235f9379e21a69d7f9d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
