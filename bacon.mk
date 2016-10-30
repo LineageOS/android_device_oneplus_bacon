@@ -67,6 +67,7 @@ TARGET_SCREEN_WIDTH := 1080
 # Camera
 PRODUCT_PACKAGES += \
     camera.bacon \
+    libshim_camera \
     Snap
 
 # Charger
