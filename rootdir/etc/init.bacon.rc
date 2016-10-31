@@ -413,6 +413,7 @@ service config_bt_addr /system/bin/btnvtool -O
     class core
     user bluetooth
     group bluetooth radio
+    oneshot
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
