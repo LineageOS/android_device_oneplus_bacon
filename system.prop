@@ -31,12 +31,8 @@ ro.sf.lcd_density=480
 persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196608
 
-# DPM
-persist.cne.feature=1
-persist.dpm.feature=3
-
 # GPS
-persist.gps.qc_nlp_in_use=1
+persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
 
 # Media
