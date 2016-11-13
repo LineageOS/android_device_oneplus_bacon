@@ -163,6 +163,9 @@ TARGET_NO_RPC := true
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
+# Sensors
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
 #BOARD_SEPOLICY_DIRS += \
 #    $(PLATFORM_PATH)/sepolicy
 
