@@ -1,1 +1,2 @@
 allow vold persist_file:dir r_file_perms;
+allow vold reserve4_block_device:blk_file { open read write };
