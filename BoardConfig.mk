@@ -168,6 +168,9 @@ BOARD_SEPOLICY_DIRS += \
 # Sensors
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
+# Snapdragon LLVM
+TARGET_USE_SDCLANG := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true
