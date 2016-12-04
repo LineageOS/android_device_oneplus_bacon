@@ -82,6 +82,10 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 PRODUCT_PACKAGES += \
     librmnetctl
 
+# Doze mode
+PRODUCT_PACKAGES += \
+    OneplusDoze
+
 # Display
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
