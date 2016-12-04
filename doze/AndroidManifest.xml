@@ -14,7 +14,7 @@
         android:targetSdkVersion="24"/>
 
     <application
-        android:label="OneplusDoze"
+        android:label="@string/device_settings_app_name"
         android:persistent="true">
 
         <receiver android:name="com.cyanogenmod.settings.doze.DozeReceiver">
