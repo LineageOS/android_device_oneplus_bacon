@@ -258,3 +258,5 @@ endif
 
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
+# Inherit from oneplus-common
+$(call inherit-product, device/oneplus/common/common.mk)

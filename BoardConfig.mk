@@ -17,6 +17,9 @@
 # inherit from Oppo common
 -include device/oppo/common/BoardConfigCommon.mk
 
+# inherit from OnePlus common
+-include device/oneplus/common/BoardConfigCommon.mk
+
 PLATFORM_PATH := device/oneplus/bacon
 
 # Include path

@@ -4,6 +4,10 @@
     "target_path": "device/oppo/common"
   },
   {
+    "repository": "android_device_oneplus_common",
+    "target_path": "device/oneplus/common",
+  },
+  {
     "repository": "android_kernel_oneplus_msm8974",
     "target_path": "kernel/oneplus/msm8974"
   }
