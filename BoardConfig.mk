@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -49,7 +50,7 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CONFIG := cyanogenmod_bacon_defconfig
+TARGET_KERNEL_CONFIG := lineageos_bacon_defconfig
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8974
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
