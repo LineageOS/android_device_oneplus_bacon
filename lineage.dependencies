@@ -6,5 +6,9 @@
   {
     "repository": "android_kernel_oneplus_msm8974",
     "target_path": "kernel/oneplus/msm8974"
+  },
+  {
+    "repository": "android_external_sony_boringssl-compat",
+    "target_path": "external/sony/boringssl-compat"
   }
 ]

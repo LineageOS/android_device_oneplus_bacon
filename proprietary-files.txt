@@ -1,9 +1,8 @@
 # Camera
 bin/mm-qcamera-daemon
-lib/hw/camera.vendor.bacon.so
-lib/libmmcamera_interface.so
-lib/libmmjpeg_interface.so
-lib/libqomx_core.so
+vendor/lib/libactuator_dw9714.so
+vendor/lib/libactuator_dw9714_camcorder.so
+vendor/lib/libactuator_dw9714_camera.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
@@ -11,8 +10,10 @@ vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
 vendor/lib/libmmcamera2_iface_modules.so
 vendor/lib/libmmcamera2_imglib_modules.so
+vendor/lib/libmmcamera2_is.so
 vendor/lib/libmmcamera2_isp_modules.so
 vendor/lib/libmmcamera2_pproc_modules.so
+vendor/lib/libmmcamera2_q3a_special.so
 vendor/lib/libmmcamera2_sensor_modules.so
 vendor/lib/libmmcamera2_stats_algorithm.so
 vendor/lib/libmmcamera2_stats_modules.so
