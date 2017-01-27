@@ -23,6 +23,7 @@ on early-init
 
 on init
     export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.bacon.so|/system/lib/libshim_camera.so:/system/vendor/lib/libwvm.so|libshim_wvm.so"
+    export LD_PRELOAD /system/lib/libboringssl-compat.so
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system

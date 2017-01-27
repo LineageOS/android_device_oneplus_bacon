@@ -66,8 +66,7 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.bacon \
-    libshim_camera \
+    camera.msm8974 \
     Snap
 
 # Charger
@@ -213,6 +212,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     init.qcom.bt.sh
+
+# SSL compat
+PRODUCT_PACKAGES += \
+    libboringssl-compat
 
 # Thermal config
 PRODUCT_COPY_FILES += \
