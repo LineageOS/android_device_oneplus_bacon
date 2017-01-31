@@ -67,4 +67,4 @@ vendor/firmware/libpn547_fw.so
 
 # Sensors
 etc/sensor_def_qcomdev.conf
-vendor/lib/libAKM8963.so
+vendor/lib/libAKM8963.so|741eb7ee64bffd54d53ff6a7ed17c4baf0d2c7b8
