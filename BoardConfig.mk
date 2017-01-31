@@ -166,9 +166,6 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
 
-# Sensors
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
 
