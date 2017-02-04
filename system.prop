@@ -38,9 +38,8 @@ ro.gps.agps_provider=1
 # Media
 af.fast_track_multiplier=1
 audio_hal.period_size=192
-persist.audio.fluence.voicecall=false
+persist.audio.fluence.voicecall=true
 ro.qc.sdk.audio.fluencetype=fluence
-persist.audio.fluence.voicerec=false
 
 audio.offload.buffer.size.kb=32
 audio.offload.video=true
