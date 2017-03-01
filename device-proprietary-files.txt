@@ -1,5 +1,4 @@
 # Camera
-lib/hw/camera.vendor.bacon.so:vendor/lib/hw/camera.vendor.bacon.so
 vendor/lib/libmmcamera_imx214.so
 vendor/lib/libmmcamera_ov5648.so
 vendor/lib/libmmcamera_sony_imx214_eeprom.so

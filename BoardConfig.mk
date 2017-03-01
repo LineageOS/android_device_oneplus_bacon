@@ -62,11 +62,6 @@ TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.recovery
 BOARD_SEPOLICY_DIRS += \
     device/oneplus/bacon/sepolicy
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib/hw/camera.vendor.bacon.so|libshim_camera.so \
-    /system/lib/libcamera_client.so|libshim_camera_parameters.so
-
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
 
