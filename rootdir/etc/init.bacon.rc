@@ -449,12 +449,6 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi qcom_diag diag radio
     oneshot
 
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
-
 # diag logging
 service diag_mdlog_start /system/bin/diag_mdlog
     class late_start
