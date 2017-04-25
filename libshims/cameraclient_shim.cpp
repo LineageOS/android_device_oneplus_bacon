@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The CyanogenMod Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include "cameraclient_shim.h"
 
-#define CAMERA_PARAMETERS_EXTRA_C \
-const char CameraParameters::FOCUS_MODE_MANUAL_POSITION[] = "manual"; \
+namespace android {
+
+const char CameraParameters::FOCUS_MODE_MANUAL_POSITION[] = "manual";
 const char CameraParameters::WHITE_BALANCE_MANUAL_CCT[] = "manual-cct";
 
-#define CAMERA_PARAMETERS_EXTRA_H \
-    static const char FOCUS_MODE_MANUAL_POSITION[]; \
-    static const char WHITE_BALANCE_MANUAL_CCT[];
+}; // namespace android
