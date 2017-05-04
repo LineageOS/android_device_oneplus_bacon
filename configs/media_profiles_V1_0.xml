@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
-     Copyright (C) 2012-2013 The Linux Foundation. All rights reserved.
-     Not a contribution.
+<!-- Copyright 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,67 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!DOCTYPE MediaSettings [
-<!ELEMENT MediaSettings (CamcorderProfiles,
-                         EncoderOutputFileFormat+,
-                         VideoEncoderCap+,
-                         AudioEncoderCap+,
-                         VideoDecoderCap,
-                         AudioDecoderCap)>
-<!ELEMENT CamcorderProfiles (EncoderProfile+, ImageEncoding+, ImageDecoding, Camera)>
-<!ELEMENT EncoderProfile (Video, Audio)>
-<!ATTLIST EncoderProfile quality (high|low) #REQUIRED>
-<!ATTLIST EncoderProfile fileFormat (mp4|3gp) #REQUIRED>
-<!ATTLIST EncoderProfile duration (30|60) #REQUIRED>
-<!ATTLIST EncoderProfile cameraId (0|1) #REQUIRED>
-<!ELEMENT Video EMPTY>
-<!ATTLIST Video codec (h264|h263|m4v) #REQUIRED>
-<!ATTLIST Video bitRate CDATA #REQUIRED>
-<!ATTLIST Video width CDATA #REQUIRED>
-<!ATTLIST Video height CDATA #REQUIRED>
-<!ATTLIST Video frameRate CDATA #REQUIRED>
-<!ELEMENT Audio EMPTY>
-<!ATTLIST Audio codec (amrnb|amrwb|aac|lpcm) #REQUIRED>
-<!ATTLIST Audio bitRate CDATA #REQUIRED>
-<!ATTLIST Audio sampleRate CDATA #REQUIRED>
-<!ATTLIST Audio channels (1|2|6) #REQUIRED>
-<!ELEMENT ImageEncoding EMPTY>
-<!ATTLIST ImageEncoding quality (90|80|70|60|50|40) #REQUIRED>
-<!ELEMENT ImageDecoding EMPTY>
-<!ATTLIST ImageDecoding memCap CDATA #REQUIRED>
-<!ELEMENT Camera EMPTY>
-<!ELEMENT EncoderOutputFileFormat EMPTY>
-<!ATTLIST EncoderOutputFileFormat name (mp4|3gp) #REQUIRED>
-<!ELEMENT VideoEncoderCap EMPTY>
-<!ATTLIST VideoEncoderCap name (h264|h263|m4v|wmv) #REQUIRED>
-<!ATTLIST VideoEncoderCap enabled (true|false) #REQUIRED>
-<!ATTLIST VideoEncoderCap minBitRate CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap maxBitRate CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap minFrameWidth CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap maxFrameWidth CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap minFrameHeight CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap maxFrameHeight CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap minFrameRate CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap maxFrameRate CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap maxHFRFrameWidth CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap maxHFRFrameHeight CDATA #REQUIRED>
-<!ATTLIST VideoEncoderCap maxHFRMode CDATA #REQUIRED>
-<!ELEMENT AudioEncoderCap EMPTY>
-<!ATTLIST AudioEncoderCap name (amrnb|amrwb|aac|wma|lpcm) #REQUIRED>
-<!ATTLIST AudioEncoderCap enabled (true|false) #REQUIRED>
-<!ATTLIST AudioEncoderCap minBitRate CDATA #REQUIRED>
-<!ATTLIST AudioEncoderCap maxBitRate CDATA #REQUIRED>
-<!ATTLIST AudioEncoderCap minSampleRate CDATA #REQUIRED>
-<!ATTLIST AudioEncoderCap maxSampleRate CDATA #REQUIRED>
-<!ATTLIST AudioEncoderCap minChannels (1|2|6) #REQUIRED>
-<!ATTLIST AudioEncoderCap maxChannels (1|2|6) #REQUIRED>
-<!ELEMENT VideoDecoderCap EMPTY>
-<!ATTLIST VideoDecoderCap name (wmv) #REQUIRED>
-<!ATTLIST VideoDecoderCap enabled (true|false) #REQUIRED>
-<!ELEMENT AudioDecoderCap EMPTY>
-<!ATTLIST AudioDecoderCap name (wma) #REQUIRED>
-<!ATTLIST AudioDecoderCap enabled (true|false) #REQUIRED>
-]>
+<!DOCTYPE MediaSettings SYSTEM "/system/etc/media_profiles_V1_0.dtd">
 <!--
      This file is used to declare the multimedia profiles and capabilities
      on an android-powered device.
