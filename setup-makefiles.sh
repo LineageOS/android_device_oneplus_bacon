@@ -17,6 +17,8 @@
 
 set -e
 
+export INITIAL_COPYRIGHT_YEAR=2014
+
 # Required!
 DEVICE=bacon
 VENDOR=oneplus
