@@ -121,6 +121,7 @@ framework/qcnvitems.jar
 framework/qcrilhook.jar
 framework/qti-telephony-common.jar
 -lib/libmdmdetect.so
+vendor/lib/libcneapiclient.so
 vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
 vendor/lib/libnetmgr.so
