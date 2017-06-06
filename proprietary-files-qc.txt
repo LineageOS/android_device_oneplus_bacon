@@ -18,6 +18,9 @@ vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 
+# CNE
+vendor/lib/libcneapiclient.so
+
 # DRM
 bin/qseecomd
 lib/libdrmdecrypt.so
