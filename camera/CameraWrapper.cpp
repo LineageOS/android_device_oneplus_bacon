@@ -361,6 +361,8 @@ static int camera_set_parameters(struct camera_device *device,
         params.remove("superzoom");
     }
 
+    params.set("zsl", "on");
+
     delete tmpParams;
 
     return VENDOR_CALL(device, set_parameters, strdup(params.flatten().string()));
