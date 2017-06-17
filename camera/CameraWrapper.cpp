@@ -361,6 +361,16 @@ static int camera_set_parameters(struct camera_device *device,
         params.remove("superzoom");
     }
 
+    bool isJpeg = strcmp(params.get("picture-format"), "jpeg") == 0;
+    bool isRaw = strcmp(params.get("raw-and-jpeg"), "1") == 0;
+    bool isAutoExposureTime = strcmp(params.get("exposure-time"), "0") == 0;
+
+    if (!isJpeg || isRaw || !isAutoExposureTime){
+        params.set("zsl", "off");
+    } else {
+        params.set("zsl", "on");
+    }
+
     delete tmpParams;
 
     return VENDOR_CALL(device, set_parameters, strdup(params.flatten().string()));
@@ -419,6 +429,8 @@ static char *camera_get_parameters(struct camera_device *device)
 
     params.set("clear-image-values", "off,on");
     params.set("clear-image", gClearImageEnabled ? "on" : "off");
+    params.set("raw-and-jpeg", "0");
+    params.set("exposure-time", "0");
 
     const char *pf = params.get(android::CameraParameters::KEY_PREVIEW_FORMAT);
     if (pf && strcmp(pf, "nv12-venus") == 0) {
