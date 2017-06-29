@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_1cde116e",
+        "filename": "sepolicy/rmt_storage.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-29T19:21:48Z",
+      "side": 0,
+      "message": "I think this is still needed",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 63
+      },
+      "revId": "63e7ca6f7acc34b72fa9d4a153be27fabac509d7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
