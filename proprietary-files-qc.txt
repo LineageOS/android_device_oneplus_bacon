@@ -37,24 +37,25 @@ vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
 
-# Graphics
-vendor/lib/egl/eglsubAndroid.so
-vendor/lib/egl/libEGL_adreno.so
-vendor/lib/egl/libGLESv1_CM_adreno.so
-vendor/lib/egl/libGLESv2_adreno.so
-vendor/lib/egl/libq3dtools_adreno.so
-vendor/lib/libC2D2.so
-vendor/lib/libCB.so
-vendor/lib/libOpenCL.so
-vendor/lib/libOpenVG.so
-vendor/lib/libRSDriver_adreno.so
-vendor/lib/libadreno_utils.so
-vendor/lib/libc2d30-a3xx.so
-vendor/lib/libgsl.so
-vendor/lib/libllvm-qcom.so
-vendor/lib/librs_adreno.so
-vendor/lib/librs_adreno_sha1.so
-vendor/lib/libsc-a3xx.so
+# Graphics - from onyx
+vendor/lib/egl/eglsubAndroid.so|b8a5790c5b4ba4cf0018c94066104610c821ed8e
+vendor/lib/egl/libEGL_adreno.so|cd29673e990dba8158e961e287a79dfbd852d095
+vendor/lib/egl/libGLESv1_CM_adreno.so|ae86d16ba499ac6cdd3cecb91ae6b16b4c303984
+vendor/lib/egl/libGLESv2_adreno.so|445be60045ff86d1d27545692134eacf0d89a6dc
+vendor/lib/egl/libq3dtools_adreno.so|2c12919492f1146b58f4f1c379dfe10d3320d476
+vendor/lib/libC2D2.so|d34587d5143bd09f847cb6686b03461a6e62cd87
+vendor/lib/libCB.so|3d2ad5bbff1cf4019d89c38689ec2ce3c186a3c1
+vendor/lib/libOpenCL.so|2b4b9692b16729b880d7881e68208183943f9612
+vendor/lib/libRSDriver_adreno.so|371dc9e34dfb3b4f3352d285d7dbfdd2d30daf23
+vendor/lib/libadreno_utils.so|a109e06c933811c578d129c0772a612cf5d94367
+vendor/lib/libbccQTI.so|94132d5d8421428001c2201a8915949c531b0ad9
+vendor/lib/libc2d30-a3xx.so|3666e0bf418e7ea7480b27c2c1ddd1bc86037044
+vendor/lib/libgsl.so|fafee1adf0e89325b3a1ea83d5205c02ebf860f3
+vendor/lib/libllvm-qcom.so|fc96c949b662fb34b287a4c0aa194984fbb57d7d
+vendor/lib/librs_adreno.so|483b327e1a7fde0a898019d5958e43097fd87f98
+vendor/lib/librs_adreno_sha1.so|e254ee7df74b1f0ecd73fc6b02e5bd5367a83de6
+vendor/lib/libsc-a3xx.so|231201bcfead5f930537d2fba22d89b00e673386
+vendor/lib/libscale.so|b44f44c633fa404d10e76aaa23593b516e08e2b8
 vendor/lib/libuiblur.so
 
 # Graphics firmware
