@@ -23,6 +23,7 @@ media.stagefright.less-secure=true
 ro.sf.lcd_density=480
 persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196608
+debug.hwui.use_buffer_age=false
 
 # GPS
 persist.gps.qc_nlp_in_use=0
