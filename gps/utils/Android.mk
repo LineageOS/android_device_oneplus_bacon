@@ -14,8 +14,8 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_SRC_FILES += \
     loc_log.cpp \
     loc_cfg.cpp \
-    msg_q.c \
-    linked_list.c \
+    msg_q.cpp \
+    linked_list.cpp \
     loc_target.cpp \
     platform_lib_abstractions/elapsed_millis_since_boot.cpp \
     LocHeap.cpp \
@@ -59,7 +59,6 @@ LOCAL_COPY_HEADERS:= \
    loc_misc_utils.h
 
 LOCAL_MODULE := libgps.utils
-LOCAL_CLANG := false
 
 LOCAL_MODULE_TAGS := optional
 
