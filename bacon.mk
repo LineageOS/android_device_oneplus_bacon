@@ -19,7 +19,9 @@ $(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor.mk)
 endif
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += \
+	$(LOCAL_PATH)/overlay \
+	$(LOCAL_PATH)/overlay-lineage
 
 # ANT+
 PRODUCT_PACKAGES += \
