@@ -1,2 +1,0 @@
-type nvbackup_block_device, dev_type;
-type reserve4_block_device, dev_type;
