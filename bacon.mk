@@ -63,8 +63,8 @@ PRODUCT_PACKAGES += \
     tinymix
 
 # Bluetooth
-#PRODUCT_PACKAGES += \
-#    android.hardware.bluetooth@1.0-impl
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
@@ -255,6 +255,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
     hostapd \
     wcnss_service \
     wpa_supplicant
