@@ -172,6 +172,9 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
+    # Mark wifi driver as unloaded - "ok" indicates loaded
+    setprop wlan.driver.status not_ok
+
 on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
 
