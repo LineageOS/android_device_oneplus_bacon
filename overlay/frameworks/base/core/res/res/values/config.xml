@@ -192,6 +192,8 @@
     <bool name="use_motion_accel">false</bool>
     -->
 
+    <bool name="config_showNavigationBar">true</bool>
+
     <!-- Device specific options -->
 
     <!-- Default LED on time for notification LED in milliseconds. -->
