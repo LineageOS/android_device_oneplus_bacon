@@ -259,6 +259,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
+    wificond \
     hostapd \
     wcnss_service \
     wpa_supplicant
