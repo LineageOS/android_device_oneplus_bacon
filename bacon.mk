@@ -164,7 +164,6 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libbson \
-    libcnefeatureconfig \
     libnl_2 \
     libtinyxml \
     libxml2
