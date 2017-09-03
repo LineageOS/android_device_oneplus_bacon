@@ -55,7 +55,7 @@ WCNSS_IMAGES := \
     wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
     wcnss.b07 wcnss.b08 wcnss.b09 wcnss.mdt
 
-WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WCNSS_IMAGES)))
+WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(WCNSS_IMAGES)))
 $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS firmware link: $@"
 	@mkdir -p $(dir $@)
