@@ -46,10 +46,13 @@ using android::base::Trim;
 static void init_alarm_boot_properties()
 {
     char const *boot_reason_file = "/proc/sys/kernel/boot_reason";
+    char const *power_off_alarm_file = "/persist/alarm/powerOffAlarmSet";
     std::string boot_reason;
+    std::string power_off_alarm;
     std::string tmp = property_get("ro.boot.alarmboot");
 
-    if (read_file(boot_reason_file, &boot_reason) {
+    if (read_file(boot_reason_file, &boot_reason)
+            && read_file(power_off_alarm_file, &power_off_alarm)) {
         /*
          * Setup ro.alarm_boot value to true when it is RTC triggered boot up
          * For existing PMIC chips, the following mapping applies
@@ -65,7 +68,8 @@ static void init_alarm_boot_properties()
          * 7 -> CBLPWR_N pin toggled (for external power supply)
          * 8 -> KPDPWR_N pin toggled (power key pressed)
          */
-        if (Trim(boot_reason) == "3" || tmp == "true")
+        if ((Trim(boot_reason) == "3" || tmp == "true")
+                && Trim(power_off_alarm) == "1")
             property_set("ro.alarm_boot", "true");
         else
             property_set("ro.alarm_boot", "false");
