@@ -43,6 +43,12 @@ using namespace android;
 static Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
+static camera_notify_callback gUserNotifyCb = NULL;
+static camera_data_callback gUserDataCb = NULL;
+static camera_data_timestamp_callback gUserDataCbTimestamp = NULL;
+static camera_request_memory gUserGetMemory = NULL;
+static void *gUserCameraDevice = NULL;
+
 static bool gClearImageEnabled = false;
 
 static int camera_device_open(const hw_module_t *module, const char *name,
@@ -82,6 +88,25 @@ typedef struct wrapper_camera_device {
     camera_device_t *vendor;
     bool initial_get;
 } wrapper_camera_device_t;
+
+void camera_notify_cb(int32_t msg_type, int32_t ext1, int32_t ext2, void * /*user*/) {
+    gUserNotifyCb(msg_type, ext1, ext2, gUserCameraDevice);
+}
+
+void camera_data_cb(int32_t msg_type, const camera_memory_t *data, unsigned int index,
+        camera_frame_metadata_t *metadata, void * /*user*/) {
+    gUserDataCb(msg_type, data, index, metadata, gUserCameraDevice);
+}
+
+void camera_data_cb_timestamp(nsecs_t timestamp, int32_t msg_type,
+        const camera_memory_t *data, unsigned index, void * /*user*/) {
+    gUserDataCbTimestamp(timestamp, msg_type, data, index, gUserCameraDevice);
+}
+
+camera_memory_t* camera_get_memory(int fd, size_t buf_size,
+        uint_t num_bufs, void * /*user*/) {
+    return gUserGetMemory(fd, buf_size, num_bufs, gUserCameraDevice);
+}
 
 #define VENDOR_CALL(device, func, ...) ({ \
     wrapper_camera_device_t *__wrapper_dev = (wrapper_camera_device_t*) device; \
@@ -139,8 +164,14 @@ static void camera_set_callbacks(struct camera_device *device,
     if (!device)
         return;
 
-    VENDOR_CALL(device, set_callbacks, notify_cb, data_cb, data_cb_timestamp,
-            get_memory, user);
+    gUserNotifyCb = notify_cb;
+    gUserDataCb = data_cb;
+    gUserDataCbTimestamp = data_cb_timestamp;
+    gUserGetMemory = get_memory;
+    gUserCameraDevice = user;
+
+    VENDOR_CALL(device, set_callbacks, camera_notify_cb, camera_data_cb, camera_data_cb_timestamp,
+            camera_get_memory, user);
 }
 
 static void camera_enable_msg_type(struct camera_device *device,
