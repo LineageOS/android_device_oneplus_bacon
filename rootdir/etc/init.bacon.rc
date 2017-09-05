@@ -91,6 +91,7 @@ on boot
     mkdir /dev/socket/netmgr 0750 radio radio
 
     mkdir /persist/bluetooth 0770 bluetooth bluetooth
+    mkdir /persist/alarm 0770 system system
 
     #charger
     chown root system /sys/module/qpnp_charger/parameters/charger_monitor
