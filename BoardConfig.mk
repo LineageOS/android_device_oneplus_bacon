@@ -56,7 +56,7 @@ BOARD_NFC_CHIPSET := pn547
 TARGET_SYSTEM_PROP += device/oneplus/bacon/system.prop
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.bacon
+TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.recovery
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
