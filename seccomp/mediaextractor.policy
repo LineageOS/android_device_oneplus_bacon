@@ -1,0 +1,4 @@
+# device specific syscalls.
+# extension of services/mediaextractor/minijail/seccomp_policy/mediaextractor-seccomp-arm.policy
+readlinkat: 1
+pread64: 1
