@@ -1,0 +1,4 @@
+service usb-hal-1-0 /vendor/bin/hw/android.hardware.usb@1.0-service.bacon
+    class hal
+    user system
+    group system
