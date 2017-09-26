@@ -446,7 +446,7 @@ service audiod /system/bin/audiod
    user system
    group system
 
-service wcnss-service /system/bin/wcnss_service
+service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
     group system wifi qcom_diag diag radio
