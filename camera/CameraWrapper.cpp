@@ -506,8 +506,6 @@ static int camera_dump(struct camera_device *device, int fd)
     return VENDOR_CALL(device, dump, fd);
 }
 
-extern "C" void heaptracker_free_leaked_memory(void);
-
 static int camera_device_close(hw_device_t *device)
 {
     int ret = 0;
@@ -529,9 +527,6 @@ static int camera_device_close(hw_device_t *device)
         free(wrapper_dev->base.ops);
     free(wrapper_dev);
 done:
-#ifdef HEAPTRACKER
-    heaptracker_free_leaked_memory();
-#endif
     return ret;
 }
 
