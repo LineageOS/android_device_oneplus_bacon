@@ -32,12 +32,5 @@ vendor/lib/liblistenjni.so
 -vendor/lib/liblisten.so
 vendor/lib/liblistensoundmodel.so
 
-# Media
-vendor/lib/libDivxDrm.so
-vendor/lib/libI420colorconvert.so
-vendor/lib/libmm-color-convertor.so
-vendor/lib/libmmosal.so
-vendor/lib/libSHIMDivxDrm.so
-
 # NFC
 vendor/firmware/libpn547_fw.so
