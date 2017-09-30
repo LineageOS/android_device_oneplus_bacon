@@ -242,9 +242,6 @@ PRODUCT_PACKAGES += \
     libinit_bacon \
     ueventd.bacon.rc
 
-PRODUCT_PACKAGES += \
-    init.qcom.bt.sh
-
 # Seccomp
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
