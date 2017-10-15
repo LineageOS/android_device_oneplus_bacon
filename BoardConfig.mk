@@ -65,5 +65,10 @@ BOARD_SEPOLICY_DIRS += \
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
 
+# TWRP
+ifeq ($(WITH_TWRP),true)
+TARGET_RECOVERY_DEVICE_DIRS += device/oneplus/bacon/twrp
+endif
+
 # Inherit from the proprietary version
 include vendor/oneplus/bacon/BoardConfigVendor.mk
