@@ -89,7 +89,7 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # CM Hardware
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += $(PLATFORM_PATH)/cmhw
+BOARD_HARDWARE_CLASS += $(PLATFORM_PATH)/lineagehw
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Enable dexpreopt to speed boot time
