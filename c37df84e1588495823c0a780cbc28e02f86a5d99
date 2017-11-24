@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c129c1db_9b45927d",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-11-24T12:40:07Z",
+      "side": 1,
+      "message": "You can kill these while at it. They do nothing.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 45
+      },
+      "revId": "c37df84e1588495823c0a780cbc28e02f86a5d99",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
