@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcf06bf6_36cdbcc0",
+        "filename": "bacon.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 11114
+      },
+      "writtenOn": "2017-12-02T14:05:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be system/vendor/etc/wifi?\n\nhttps://github.com/LineageOS/android_hardware_qcom_wlan/blob/b369f4b56f5f12884b1efc68a7b662b727872559/wcnss-service/wcnss_service.c#L77",
+      "range": {
+        "startLine": 267,
+        "startChar": 42,
+        "endLine": 267,
+        "endChar": 61
+      },
+      "revId": "1eb32b5bc2f76c27b32fe3f1907ee69459df0d8c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
