@@ -22,6 +22,30 @@
       "revId": "1eb32b5bc2f76c27b32fe3f1907ee69459df0d8c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0476f76f_b7b4262a",
+        "filename": "bacon.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-12-07T08:18:54Z",
+      "side": 1,
+      "message": "Yes, it was a mistake. I already told Simon: https://github.com/LineageOS/android_device_htc_msm8974-common/commit/c5570434c6a02eb0f9f63acdd15a90024b880029",
+      "parentUuid": "fcf06bf6_36cdbcc0",
+      "range": {
+        "startLine": 267,
+        "startChar": 42,
+        "endLine": 267,
+        "endChar": 61
+      },
+      "revId": "1eb32b5bc2f76c27b32fe3f1907ee69459df0d8c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
