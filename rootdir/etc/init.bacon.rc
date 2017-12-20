@@ -429,41 +429,12 @@ service adsprpcd /system/vendor/bin/adsprpcd
     group media
 
 service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
+    class late_start
+    user system
+    group system
 
 service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
     group system wifi oem_2950 diag radio
     oneshot
-
-# diag logging
-service diag_mdlog_start /system/bin/diag_mdlog
-    class late_start
-    user shell
-    group system oem_2950 diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
-service diag_mdlog_stop /system/bin/diag_mdlog -k
-    class late_start
-    user shell
-    group system oem_2950 diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
-service qlogd /system/xbin/qlogd
-    class main
-    disabled
-on property:persist.sys.qlogd=1
-    start qlogd
-on property:persist.sys.qlogd=0
-    stop qlogd
-
-service ssr_diag /system/bin/ssr_diag
-    class late_start
-    disabled
-    user system
-    group system
