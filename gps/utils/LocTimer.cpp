@@ -313,7 +313,7 @@ void LocTimerContainer::add(LocTimerDelegate& timer) {
         LocHeapNode* mTree;
         LocTimerDelegate* mTimer;
         inline MsgTimerPush(LocTimerContainer& container, LocTimerDelegate& timer) :
-            LocMsg(), mTimerContainer(&container), mTimer(&timer) {}
+            LocMsg(), mTimerContainer(&container), mTree(NULL), mTimer(&timer) {}
         inline virtual void proc() const {
             LocTimerDelegate* priorTop = mTimerContainer->getSoonestTimer();
             mTimerContainer->push((LocRankable&)(*mTimer));
