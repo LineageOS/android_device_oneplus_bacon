@@ -686,7 +686,6 @@ int main(int argc, char** argv) {
     struct timespec timeOfStart=getNow();
     srand(time(NULL));
     int tries = atoi(argv[1]);
-    int checks = tries >> 3;
     LocTimerTest** timerArray = new LocTimerTest*[tries];
     memset(timerArray, NULL, tries);
 
