@@ -88,7 +88,7 @@
 
 using namespace loc_core;
 
-boolean configAlreadyRead = false;
+bool configAlreadyRead = false;
 unsigned int agpsStatus = 0;
 loc_gps_cfg_s_type gps_conf;
 loc_sap_cfg_s_type sap_conf;
