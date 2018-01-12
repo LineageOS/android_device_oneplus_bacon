@@ -35,6 +35,7 @@
 #include <sys/types.h>
 
 #include <android-base/strings.h>
+#include <android-base/properties.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -42,6 +43,7 @@
 #include "util.h"
 
 using android::base::Trim;
+using android::base::GetProperty;
 
 static void init_alarm_boot_properties()
 {
@@ -49,7 +51,7 @@ static void init_alarm_boot_properties()
     char const *power_off_alarm_file = "/persist/alarm/powerOffAlarmSet";
     std::string boot_reason;
     std::string power_off_alarm;
-    std::string tmp = property_get("ro.boot.alarmboot");
+    std::string tmp = GetProperty("ro.boot.alarmboot","");
 
     if (read_file(boot_reason_file, &boot_reason)
             && read_file(power_off_alarm_file, &power_off_alarm)) {
