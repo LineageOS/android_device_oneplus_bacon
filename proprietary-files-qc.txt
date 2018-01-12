@@ -1,8 +1,3 @@
-# Bluetooth
-bin/btnvtool
-bin/hci_qcomm_init
-vendor/lib/libbtnv.so
-
 # ADSP
 bin/adsprpcd
 vendor/lib/libadsprpc.so
@@ -17,6 +12,11 @@ vendor/lib/libaudcal.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
+
+# Bluetooth
+bin/btnvtool
+bin/hci_qcomm_init
+vendor/lib/libbtnv.so
 
 # DRM
 bin/qseecomd
@@ -82,31 +82,30 @@ vendor/lib/libSHIMDivxDrm.so
 
 # Perf
 bin/mpdecision
-vendor/lib/libqti-perfd-client.so
 vendor/lib/libqc-opt.so
+vendor/lib/libqti-perfd-client.so
 
 # Qualcomm framework
 bin/irsc_util
--vendor/lib/libdiag.so
+vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
--vendor/lib/libdsutils.so
--vendor/lib/libidl.so
--vendor/lib/libqcci_legacy.so
+vendor/lib/libdsutils.so
+vendor/lib/libidl.so
+vendor/lib/libqcci_legacy.so
 vendor/lib/libqdi.so
 vendor/lib/libqdp.so
--vendor/lib/libqmi.so
+vendor/lib/libqmi.so
 vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_client_helper.so
--vendor/lib/libqmi_client_qmux.so
+vendor/lib/libqmi_client_qmux.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
--vendor/lib/libqmiservices.so
+vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
 vendor/lib/libsystem_health_mon.so
 
 # Radio
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
 bin/qmuxd
@@ -120,7 +119,8 @@ etc/permissions/qcrilhook.xml
 framework/qcnvitems.jar
 framework/qcrilhook.jar
 framework/qti-telephony-common.jar
--lib/libmdmdetect.so
+lib/libmdmdetect.so
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/lib/libcneapiclient.so
 vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
@@ -143,10 +143,10 @@ vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
 # Time services
-bin/time_daemon
--vendor/lib/libtime_genoff.so
--vendor/lib/libTimeService.so
 -app/TimeService/TimeService.apk
+bin/time_daemon
+vendor/lib/libTimeService.so
+-vendor/lib/libtime_genoff.so
 
 # Venus (media) firmware
 etc/firmware/venus.b00
@@ -161,5 +161,5 @@ etc/firmware/venus.mdt
 vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
 
 # WiFi
--lib/libwpa_qmi_eap_proxy.so
 lib/libwcnss_qmi.so
+-lib/libwpa_qmi_eap_proxy.so
