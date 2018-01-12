@@ -1,9 +1,9 @@
 # Camera
-bin/mm-qcamera-daemon
-lib/hw/camera.vendor.bacon.so
-lib/libmmcamera_interface.so
-lib/libmmjpeg_interface.so
-lib/libqomx_core.so
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
+lib/hw/camera.vendor.bacon.so:vendor/lib/hw/camera.vendor.bacon.so
+lib/libmmcamera_interface.so:vendor/lib/libmmcamera_interface.so
+lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
+lib/libqomx_core.so:vendor/lib/libqomx_core.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
@@ -58,9 +58,9 @@ vendor/lib/libchromatix_ov5648_zsl.so
 vendor/lib/libchromatix_ov5648_zsl_fb.so
 
 # Camera firmware
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/cpp_firmware_v1_1_1.fw:vendor/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw:vendor/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw:vendor/firmware/cpp_firmware_v1_2_0.fw
 
 # NFC
 vendor/firmware/libpn547_fw.so
