@@ -1,0 +1,43 @@
+# Camera
+lib/hw/camera.vendor.bacon.so:vendor/lib/hw/camera.vendor.bacon.so
+vendor/lib/libmmcamera_imx214.so
+vendor/lib/libmmcamera_ov5648.so
+vendor/lib/libmmcamera_sony_imx214_eeprom.so
+vendor/lib/libmmcamera_tuning.so
+
+# Camera Chromatix
+vendor/lib/libchromatix_imx214_common.so
+vendor/lib/libchromatix_imx214_default_video.so
+vendor/lib/libchromatix_imx214_hfr_120.so
+vendor/lib/libchromatix_imx214_hfr_60.so
+vendor/lib/libchromatix_imx214_liveshot.so
+vendor/lib/libchromatix_imx214_preview.so
+vendor/lib/libchromatix_imx214_preview_binning.so
+vendor/lib/libchromatix_imx214_snapshot.so
+vendor/lib/libchromatix_imx214_snapshot_hdr.so
+vendor/lib/libchromatix_imx214_video_binning.so
+vendor/lib/libchromatix_imx214_video_cmcc.so
+vendor/lib/libchromatix_imx214_video_hdr.so
+vendor/lib/libchromatix_ov5648_common.so
+vendor/lib/libchromatix_ov5648_default_video.so
+vendor/lib/libchromatix_ov5648_preview.so
+vendor/lib/libchromatix_ov5648_preview_fb.so
+vendor/lib/libchromatix_ov5648_video_cmcc.so
+vendor/lib/libchromatix_ov5648_zsl.so
+vendor/lib/libchromatix_ov5648_zsl_fb.so
+
+# Listen service
+vendor/lib/liblistenhardware.so
+vendor/lib/liblistenjni.so
+-vendor/lib/liblisten.so
+vendor/lib/liblistensoundmodel.so
+
+# Media
+vendor/lib/libDivxDrm.so
+vendor/lib/libI420colorconvert.so
+vendor/lib/libmm-color-convertor.so
+vendor/lib/libmmosal.so
+vendor/lib/libSHIMDivxDrm.so
+
+# NFC
+vendor/firmware/libpn547_fw.so
