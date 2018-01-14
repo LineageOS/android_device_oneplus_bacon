@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75db9ac4_5e4e6223",
+        "filename": "usb/android.hardware.usb@1.0-service.bacon.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 11336
+      },
+      "writtenOn": "2018-01-14T05:46:18Z",
+      "side": 1,
+      "message": "You might want to change this too.",
+      "range": {
+        "startLine": 1,
+        "startChar": 68,
+        "endLine": 1,
+        "endChar": 75
+      },
+      "revId": "18dae3363d9a70aa7d30e60a59da903887578f37",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
