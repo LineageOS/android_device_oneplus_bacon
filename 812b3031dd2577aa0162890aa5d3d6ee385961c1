@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efd2ca19_fbfdc455",
+        "filename": "lineage.dependencies",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6753
+      },
+      "writtenOn": "2018-01-14T00:46:18Z",
+      "side": 1,
+      "message": "kernel_oppo_msm8974",
+      "revId": "812b3031dd2577aa0162890aa5d3d6ee385961c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
