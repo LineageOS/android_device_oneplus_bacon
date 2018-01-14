@@ -1,7 +1,0 @@
-# device specific syscalls
-# extension of services/mediacodec/minijail/seccomp_policy/mediacodec-seccomp-arm.policy
-pselect6: 1
-eventfd2: 1
-sendto: 1
-recvfrom: 1
-_llseek: 1
