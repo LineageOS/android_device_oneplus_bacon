@@ -27,33 +27,9 @@
    IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdlib.h>
+#ifndef __INIT_MSM8974__H__
+#define __INIT_MSM8974__H__
 
-#include <android-base/logging.h>
+void init_target_properties();
 
-#include "vendor_init.h"
-#include "property_service.h"
-#include "util.h"
-
-#include "init_msm8974.h"
-
-using android::init::property_set;
-using android::init::import_kernel_cmdline;
-
-
-static void import_kernel_nv(const std::string& key,
-        const std::string& value, bool for_emulator __attribute__((unused)))
-{
-    if (key.empty()) return;
-
-    if (key == "oppo.rf_version") {
-        property_set("ro.oppo.rf_version", value.c_str());
-    } else if (key == "oppo.pcb_version") {
-        property_set("ro.oppo.pcb_version", value.c_str());
-    }
-}
-
-void init_target_properties()
-{
-    import_kernel_cmdline(0, import_kernel_nv);
-}
+#endif /* __INIT_MSM8974__H__ */
