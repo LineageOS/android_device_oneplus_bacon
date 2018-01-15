@@ -80,6 +80,9 @@ PRODUCT_PACKAGES += \
     libinit_bacon \
     ueventd.bacon.rc
 
+# System properties
+TARGET_SYSTEM_PROP := device/oppo/msm8974-common/system.prop device/oneplus/bacon/system.prop
+
 # Call the proprietary setup
 $(call inherit-product, vendor/oneplus/bacon/bacon-vendor.mk)
 
