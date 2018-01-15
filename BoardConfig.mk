@@ -66,6 +66,9 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_bacon
 # NFC
 BOARD_NFC_CHIPSET := pn547
 
+# Properties
+TARGET_SYSTEM_PROP += device/oneplus/bacon/system.prop
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.bacon
 
