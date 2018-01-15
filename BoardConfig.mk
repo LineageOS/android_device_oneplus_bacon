@@ -61,6 +61,9 @@ TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/oneplus/bacon/init/init_bacon.cpp
 # NFC
 BOARD_NFC_CHIPSET := pn547
 
+# Properties
+TARGET_SYSTEM_PROP += device/oneplus/bacon/system.prop
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.bacon
 
