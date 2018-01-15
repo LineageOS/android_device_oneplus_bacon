@@ -19,7 +19,6 @@ import /init.qcom.power.rc
 
 on early-init
     chown system system /sys/kernel/debug/kgsl/proc
-    write /sys/block/zram0/comp_algorithm lz4
 
 on init
     export LD_SHIM_LIBS "/system/vendor/lib/hw/camera.vendor.bacon.so|libshim_camera.so:/system/lib/libcamera_client.so|libshim_cameraclient.so"
@@ -29,8 +28,6 @@ on init
     mkdir /firmware 0771 system system
     symlink /sdcard /storage/sdcard0
 
-    write /proc/sys/vm/page-cluster 0
-
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -38,7 +35,6 @@ on early-boot
 
 on fs
     mount_all ./fstab.bacon
-    swapon_all ./fstab.bacon
 
     restorecon_recursive /persist
 
