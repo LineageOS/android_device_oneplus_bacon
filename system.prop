@@ -25,10 +25,6 @@ persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196608
 debug.hwui.use_buffer_age=false
 
-# GPS
-persist.gps.qc_nlp_in_use=0
-ro.gps.agps_provider=1
-
 # Media
 af.fast_track_multiplier=1
 audio_hal.period_size=192
