@@ -36,15 +36,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/oneplus/bacon/bluetooth
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-# Enable dexpreopt to speed boot time
-ifeq ($(HOST_OS),linux)
-  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
-    ifeq ($(WITH_DEXPREOPT_BOOT_IMG_ONLY),)
-      WITH_DEXPREOPT_BOOT_IMG_ONLY := true
-    endif
-  endif
-endif
-
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 16777216
 BOARD_CACHEIMAGE_PARTITION_SIZE    := 536870912
