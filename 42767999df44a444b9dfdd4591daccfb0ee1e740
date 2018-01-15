@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed5d9de8_389b446f",
+        "filename": "bacon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 6753
+      },
+      "writtenOn": "2018-01-15T10:53:11Z",
+      "side": 1,
+      "message": "TARGET_SYSTEM_PROP +\u003d device/oneplus/bacon/system.prop\n\nThis should be enough, common one is already set in common.",
+      "revId": "42767999df44a444b9dfdd4591daccfb0ee1e740",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
