@@ -26,11 +26,5 @@ vendor/lib/libchromatix_ov5648_video_cmcc.so
 vendor/lib/libchromatix_ov5648_zsl.so
 vendor/lib/libchromatix_ov5648_zsl_fb.so
 
-# Listen service
-vendor/lib/liblistenhardware.so
-vendor/lib/liblistenjni.so
--vendor/lib/liblisten.so
-vendor/lib/liblistensoundmodel.so
-
 # NFC
 vendor/firmware/libpn547_fw.so
