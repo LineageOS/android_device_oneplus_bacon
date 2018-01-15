@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09579bc6_f0b3514c",
+        "filename": ".Android.mk.swp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 11604
+      },
+      "writtenOn": "2018-01-15T11:40:05Z",
+      "side": 1,
+      "message": "don\u0027t add this!",
+      "revId": "5254dc4ff3940d0c273d4c83ed0aec4b72b8b468",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
