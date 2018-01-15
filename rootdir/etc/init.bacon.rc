@@ -13,29 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import /init.qcom-common.rc
+
+on fs
+    mount_all ./fstab.qcom
 
 on init
     export LD_SHIM_LIBS "/system/vendor/lib/hw/camera.vendor.bacon.so|libshim_camera.so:/system/lib/libcamera_client.so|libshim_camera_parameters.so"
 
+    # Support legacy paths
     symlink /sdcard /storage/sdcard0
-
-on fs
-    mount_all ./fstab.bacon
-
-    restorecon_recursive /persist
-
-    mkdir /dev/usb-ffs 0770 shell shell
-    mkdir /dev/usb-ffs/adb 0770 shell shell
-    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
-    write /sys/class/android_usb/android0/f_ffs/aliases adb
-    mkdir /dev/bus 0755 root root
-    mkdir /dev/bus/usb 0755 root root
-
-    restorecon_recursive   /persist
-    mkdir /persist/data 0700 system system
-    mkdir /persist/data/sfs 0700 system system
-    mkdir /persist/data/tz 0700 system system
 
 on post-fs-data
     # Torch
