@@ -2,6 +2,9 @@
 # system.prop for one+
 #
 
+# API (for CTS backward compatibility)
+ro.product.first_api_level=19
+
 # CABL
 ro.qualcomm.cabl=0
 

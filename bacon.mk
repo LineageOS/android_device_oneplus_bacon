@@ -16,12 +16,8 @@
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-	$(LOCAL_PATH)/overlay \
-	$(LOCAL_PATH)/overlay-lineage
-
-# API (for CTS backward compatibility)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.first_api_level=19
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
 
 # Audio
 PRODUCT_COPY_FILES += \
