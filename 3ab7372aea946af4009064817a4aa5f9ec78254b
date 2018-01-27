@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8552477_56805336",
+        "filename": "sepolicy/vold.te",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2018-01-27T03:13:59Z",
+      "side": 0,
+      "message": "Are these two just not needed anymore?",
+      "revId": "3ab7372aea946af4009064817a4aa5f9ec78254b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
