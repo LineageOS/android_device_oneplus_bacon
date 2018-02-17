@@ -1,7 +1,14 @@
 # Camera
+vendor/lib/libmmcamera2_is.so
+vendor/lib/libmmcamera2_q3a_special.so
 vendor/lib/libmmcamera_imx214.so
 vendor/lib/libmmcamera_ov5648.so
 vendor/lib/libmmcamera_sony_imx214_eeprom.so
+
+# Camera Actuator
+vendor/lib/libactuator_dw9714.so
+vendor/lib/libactuator_dw9714_camera.so
+vendor/lib/libactuator_dw9714_camcorder.so
 
 # Camera Chromatix
 vendor/lib/libchromatix_imx214_common.so
