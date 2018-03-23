@@ -14,10 +14,10 @@
 # limitations under the License.
 #
 
-import /init.qcom-common.rc
+import /vendor/etc/init/hw/init.qcom-common.rc
 
 on fs
-    mount_all ./fstab.bacon
+    mount_all /vendor/etc/fstab.bacon
 
 on init
     # Support legacy paths
