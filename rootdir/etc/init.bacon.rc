@@ -299,7 +299,6 @@ service netmgrd /system/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
-    group radio
 
 # QCOM sensor
 service sensors /system/bin/sensors.qcom
