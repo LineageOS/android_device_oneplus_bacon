@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1977a5d4_34e76762",
+        "filename": "rootdir/etc/init.bacon.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2018-03-25T17:06:49Z",
+      "side": 1,
+      "message": "forgot to remove?",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 15
+      },
+      "revId": "6dab3ed2bb3852e6b06adeb496bfdc5fe8840708",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
