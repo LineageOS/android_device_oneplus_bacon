@@ -73,4 +73,4 @@ RECOVERY_SDCARD_ON_DATA := true
 endif
 
 # Inherit from the proprietary version
-include vendor/oneplus/bacon/BoardConfigVendor.mk
+-include vendor/oneplus/bacon/BoardConfigVendor.mk
