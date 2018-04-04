@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63d99109_228b9d61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-04-04T09:06:37Z",
+      "side": 1,
+      "message": "You forgot to actually remove the ifdef.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 83
+      },
+      "revId": "b3d4023fd77c319449090b37ce9b03d4ae95dc3e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
