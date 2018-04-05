@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d61727d9_465c685c",
+        "filename": "sepolicy/vold.te",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2018-04-05T09:25:43Z",
+      "side": 1,
+      "message": "Totally unrelated.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 56
+      },
+      "revId": "7bf6f4ab42fd047aa2405c0e6d4df3c275987c70",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
