@@ -114,7 +114,6 @@ void loc_eng_ni_request_handler(loc_eng_data_s_type &loc_eng_data,
                             const void* passThrough)
 {
     ENTRY_LOG();
-    char lcs_addr[32]; // Decoded LCS address for UMTS CP NI
     loc_eng_ni_data_s_type* loc_eng_ni_data_p = &loc_eng_data.loc_eng_ni_data;
     loc_eng_ni_session_s_type* pSession = NULL;
 

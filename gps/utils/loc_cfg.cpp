@@ -381,9 +381,6 @@ void loc_read_conf(const char* conf_file_name, const loc_param_s_type* config_ta
                    uint32_t table_length)
 {
     FILE *conf_fp = NULL;
-    char *lasts;
-    loc_param_v_type config_value;
-    uint32_t i;
 
     if((conf_fp = fopen(conf_file_name, "r")) != NULL)
     {

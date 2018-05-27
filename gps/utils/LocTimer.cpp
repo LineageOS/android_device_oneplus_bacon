@@ -313,7 +313,7 @@ void LocTimerContainer::add(LocTimerDelegate& timer) {
         LocHeapNode* mTree;
         LocTimerDelegate* mTimer;
         inline MsgTimerPush(LocTimerContainer& container, LocTimerDelegate& timer) :
-            LocMsg(), mTimerContainer(&container), mTimer(&timer) {}
+            LocMsg(), mTimerContainer(&container), mTree(NULL), mTimer(&timer) {}
         inline virtual void proc() const {
             LocTimerDelegate* priorTop = mTimerContainer->getSoonestTimer();
             mTimerContainer->push((LocRankable&)(*mTimer));
@@ -686,7 +686,6 @@ int main(int argc, char** argv) {
     struct timespec timeOfStart=getNow();
     srand(time(NULL));
     int tries = atoi(argv[1]);
-    int checks = tries >> 3;
     LocTimerTest** timerArray = new LocTimerTest*[tries];
     memset(timerArray, NULL, tries);
 

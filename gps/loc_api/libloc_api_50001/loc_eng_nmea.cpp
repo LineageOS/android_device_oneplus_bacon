@@ -222,7 +222,7 @@ void loc_eng_nmea_generate_pos(loc_eng_data_s_type *loc_eng_data_p,
             float magTrack = location.gpsLocation.bearing;
             if (locationExtended.flags & GPS_LOCATION_EXTENDED_HAS_MAG_DEV)
             {
-                float magTrack = location.gpsLocation.bearing - locationExtended.magneticDeviation;
+                magTrack = location.gpsLocation.bearing - locationExtended.magneticDeviation;
                 if (magTrack < 0.0)
                     magTrack += 360.0;
                 else if (magTrack > 360.0)
@@ -504,17 +504,17 @@ void loc_eng_nmea_generate_pos(loc_eng_data_s_type *loc_eng_data_p,
 
         if (locationExtended.flags & GPS_LOCATION_EXTENDED_HAS_DOP)
         {   // dop is in locationExtended, (QMI)
-            length = snprintf(pMarker, lengthRemaining, "%c,%02d,%.1f,",
+            length = snprintf(pMarker, lengthRemaining, "%c,%02u,%.1f,",
                               gpsQuality, svUsedCount, locationExtended.hdop);
         }
         else if (loc_eng_data_p->pdop > 0 && loc_eng_data_p->hdop > 0 && loc_eng_data_p->vdop > 0)
         {   // dop was cached from sv report (RPC)
-            length = snprintf(pMarker, lengthRemaining, "%c,%02d,%.1f,",
+            length = snprintf(pMarker, lengthRemaining, "%c,%02u,%.1f,",
                               gpsQuality, svUsedCount, loc_eng_data_p->hdop);
         }
         else
         {   // no hdop
-            length = snprintf(pMarker, lengthRemaining, "%c,%02d,,",
+            length = snprintf(pMarker, lengthRemaining, "%c,%02u,,",
                               gpsQuality, svUsedCount);
         }
 
