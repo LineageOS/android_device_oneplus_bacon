@@ -67,6 +67,10 @@ PRODUCT_PACKAGES += \
     init.recovery.bacon.rc \
     ueventd.bacon.rc
 
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2016-09-01
+
 # Call the proprietary setup
 $(call inherit-product, vendor/oneplus/bacon/bacon-vendor.mk)
 
