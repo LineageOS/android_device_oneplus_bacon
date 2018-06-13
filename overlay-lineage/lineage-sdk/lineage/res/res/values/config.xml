@@ -31,4 +31,8 @@
          that support pulsating and RGB control would set this config
          to 75. -->
     <integer name="config_deviceLightCapabilities">107</integer>
+
+    <!-- Indicate whether encryption causes significant performances loss.
+         This MUST NOT be set to true on devices produced in 2016 or later -->
+    <bool name="config_trustLegacyEncryption">true</bool>
 </resources>
