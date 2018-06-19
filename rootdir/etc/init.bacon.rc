@@ -19,12 +19,21 @@ import /vendor/etc/init/hw/init.qcom-common.rc
 on fs
     mount_all /vendor/etc/fstab.bacon --early
 
+    # Start HW service manager early
+    start hwservicemanager
+
 on late-fs
     # Start services for Boot Animation
     start hwservicemanager
     start servicemanager
     start surfaceflinger
     start bootanim
+
+    # Make sure HW service manager started and start required HAL services
+    wait_for_prop hwservicemanager.ready true
+    start configstore-hal-1-0
+    start gralloc-2-0
+
     # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.bacon --late
 
