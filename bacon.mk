@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,9 +34,8 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_PACKAGES += \
     camera.msm8974
 
-# Dalvik/HWUI
+# Dalvik
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # Display
 PRODUCT_AAPT_CONFIG := normal
