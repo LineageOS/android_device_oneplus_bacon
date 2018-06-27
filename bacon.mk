@@ -35,7 +35,7 @@ PRODUCT_PACKAGES += \
     camera.msm8974
 
 # Dalvik
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 
 # Display
 PRODUCT_AAPT_CONFIG := normal
