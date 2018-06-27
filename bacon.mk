@@ -33,9 +33,8 @@ TARGET_SCREEN_WIDTH := 1080
 PRODUCT_PACKAGES += \
     camera.msm8974
 
-# Dalvik/HWUI
+# Dalvik
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # Display
 PRODUCT_AAPT_CONFIG := normal
