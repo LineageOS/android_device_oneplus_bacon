@@ -39,22 +39,22 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # NFC
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-impl \
-    com.android.nfc_extras \
-    NfcNci \
-    nfc_nci.bacon \
-    Tag
+#PRODUCT_PACKAGES += \
+#    android.hardware.nfc@1.0-impl \
+#    com.android.nfc_extras \
+#    NfcNci \
+#    nfc_nci.bacon \
+#    Tag
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/vendor/etc/libnfc-nxp.conf \
-    $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/vendor/etc/libnfc-brcm.conf
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/vendor/etc/libnfc-nxp.conf \
+#    $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/vendor/etc/libnfc-brcm.conf
 
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/vendor/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/vendor/etc/permissions/android.hardware.nfc.hce.xml \
-    frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/vendor/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/vendor/etc/permissions/android.hardware.nfc.hce.xml
+#    frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/vendor/etc/permissions/com.android.nfc_extras.xml \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
