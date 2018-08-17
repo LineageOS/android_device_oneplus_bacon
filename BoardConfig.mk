@@ -19,7 +19,7 @@
 -include device/oppo/msm8974-common/BoardConfigCommon.mk
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=bacon user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=bacon user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
 TARGET_KERNEL_CONFIG := lineageos_bacon_defconfig
 TARGET_KERNEL_SOURCE := kernel/oppo/msm8974
 
@@ -47,7 +47,7 @@ BOARD_USERDATAEXTRAIMAGE_PARTITION_SIZE := 59914792960
 BOARD_USERDATAEXTRAIMAGE_PARTITION_NAME := 64G
 
 # Init
-TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/oneplus/bacon/init/init_bacon.cpp
+#TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/oneplus/bacon/init/init_bacon.cpp
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
@@ -59,8 +59,8 @@ TARGET_SYSTEM_PROP += device/oneplus/bacon/system.prop
 TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.recovery
 
 # SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/oneplus/bacon/sepolicy
+#BOARD_SEPOLICY_DIRS += \
+#    device/oneplus/bacon/sepolicy
 
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 19
