@@ -40,10 +40,8 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-impl \
     com.android.nfc_extras \
     NfcNci \
-    nfc_nci.bacon \
     Tag
 
 PRODUCT_COPY_FILES += \
