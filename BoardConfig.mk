@@ -62,6 +62,9 @@ TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.recovery
 BOARD_SEPOLICY_DIRS += \
     device/oneplus/bacon/sepolicy
 
+# Shipping API
+PRODUCT_SHIPPING_API_LEVEL := 19
+
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
 
