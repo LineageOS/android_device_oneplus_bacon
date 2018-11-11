@@ -68,6 +68,8 @@ TARGET_USE_SDCLANG := true
 # TWRP
 ifeq ($(WITH_TWRP),true)
 TARGET_RECOVERY_DEVICE_DIRS += device/oneplus/bacon/twrp
+BOARD_HAS_NO_REAL_SDCARD := true
+RECOVERY_SDCARD_ON_DATA := true
 endif
 
 # Inherit from the proprietary version
