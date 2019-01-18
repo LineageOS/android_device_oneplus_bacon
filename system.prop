@@ -5,9 +5,6 @@
 # CABL
 ro.qualcomm.cabl=0
 
-# Display
-ro.sf.lcd_density=480
-
 # Radio
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
 persist.radio.add_power_save=1
