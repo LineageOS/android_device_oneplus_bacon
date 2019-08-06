@@ -67,6 +67,10 @@ PRODUCT_PACKAGES += \
     init.recovery.bacon.rc \
     ueventd.bacon.rc
 
+# Recorder
+PRODUCT_PACKAGES += \
+    Recorder
+
 # Shipping API
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
 
