@@ -67,6 +67,9 @@ PRODUCT_PACKAGES += \
     init.recovery.bacon.rc \
     ueventd.bacon.rc
 
+# Shipping API
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
+
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.lineage.build.vendor_security_patch=2016-09-01
