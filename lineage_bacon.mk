@@ -33,7 +33,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="bacon-user 5.0.2 LRX22G YNG1TAS0YL release-keys" \
-    PRODUCT_NAME=bacon \
-    TARGET_DEVICE=A0001
+    PRODUCT_NAME=bacon
 
 BUILD_FINGERPRINT := oneplus/bacon/A0001:5.0.2/LRX22G/YNG1TAS0YL:user/release-keys
