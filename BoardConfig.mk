@@ -34,9 +34,6 @@ USE_XML_AUDIO_POLICY_CONF := 1
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/oneplus/bacon/bluetooth
 
-# Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
-
 # Display
 TARGET_SCREEN_DENSITY := 480
 
