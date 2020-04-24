@@ -66,9 +66,6 @@ TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.recovery
 BOARD_SEPOLICY_DIRS += \
     device/oneplus/bacon/sepolicy
 
-# Snapdragon LLVM
-TARGET_USE_SDCLANG := true
-
 # TWRP
 ifeq ($(WITH_TWRP),true)
 TARGET_RECOVERY_DEVICE_DIRS += device/oneplus/bacon/twrp
