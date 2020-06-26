@@ -17,7 +17,15 @@
 import /vendor/etc/init/hw/init.qcom-common.rc
 
 on fs
-    mount_all /vendor/etc/fstab.bacon
+    mount_all /vendor/etc/fstab.bacon --early
+
+on late-fs
+    # Start services for Boot Animation
+    start servicemanager
+    start surfaceflinger
+    start bootanim
+    # Mount RW partitions which need run fsck
+    mount_all /vendor/etc/fstab.bacon --late
 
 on post-fs-data
     # Torch
