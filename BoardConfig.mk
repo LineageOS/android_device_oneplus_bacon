@@ -51,7 +51,7 @@ BOARD_USERDATAEXTRAIMAGE_PARTITION_NAME := 64G
 TARGET_FS_CONFIG_GEN := device/oneplus/bacon/config.fs
 
 # Init
-TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/oneplus/bacon/init/init_bacon.cpp
+SOONG_CONFIG_OPPO_MSM8974_INIT_DEVICE_LIB := //device/oneplus/bacon:libinit_bacon
 
 # Properties
 TARGET_SYSTEM_PROP += device/oneplus/bacon/system.prop

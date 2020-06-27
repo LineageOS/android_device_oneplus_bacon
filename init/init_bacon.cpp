@@ -31,11 +31,10 @@
 
 #include <android-base/file.h>
 #include <android-base/strings.h>
+#include <init/DeviceLibinit.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
-
-#include "init_msm8974.h"
 
 using android::base::ReadFileToString;
 using android::base::Split;
@@ -64,7 +63,7 @@ static void import_kernel_nv(const std::string& key, const std::string& value)
     }
 }
 
-void init_target_properties()
+void vendor_load_device_properties()
 {
     import_kernel_cmdline(import_kernel_nv);
 }
