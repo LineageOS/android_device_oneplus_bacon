@@ -18,6 +18,8 @@
 # inherit from Oppo msm8974-common
 -include device/oppo/msm8974-common/BoardConfigCommon.mk
 
+DEVICE_PATH := device/oneplus/bacon
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=bacon user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1
 TARGET_KERNEL_CONFIG := lineageos_bacon_defconfig
@@ -32,7 +34,7 @@ AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/oneplus/bacon/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # Display
 TARGET_SCREEN_DENSITY := 480
@@ -48,27 +50,27 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 13271448576
 BOARD_USERDATAEXTRAIMAGE_PARTITION_SIZE := 59914792960
 BOARD_USERDATAEXTRAIMAGE_PARTITION_NAME := 64G
 
-TARGET_FS_CONFIG_GEN := device/oneplus/bacon/config.fs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Init
-SOONG_CONFIG_OPPO_MSM8974_INIT_DEVICE_LIB := //device/oneplus/bacon:libinit_bacon
+SOONG_CONFIG_OPPO_MSM8974_INIT_DEVICE_LIB := //$(DEVICE_PATH):libinit_bacon
 
 # Properties
-TARGET_SYSTEM_PROP += device/oneplus/bacon/system.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Radio
 TARGET_USES_OLD_MNC_FORMAT := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/oneplus/bacon/rootdir/etc/fstab.recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.recovery
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/oneplus/bacon/sepolicy
+    $(DEVICE_PATH)/sepolicy
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-TARGET_RECOVERY_DEVICE_DIRS += device/oneplus/bacon/twrp
+TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)/twrp
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
 endif
