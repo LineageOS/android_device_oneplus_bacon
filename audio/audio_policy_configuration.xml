@@ -121,6 +121,10 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </devicePort>
+                <devicePort tagName="Line Out" type="AUDIO_DEVICE_OUT_LINE" role="sink">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </devicePort>
                 <devicePort tagName="BT SCO" type="AUDIO_DEVICE_OUT_BLUETOOTH_SCO" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000,16000" channelMasks="AUDIO_CHANNEL_OUT_MONO"/>
@@ -184,6 +188,8 @@
                 <route type="mix" sink="Wired Headset"
                        sources="primary output,deep_buffer,compressed_offload"/>
                 <route type="mix" sink="Wired Headphones"
+                       sources="primary output,deep_buffer,compressed_offload"/>
+                <route type="mix" sink="Line Out"
                        sources="primary output,deep_buffer,compressed_offload"/>
                 <route type="mix" sink="Proxy"
                        sources="primary output,deep_buffer,compressed_offload"/>
