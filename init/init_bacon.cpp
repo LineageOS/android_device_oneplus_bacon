@@ -30,15 +30,29 @@
 #include <stdlib.h>
 
 #include <android-base/file.h>
+#include <android-base/properties.h>
 #include <android-base/strings.h>
+
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
 #include <init/DeviceLibinit.h>
 
 #include "vendor_init.h"
-#include "property_service.h"
 
+using android::base::GetProperty;
 using android::base::ReadFileToString;
 using android::base::Split;
-using android::init::property_set;
+
+void property_override(char const prop[], char const value[], bool add = true)
+{
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else if (add)
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
 
 void import_kernel_cmdline(const std::function<void(const std::string&, const std::string&)>& fn) {
     std::string cmdline;
@@ -57,9 +71,9 @@ static void import_kernel_nv(const std::string& key, const std::string& value)
     if (key.empty()) return;
 
     if (key == "oppo.rf_version") {
-        property_set("ro.oppo.rf_version", value.c_str());
+        property_override("ro.oppo.rf_version", value.c_str());
     } else if (key == "oppo.pcb_version") {
-        property_set("ro.oppo.pcb_version", value.c_str());
+        property_override("ro.oppo.pcb_version", value.c_str());
     }
 }
 
