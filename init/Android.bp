@@ -19,8 +19,8 @@ cc_library_static {
     recovery_available: true,
     srcs: ["init_bacon.cpp"],
     include_dirs: [
+        "device/oppo/msm8974-common/init",
         "system/core/base/include",
         "system/core/init",
-        "device/oppo/msm8974-common"
     ]
 }
