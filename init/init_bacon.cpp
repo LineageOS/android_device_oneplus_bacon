@@ -34,11 +34,9 @@
 #include <init/DeviceLibinit.h>
 
 #include "vendor_init.h"
-#include "property_service.h"
 
 using android::base::ReadFileToString;
 using android::base::Split;
-using android::init::property_set;
 
 void import_kernel_cmdline(const std::function<void(const std::string&, const std::string&)>& fn) {
     std::string cmdline;
@@ -57,9 +55,9 @@ static void import_kernel_nv(const std::string& key, const std::string& value)
     if (key.empty()) return;
 
     if (key == "oppo.rf_version") {
-        property_set("ro.oppo.rf_version", value.c_str());
+        property_override("ro.oppo.rf_version", value.c_str());
     } else if (key == "oppo.pcb_version") {
-        property_set("ro.oppo.pcb_version", value.c_str());
+        property_override("ro.oppo.pcb_version", value.c_str());
     }
 }
 
