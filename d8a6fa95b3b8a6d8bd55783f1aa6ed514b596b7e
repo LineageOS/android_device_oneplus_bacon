@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47cd8b7f_6450e4d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2020-11-25T09:26:41Z",
+      "side": 1,
+      "message": "This is wrong. Just declare device_property_override in a common header and import it here.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "d8a6fa95b3b8a6d8bd55783f1aa6ed514b596b7e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
