@@ -34,4 +34,4 @@ vendor/lib/libchromatix_ov5648_zsl_fb.so
 # NFC
 vendor/firmware/libpn547_fw.so
 vendor/lib/hw/nfc_nci.bacon.so
-vendor/lib/hw/android.hardware.nfc@1.0-impl.so
+vendor/lib/hw/android.hardware.nfc@1.0-impl.so|8f69fedc7191d559793f47dc1915192c870fb797
