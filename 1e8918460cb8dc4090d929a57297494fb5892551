@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5eb190d5_79c59790",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-01-03T21:48:47Z",
+      "side": 1,
+      "message": "I guess you mean I5a9a3d648633dd71605cddb1ce11ce1393b19514",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "1e8918460cb8dc4090d929a57297494fb5892551",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
