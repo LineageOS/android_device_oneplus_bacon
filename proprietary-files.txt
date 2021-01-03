@@ -1,9 +1,37 @@
 # Camera
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
+vendor/lib/libjpegdhw.so
+vendor/lib/libjpegehw.so
+vendor/lib/libmmcamera2_c2d_module.so
+vendor/lib/libmmcamera2_cpp_module.so
+vendor/lib/libmmcamera2_frame_algorithm.so
+vendor/lib/libmmcamera2_iface_modules.so
+vendor/lib/libmmcamera2_imglib_modules.so
 vendor/lib/libmmcamera2_is.so
+vendor/lib/libmmcamera2_isp_modules.so
+vendor/lib/libmmcamera2_pproc_modules.so
 vendor/lib/libmmcamera2_q3a_special.so
+vendor/lib/libmmcamera2_sensor_modules.so
+vendor/lib/libmmcamera2_stats_algorithm.so
+vendor/lib/libmmcamera2_stats_modules.so
+vendor/lib/libmmcamera2_vpe_module.so
+vendor/lib/libmmcamera2_wnr_module.so
+vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_hdr_gb_lib.so
+vendor/lib/libmmcamera_hdr_lib.so
+vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_imx214.so
 vendor/lib/libmmcamera_ov5648.so
 vendor/lib/libmmcamera_sony_imx214_eeprom.so
+vendor/lib/libmmcamera_tintless_algo.so
+vendor/lib/libmmcamera_tintless_bg_pca_algo.so
+vendor/lib/libmmcamera_wavelet_lib.so
+vendor/lib/libmmipl.so
+vendor/lib/libmmjpeg.so
+vendor/lib/libmmqjpeg_codec.so
+vendor/lib/liboemcamera.so
+vendor/lib/libqomx_jpegdec.so
+vendor/lib/libqomx_jpegenc.so
 
 # Camera Actuator
 vendor/lib/libactuator_dw9714.so
@@ -31,7 +59,14 @@ vendor/lib/libchromatix_ov5648_video_cmcc.so
 vendor/lib/libchromatix_ov5648_zsl.so
 vendor/lib/libchromatix_ov5648_zsl_fb.so
 
+# Camera Firmware
+etc/firmware/cpp_firmware_v1_2_0.fw:vendor/firmware/cpp_firmware_v1_2_0.fw
+
 # NFC
 vendor/firmware/libpn547_fw.so
 vendor/lib/hw/nfc_nci.bacon.so
 vendor/lib/hw/android.hardware.nfc@1.0-impl.so|8f69fedc7191d559793f47dc1915192c870fb797
+
+# Sensors
+etc/sensor_def_qcomdev.conf
+vendor/lib/libAKM8963.so
