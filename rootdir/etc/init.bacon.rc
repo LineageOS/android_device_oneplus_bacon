@@ -16,6 +16,10 @@
 
 import /vendor/etc/init/hw/init.qcom-common.rc
 
+on init
+    # Property used by vintf for sku specific manifests
+    setprop ro.boot.product.hardware.sku ${ro.boot.hardware.sku}
+
 on fs
     mount_all /vendor/etc/fstab.bacon --early
 
