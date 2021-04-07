@@ -61,7 +61,21 @@ static void import_kernel_nv(const std::string& key, const std::string& value)
     }
 }
 
+static void vendor_set_sku(const std::string& key, const std::string& value)
+{
+    if (key.empty()) return;
+
+    if (key == "mdss_mdp.panel" && value == "1:dsi:0:qcom,mdss_dsi_jdi_1080p_cmd") {
+        property_override("ro.boot.hardware.sku", "jdi");
+    } else if (key == "mdss_mdp.panel" && value == "1:dsi:0:qcom,mdss_dsi_sharp_1080p_cmd") {
+        property_override("ro.boot.hardware.sku", "sharp");
+    } else if (key == "mdss_mdp.panel" && value == "1:dsi:0:qcom,mdss_dsi_truly_1080p_cmd") {
+        property_override("ro.boot.hardware.sku", "truly");
+    }
+}
+
 void vendor_load_device_properties()
 {
     import_kernel_cmdline(import_kernel_nv);
+    import_kernel_cmdline(vendor_set_sku);
 }
