@@ -55,6 +55,12 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 # Init
 SOONG_CONFIG_OPPO_MSM8974_INIT_DEVICE_LIB := //$(DEVICE_PATH):libinit_bacon
 
+# ODM Manifests
+ODM_MANIFEST_SKUS := jdi sharp truly
+ODM_MANIFEST_JDI_FILES := $(DEVICE_PATH)/odm_manifest_jdi.xml
+ODM_MANIFEST_SHARP_FILES := $(DEVICE_PATH)/odm_manifest_sharp.xml
+ODM_MANIFEST_TRULY_FILES := $(DEVICE_PATH)/odm_manifest_truly.xml
+
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
