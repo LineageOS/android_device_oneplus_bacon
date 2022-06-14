@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fd3412a_3b0c9fa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-06-14T13:37:52Z",
+      "side": 1,
+      "message": "We intentionally copy power init script - has all the stuff needed/wanted for recovery initialization.",
+      "revId": "a0fadf252296ec79fdf5941ed1639893b6b8f87f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
