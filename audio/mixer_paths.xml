@@ -915,6 +915,16 @@
         <path name="dmic-endfire" />
     </path>
 
+    <!--xiaojun.lv@phoneSW.AudioDrv,14001 handsfree call use ANC mic-->
+    <path name="voice-speaker-dmic-ef">
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
+        <ctl name="SLIM_0_TX Channels" value="One" />
+        <ctl name="SLIM TX7 MUX" value="DEC3" />
+        <ctl name="DEC3 MUX" value="ADC4" />
+        <ctl name="ADC4 Volume" value="19" />
+        <ctl name="DEC3 Volume" value="84" />
+    </path>
+
     <!-- Stereo recording -->
     <path name="speaker-stereo-dmic-ef">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
