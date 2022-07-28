@@ -937,6 +937,10 @@
         <ctl name="ADC5 Volume" value="19" />
     </path>
 
+    <path name="speaker-dmic-endfire">
+        <path name="speaker-stereo-dmic-ef" />
+    </path>
+
     <path name="handset-stereo-dmic-ef">
         <path name="handset-dmic" />
         <ctl name="ADC3 Volume" value="19" />
