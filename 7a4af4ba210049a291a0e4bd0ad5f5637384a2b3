@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ea9060a_6ed43f70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14010
+      },
+      "writtenOn": "2023-04-06T14:21:56Z",
+      "side": 1,
+      "message": "This is needed on 18.1 because the default value has been inverted by https://github.com/LineageOS/android_packages_apps_Nfc/commit/b818e527499528d9618aeff2610365fc1d311651",
+      "revId": "7a4af4ba210049a291a0e4bd0ad5f5637384a2b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
